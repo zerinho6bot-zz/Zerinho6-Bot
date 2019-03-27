@@ -45,4 +45,4 @@ exports.run = (bot, message, args, timer, t) => {
 		message.channel.send(t("set-language.languageError"));
 		return;
 	}
-}
+};

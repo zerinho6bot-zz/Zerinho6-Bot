@@ -13,7 +13,6 @@ module.exports = {
 			if (this.languages[language]) {
 				this.language = this.languages[language];
 			} else {
-				console.log(`Warning, language: ${language} does not exist, using default..`);
 				this.language = this.defaultLanguage;
 			}
 		}
@@ -41,4 +40,4 @@ module.exports = {
 
 		return zeroEmbed;
 	}
-}
+};

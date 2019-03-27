@@ -10,9 +10,8 @@ module.exports.run = function (message) {
 
 	let { guildLanguage } = require("./local_storage"),
 	setUpT = new LANGUAGE_UTILS.setUpT();
-	setT = setUpT.setT(guildLanguage[message.guild.id] ? guildLanguage[message.guild.id].language : process.env.LANGUAGE);
-	
-	let args = message.content.split(" "),
+	setT = setUpT.setT(guildLanguage[message.guild.id] ? guildLanguage[message.guild.id].language : process.env.LANGUAGE),
+	args = message.content.split(" "),
 	commandName = args[0].slice(process.env.PREFIX.length).toLowerCase();
 	
 	if ( !commandName ) {
@@ -40,4 +39,4 @@ module.exports.run = function (message) {
 	} else {
 		message.reply(permissionStr);
 	}
-}
+};
