@@ -1,0 +1,12 @@
+{
+	"say": {
+		"userSaid": "disse"
+	},
+	"set-language": {
+		"languageList": "Lista de linguagens",
+		"languageNotExist": "Essa linguagem não parece bater com nenhuma nos meus arquivos, aqui está a lista de linguagens aceitas:",
+		"languageIsDefault": "Essa linguagem já é a linguagem já é a que está sendo utilizada.",
+		"languageDone": "A linguagem foi definida com sucesso. :thumbsup:",
+		"languageError": "Ocorreu um erro inesperado! Tente executar o comando novamente"
+	}
+}

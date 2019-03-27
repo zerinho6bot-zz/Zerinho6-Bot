@@ -1,0 +1,12 @@
+{
+	"say": {
+		"userSaid": "said"
+	},
+	"set-language": {
+		"languageList": "Language List",
+		"languageNotExist": "That language doesn't seems to match any of mine, here's a list of languages that i accept:",
+		"languageIsDefault": "That language is the guild defined language already.",
+		"languageDone": "Done, the language is set. :thumbsup:",
+		"languageError": "Something happened! Please, try again!"
+	}
+}
