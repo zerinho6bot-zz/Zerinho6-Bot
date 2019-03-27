@@ -1,6 +1,6 @@
 /* global Set */
 const cooldown = new Set(),
-cooldown_warning = new Set();
+cooldownWarning = new Set();
 
 module.exports = {
 	/*
@@ -12,10 +12,10 @@ module.exports = {
 	applyCooldown: function(id) {
 
 		let applyCDWarning = () => {
-			cooldown_warning.add(id);
+			cooldownWarning.add(id);
 
 			setTimeout(() => {
-				cooldown_warning.delete(id);
+				cooldownWarning.delete(id);
 			}, process.env.COOLDOWN);
 		}
 
@@ -23,7 +23,7 @@ module.exports = {
 			return "";
 		}
 
-		if (cooldown_warning.has(id)) {
+		if (cooldownWarning.has(id)) {
 			return "dnd";
 		}
 
