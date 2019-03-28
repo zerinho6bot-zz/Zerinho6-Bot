@@ -1,6 +1,7 @@
 /* global Set */
 const cooldown = new Set(),
-cooldownWarning = new Set();
+cooldownWarning = new Set(),
+Discord = require("discord.js");
 
 module.exports = {
 	/*
