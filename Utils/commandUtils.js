@@ -1,6 +1,6 @@
 const fs = require("fs"),
 { commandNeeds } = require("../local_storage"),
-Commands = fs.readdirSync( "./commands" ).map( v => v.replace( /.js/gi , "").toLowerCase() );
+Commands = fs.readdirSync("./commands").map( (v) => v.replace( /.js/gi , "").toLowerCase() );
 
 module.exports = {
 	/*
@@ -16,7 +16,7 @@ module.exports = {
 			return "";
 		}
 
-		let commandPerms = commandNeeds[ command ].options;
+		let commandPerms = commandNeeds[command].options;
 
 		if (commandPerms.onlyowner && message.author.id !== process.env.OWNER) {
 			return "Only Owner!";

@@ -1,6 +1,7 @@
 /* global Set */
 const cooldown = new Set(),
-cooldownWarning = new Set();
+cooldownWarning = new Set(),
+Discord = require("discord.js");
 
 module.exports = {
 	/*
@@ -39,5 +40,14 @@ module.exports = {
 		}, process.env.COOLDOWN);
 
 		return "";
+	},
+	zerinhoEmbed: function(member){
+		const zeroEmbed = new Discord.MessageEmbed();
+
+		zeroEmbed.setAuthor(member.user.tag, member.user.displayAvatarURL({size:2048}));
+		zeroEmbed.setColor(member.displayHexColor);
+		zeroEmbed.setTimestamp();
+
+		return zeroEmbed;
 	}
 }

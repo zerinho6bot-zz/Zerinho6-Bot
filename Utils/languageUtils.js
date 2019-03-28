@@ -2,7 +2,7 @@ const Locales = require("../locales"),
 Discord = require("discord.js");
 
 module.exports = {
-	setUpT: class {
+	SetUpT: class {
 		constructor(){
 			this.languages = Locales;
 			this.defaultLanguage = this.languages[process.env.LANGUAGE];
@@ -30,14 +30,5 @@ module.exports = {
 	},
 	getLanguages: function(){
 		return Locales;
-	},
-	zerinhoEmbed: function(member){
-		const zeroEmbed = new Discord.MessageEmbed();
-
-		zeroEmbed.setAuthor(member.user.tag, member.user.displayAvatarURL({size:2048}));
-		zeroEmbed.setColor(member.displayHexColor);
-		zeroEmbed.setTimestamp();
-
-		return zeroEmbed;
 	}
 };

@@ -1,9 +1,9 @@
 exports.run = (bot, message, args, timer, t) => {
 	const { guildLanguage } = require("../local_storage"),
-	{ LANGUAGE_UTILS, STORAGE_UTILS } = require("../Utils"),
+	{ LANGUAGE_UTILS, STORAGE_UTILS, MESSAGE_UTILS } = require("../Utils"),
 	LANGUAGE_LIST = LANGUAGE_UTILS.getLanguages(),
 	LANGUAGE_LIST_LITERAL = Object.keys(LANGUAGE_LIST).join(", "),
-	ZeroEmbed = LANGUAGE_UTILS.zerinhoEmbed(message.member);
+	ZeroEmbed = MESSAGE_UTILS.zerinhoEmbed(message.member);
 
 	let ACTUAL_GUILD = guildLanguage[message.guild.id];
 
@@ -32,7 +32,7 @@ exports.run = (bot, message, args, timer, t) => {
 	} else {
 		guildLanguage[message.guild.id] = {
 			language: ""
-		}
+		};
 		guildLanguage[message.guild.id].language = args[0];
 	}
 
