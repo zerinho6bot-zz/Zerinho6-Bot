@@ -18,7 +18,7 @@ module.exports = {
 			setTimeout(() => {
 				cooldownWarning.delete(id);
 			}, process.env.COOLDOWN);
-		}
+		};
 
 		if (id === process.env.OWNER) {
 			return "";
