@@ -1,4 +1,18 @@
 {
+	"utils": {
+		"cooldownWarning": "Hey, wait just a little, after using a command you need to wait",
+		"seconds": "seconds.",
+		"commandUtils": {
+			"onlyOwner": "This command is only for the bot owner.",
+			"needArg": "This command need argument.",
+			"needAttch": "You need to use the command with a attachment.",
+			"needMention": "You also need to mention someone.",
+			"userNeed": {
+				"part1": "You need",
+				"part2": "permission to use that command."
+			}
+		}
+	},
 	"say": {
 		"userSaid": "said"
 	},
@@ -8,5 +22,8 @@
 		"languageIsDefault": "That language is the guild defined language already.",
 		"languageDone": "Done, the language is set. :thumbsup:",
 		"languageError": "Something happened! Please, try again!"
+	},
+	"avatar": {
+		"server": "server"
 	}
 }

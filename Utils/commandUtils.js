@@ -10,7 +10,7 @@ module.exports = {
 	* @param {string} command - The command name
 	* @returns {string}
 	*/
-	checkCommandPermissions: function (message, command) {
+	checkCommandPermissions: function (message, command, t) {
 
 		if (!commandNeeds[command]) {
 			return "";
@@ -19,20 +19,23 @@ module.exports = {
 		let commandPerms = commandNeeds[command].options;
 
 		if (commandPerms.onlyowner && message.author.id !== process.env.OWNER) {
-			return "Only Owner!";
+			return t("utils:commandUtils.onlyowner");
 		}
 
 		if (commandPerms.needArg && message.content.split(" ").length === 1) {
-			return "That command need argument.";
+			return t("utils:commandUtils.needArg");
 		}
 
+		if (commandPerms.needAttch && !message.attachments.size >= 1) {
+			return t("utils:commandUtils.needAttch");
+		}
 		if (commandPerms.needMention && !message.mentions.users.first()) {
-			return "You also need to mention someone.";
+			return t("utils:commandUtils.needMention");
 		}
 
 		if (commandPerms.userNeed) {
 			if (!message.channel.permissionsFor(message.author.id).has(commandPerms.userNeed)) {
-				return `You need ${commandPerms.userNeed} permission to use that command.`;
+				return `${t("utils:commandUtils.userNeed.part1")} ${commandPerms.userNeed} ${t("utils:commandUtils.userNeed.part2")}`;
 			}
 		}
 

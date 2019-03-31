@@ -4,7 +4,7 @@ cooldownWarning = new Set(),
 Discord = require("discord.js");
 
 module.exports = {
-	/*
+	/**
 	* This function will apply a cooldown to the given user id, it'll return true if it hasn't a cooldown already, and false if it has.
 	* @function
 	* @param {string} id - The message author ID
@@ -12,7 +12,7 @@ module.exports = {
 	*/
 	applyCooldown: function(id) {
 
-		let applyCDWarning = () => {
+		const applyCDWarning = () => {
 			cooldownWarning.add(id);
 
 			setTimeout(() => {
@@ -31,7 +31,7 @@ module.exports = {
 		if (cooldown.has(id)) {
 			applyCDWarning();
 
-			return "wait you need to blablalba, fuck that shit.";
+			return "wait";
 		}
 
 		cooldown.add(id);
@@ -41,6 +41,12 @@ module.exports = {
 
 		return "";
 	},
+	/**
+	* Returns a embed with default options
+	* @function
+	* @param {object} member - The message member
+	* @returns {object}
+	*/
 	zerinhoEmbed: function(member){
 		const zeroEmbed = new Discord.MessageEmbed();
 

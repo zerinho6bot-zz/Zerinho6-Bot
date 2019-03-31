@@ -4,7 +4,7 @@ module.exports = {
 	write: function(path, content) {
 		Fs.writeFile(path, JSON.stringify(content, null, 4), (error) => {
 			if (error) {
-				return false;
+				console.log(error);
 			}
 
 			delete require.cache[require.resolve(`.${path}`)];
