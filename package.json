@@ -1,0 +1,30 @@
+{
+  "name": "zerinho6_bot",
+  "version": "4.0.0",
+  "description": "Zerinho6 Bot master version.",
+  "main": "bot.js",
+  "private": true,
+  "bugs": "https://github.com/zerinho6/Zerinho6-Bot/issues",
+  "repository": "https://github.com/zerinho6/Zerinho6-Bot",
+  "scripts": {
+    "test": "node bot.js"
+  },
+  "author": {
+    "name": "Jorge Luiz",
+    "email": "zerinho6@gmail.com"
+  },
+  "keywords": [
+    "discord.js",
+    "bot"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "git+https://github.com/discordjs/discord.js.git#master",
+    "dotenv": "^7.0.0",
+    "fs": "0.0.1-security",
+    "google": "^2.1.0",
+    "moment": "^2.23.0",
+    "npm": "^6.6.0",
+    "uniqid": "^5.0.3"
+  }
+}

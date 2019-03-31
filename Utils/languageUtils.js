@@ -1,5 +1,4 @@
-const Locales = require("../locales"),
-Discord = require("discord.js");
+const Locales = require("../locales");
 
 module.exports = {
 	SetUpT: class {
@@ -18,8 +17,7 @@ module.exports = {
 		}
 
 		t(path) {
-			let str = path.split("."),
-			foundStr = this.language[str[0]][str[1]];
+			const foundStr = path.split(/\.|\:/g).reduce((a, b) => a[b], this.language);
 
 			if (foundStr) {
 				return foundStr;

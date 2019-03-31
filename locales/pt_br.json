@@ -1,4 +1,24 @@
 {
+	"utils": {
+		"cooldownWarning": "Você está usando comandos muito rapidamente, tempo a se esperar depois de utilizar um comando:",
+		"seconds": "segundos",
+		"commandUtils": {
+			"onlyOwner": "Esse comando só é disponivel para o dono do bot.",
+			"needArg": "Esse comando requer argumento.",
+			"needAttch": "Você precisa usar o comando com algum arquivo junto como imagem.",
+			"needMention": "Você precisa mencionar alguém como argumento no comando.",
+			"userNeed": {
+				"part1": "Você precisa da permissão de",
+				"part2": "para usar esse comando."
+			}
+		}
+	},
+	"help": {
+		"commandList": "Lista de comandos",
+		"avatar": {
+			
+		}
+	},
 	"say": {
 		"userSaid": "disse"
 	},
@@ -8,5 +28,8 @@
 		"languageIsDefault": "Essa linguagem já é a linguagem já é a que está sendo utilizada.",
 		"languageDone": "A linguagem foi definida com sucesso. :thumbsup:",
 		"languageError": "Ocorreu um erro inesperado! Tente executar o comando novamente"
+	},
+	"avatar": {
+		"server": "servidor"
 	}
 }

@@ -8,13 +8,14 @@ module.exports.run = function (message) {
 		return;
 	}
 
-	let { guildLanguage } = require("./local_storage"),
+	const { guildLanguage } = require("./local_storage"),
 	setUpT = new LANGUAGE_UTILS.SetUpT(),
 	setT = setUpT.setT(guildLanguage[message.guild.id] ? guildLanguage[message.guild.id].language : process.env.LANGUAGE),
 	args = message.content.split(" "),
+	t = setUpT.t,
 	commandName = args[0].slice(process.env.PREFIX.length).toLowerCase();
 	
-	if ( !commandName ) {
+	if (!commandName) {
 		return;
 	}
 
@@ -22,20 +23,20 @@ module.exports.run = function (message) {
 		return;
 	}
 
-	let permissionStr = COMMAND_UTILS.checkCommandPermissions(message, commandName),
+	const permissionStr = COMMAND_UTILS.checkCommandPermissions(message, commandName, t),
 	userCD = MESSAGE_UTILS.applyCooldown(message.author.id);
 
 	if (userCD.length > 0) {
 		if (userCD.length > 3) {
-			message.reply(userCD);
+			message.reply(`${t("utils:cooldownWarning")} ${process.env.COOLDOWN/1000} ${t("utils:seconds")}`);
 		}
 		return;
 	}
 
 	if (!permissionStr.length > 0) {
-		let start = new Date();
+		const start = new Date();
 
-		COMMAND_UTILS.getCommandRequirer(commandName).run(this, message, args.slice(1),start,setUpT.t.bind(setUpT));
+		COMMAND_UTILS.getCommandRequirer(commandName).run(this, message, args.slice(1), start, t.bind(setUpT));
 	} else {
 		message.reply(permissionStr);
 	}
