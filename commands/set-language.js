@@ -3,7 +3,7 @@ const { guildLanguage } = require("../local_storage"),
 LANGUAGE_LIST = LANGUAGE_UTILS.getLanguages(),
 LANGUAGE_LIST_LITERAL = Object.keys(LANGUAGE_LIST).join(", ");
 
-exports.run = (bot, message, args, timer, t) => {
+exports.run = (bot, message, args, t) => {
 	const ZeroEmbed = MESSAGE_UTILS.zerinhoEmbed(message.member);
 
 	if (!args[0]) {

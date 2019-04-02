@@ -1,5 +1,4 @@
 /* global Set */
-
 const { COMMAND_UTILS, LANGUAGE_UTILS, MESSAGE_UTILS } = require("./Utils"),
 COMMANDS = COMMAND_UTILS.getCommandList();
 
@@ -8,22 +7,22 @@ module.exports.run = function (message) {
 		return;
 	}
 
-	const { guildLanguage } = require("./local_storage"),
-	setUpT = new LANGUAGE_UTILS.SetUpT(),
-	setT = setUpT.setT(guildLanguage[message.guild.id] ? guildLanguage[message.guild.id].language : process.env.LANGUAGE),
-	args = message.content.split(" "),
-	t = setUpT.t,
+	const args = message.content.split(" "),
 	commandName = args[0].slice(process.env.PREFIX.length).toLowerCase();
 	
 	if (!commandName) {
 		return;
 	}
 
-	if ( !COMMANDS.includes(commandName) ) {
+	if (!COMMANDS.includes(commandName)) {
 		return;
 	}
 
-	const permissionStr = COMMAND_UTILS.checkCommandPermissions(message, commandName, t),
+	const { guildLanguage } = require("./local_storage"),
+	setUpT = new LANGUAGE_UTILS.SetUpT(),
+	setT = setUpT.setT(guildLanguage[message.guild.id] ? guildLanguage[message.guild.id].language : process.env.LANGUAGE),
+	t = setUpT.t
+	permissionStr = COMMAND_UTILS.checkCommandPermissions(message, commandName, t),
 	userCD = MESSAGE_UTILS.applyCooldown(message.author.id);
 
 	if (userCD.length > 0) {
@@ -34,9 +33,7 @@ module.exports.run = function (message) {
 	}
 
 	if (!permissionStr.length > 0) {
-		const start = new Date();
-
-		COMMAND_UTILS.getCommandRequirer(commandName).run(this, message, args.slice(1), start, t.bind(setUpT));
+		COMMAND_UTILS.getCommandRequirer(commandName).run(this, message, args.slice(1), t.bind(setUpT));
 	} else {
 		message.reply(permissionStr);
 	}

@@ -1,4 +1,9 @@
 {
+	"please": {
+		"prefixLiteral": "Prefix",
+		"CPW": "Command usage example::",
+		"source": "Description"
+	},
 	"utils": {
 		"cooldownWarning": "Hey, wait just a little, after using a command you need to wait",
 		"seconds": "seconds.",
@@ -13,6 +18,27 @@
 			}
 		}
 	},
+	"help": {
+		"commands": "Commands",
+		"commandList": "Command List",
+		"argumentOptions": "Argument Options:",
+		"server": "server",
+		"mention": "@mention",
+		"nothing": "nothing",
+		"command": "command",
+		"wantToKnowMore": "If you want to know more about some command, use:",
+		"avatar": {
+			"description": {
+				"argumentOptions": {
+					"server": "Shows the guild icon.",
+					"mention": "Shows the mentioned user avatar.",
+					"nothing": "Shows your avatar."
+				},
+				"actualDescription": "Shows a avatar."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/562064359719698462/unknown.png"
+		}
+	},
 	"say": {
 		"userSaid": "said"
 	},
@@ -25,5 +51,8 @@
 	},
 	"avatar": {
 		"server": "server"
+	},
+	"embed": {
+		"noArgumentOrImage": "You din't sent any argument or image."
 	}
 }

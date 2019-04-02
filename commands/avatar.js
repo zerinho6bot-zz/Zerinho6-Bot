@@ -1,5 +1,5 @@
 const { MESSAGE_UTILS } = require("../Utils");
-exports.run = (bot, message, args, timer, t) => {
+exports.run = (bot, message, args, t) => {
 	const ZeroEmbed = MESSAGE_UTILS.zerinhoEmbed(message.mentions.members.first() || message.member);
 
 	if (args[0] === t("avatar:server")) {

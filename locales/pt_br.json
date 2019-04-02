@@ -1,4 +1,9 @@
 {
+	"please": {
+		"prefixLiteral": "Prefix",
+		"CPW": "Examplo de uso de comando:",
+		"source": "Descrição"
+	},
 	"utils": {
 		"cooldownWarning": "Você está usando comandos muito rapidamente, tempo a se esperar depois de utilizar um comando:",
 		"seconds": "segundos",
@@ -14,9 +19,24 @@
 		}
 	},
 	"help": {
+		"commands": "Comandos",
 		"commandList": "Lista de comandos",
+		"argumentOptions": "Opções de Argumento:",
+		"server": "servidor",
+		"mention": "menção",
+		"nothing": "nada",
+		"command": "comando",
+		"wantToKnowMore": "Se você quer saber mais sobre um comando, use:",
 		"avatar": {
-			
+			"description": {
+				"argumentOptions": {
+					"server": "Mostra o icone do servidor.",
+					"mention": "Mostra o avatar da pessoa mencionada.",
+					"nothing": "Mostra o seu avatar."
+				},
+				"actualDescription": "Exibe um avatar"
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/562064359719698462/unknown.png"
 		}
 	},
 	"say": {
@@ -31,5 +51,8 @@
 	},
 	"avatar": {
 		"server": "servidor"
+	},
+	"embed": {
+		"noArgumentOrImage": "Você não mandou nenhum argumento nem mesmo uma imagem."
 	}
 }

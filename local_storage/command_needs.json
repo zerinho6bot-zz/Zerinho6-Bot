@@ -1,22 +1,4 @@
 {
-	"reload": {
-		"onlyOwner": true,
-		"needArg": true
-	},
-	"eval": {
-		"onlyOwner": true,
-		"needArg": true
-	},
-	"tictactoe": {
-		"needArg": true,
-		"needMention": true,
-		"savesInformation": ["T","ID", "U"]
-	},
-	"dcmd": {
-		"options": {
-			"userNeed": "MANAGE_MESSAGES"
-		}
-	},
 	"say": {
 		"options": {
 			"needArg": true
@@ -24,7 +6,6 @@
 	},
 	"set-language": {
 		"options": {
-			"savesInformation": "GID",
 			"userNeed": "MANAGE_GUILD"
 		}
 	}
