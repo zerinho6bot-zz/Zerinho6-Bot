@@ -1,4 +1,3 @@
-/* global Set */
 const { COMMAND_UTILS, LANGUAGE_UTILS, MESSAGE_UTILS } = require("./Utils"),
 COMMANDS = COMMAND_UTILS.getCommandList();
 
@@ -21,7 +20,7 @@ module.exports.run = function (message) {
 	const { guildLanguage } = require("./local_storage"),
 	setUpT = new LANGUAGE_UTILS.SetUpT(),
 	setT = setUpT.setT(guildLanguage[message.guild.id] ? guildLanguage[message.guild.id].language : process.env.LANGUAGE),
-	t = setUpT.t
+	t = setUpT.t,
 	permissionStr = COMMAND_UTILS.checkCommandPermissions(message, commandName, t),
 	userCD = MESSAGE_UTILS.applyCooldown(message.author.id);
 
