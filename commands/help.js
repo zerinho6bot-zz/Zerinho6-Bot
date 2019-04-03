@@ -5,9 +5,7 @@ COMMAND_LIST = COMMAND_UTILS.getCommandList(),
 function renderCommands() {
 	return `\`${COMMAND_LIST.join("`, `")}\``;
 }
-String.prototype.capitalize = function() {
-	return this.charAt(0).toUpperCase() + this.slice(1);
-}
+
 exports.run = (bot, message, args, t) => {
 	const ZeroEmbed = MESSAGE_UTILS.zerinhoEmbed(message.member),
 	ArgsLower = args[0] ? args[0].toLowerCase() : "";
@@ -30,7 +28,7 @@ exports.run = (bot, message, args, t) => {
 		ZeroEmbed.addField(t("help:commands"), renderCommands());
 		ZeroEmbed.setDescription(`**${t("please:prefixLiteral")}**: \`${process.env.PREFIX}\`\n\n${t("please:CPW")} ${process.env.PREFIX}avatar\n\n${t("help.wantToKnowMore")} ${process.env.PREFIX}help ${t("help.command")}`);
 	} else {
-		ZeroEmbed.setTitle(ArgsLower.capitalize());
+		ZeroEmbed.setTitle(ArgsLower.charAt(0).toUpperCase() + ArgsLower.slice(1));
 		ZeroEmbed.setImage(t(`help:${ArgsLower}.image`));
 		ZeroEmbed.setDescription(`${t(`please:source`)}: ${t(`help:${ArgsLower}.description.actualDescription`)}\n${renderArguments(ArgsLower)}`);
 	}
