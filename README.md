@@ -7,20 +7,19 @@
   <img src="https://api.codacy.com/project/badge/Grade/6b171d4f87074da686cb6b96639b139b">
 </p>
 
-# Introduction 
+## Introduction 
 
 Zerinho6 Bot is a Lite and fast bot that' focused on personal use but available for a public build, i've been working on it for almost 3 years and because of nice people i'm learning how to make a better code and that's also a reason(not the only or main) for Zerinho6 Bot to be open-source.
 
-# Requirements
+## Requirements
 
-- I recomment **atleast node 10.x.x**
-  - Why: https://github.com/discordjs/discord.js/issues/1386
+-  I recomment **atleast node 10.x.x, [and here's why](https://github.com/discordjs/discord.js/issues/1386)**
 
-- A Discord bot account and the bot Token.
+-  A Discord bot account and the bot Token.
 
-- Git
+-  Git
 
-# Setup
+## Setup
 
 Create a ``.env`` file **via a IDE because you need it to be without name and windows won't let you do that**.
 
@@ -37,7 +36,7 @@ Remember, ``.env`` should not have spaces.
 
 Open the console window on the bot folder and type ``npm i``, after that you can do ``node bot.js`` or ``npm test``. There'll be a message on console saying how much time it took to the bot to load and that he's ready.
 
-# Helping
+## Helping
 
 I'll be very happy with any possible help that you want to give to Zerinho6 Bot, but please, make sure you read the Wiki and know how the system works, thank you!!!!
 
@@ -45,7 +44,7 @@ I'll be very happy with any possible help that you want to give to Zerinho6 Bot,
 
 You wanna translate you bot to you not-yet-translated language? There's a topic on Wiki saying how you can do that!
 
-## Here's a list of really nice people that made this project possible:
+## Here's a list of really nice people that made this project possible
 
 **Honux(Backend developer of [Teemo.gg](https://teemo.gg/))**: Helped me a lot by giving me instructions for literally 2 years about how to make a good code, what I was doing wrong, what I could do and how I can do.
 
@@ -65,7 +64,7 @@ You wanna translate you bot to you not-yet-translated language? There's a topic 
 
 **[Hellow](https://github.com/HellowDSN)**: Feedback, A LOT of feedback.
 
-## Hey, I want to contact you!
+## Hey, I want to contact you
 
 M-me? Seriusly? You can find my e-mail on my github profile and if you want to talk on Discord, here's my Discord tag: ``Moru Zerinho6
 #3384``
