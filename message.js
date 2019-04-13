@@ -21,7 +21,7 @@ module.exports.run = function (message) {
 	setUpT = new LANGUAGE_UTILS.SetUpT(),
 	setT = setUpT.setT(guildLanguage[message.guild.id] ? guildLanguage[message.guild.id].language : process.env.LANGUAGE),
 	t = setUpT.t,
-	permissionStr = COMMAND_UTILS.checkCommandPermissions(message, commandName, t),
+	permissionStr = COMMAND_UTILS.checkCommandPermissions(message, commandName, t.bind(setUpT)),
 	userCD = MESSAGE_UTILS.applyCooldown(message.author.id);
 
 	if (userCD.length > 0) {
@@ -31,6 +31,11 @@ module.exports.run = function (message) {
 		return;
 	}
 
+	if (!message.channel.permissionsFor(this.user.id).has("EMBED_LINKS")) {
+		message.channel.send(t("utils:needEmbedLinks"));
+		return;
+	}
+	
 	if (!permissionStr.length > 0) {
 		COMMAND_UTILS.getCommandRequirer(commandName).run(this, message, args.slice(1), t.bind(setUpT));
 	} else {

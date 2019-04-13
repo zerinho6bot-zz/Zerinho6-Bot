@@ -5,6 +5,7 @@
 		"source": "Descrição"
 	},
 	"utils": {
+		"needEmbedLinks": "Desculpe, mas literalmente 99% dos comandos do bot utilizam embed então eu preciso da permissão de enviar links, se você puder pedir para alguém me dar, por favor faça.(Eu verifico permissões pelas permissões do canal, se alguma permissão no canal estiver sob-escrevendo, não vai funcionar.)",
 		"cooldownWarning": "Você está usando comandos muito rapidamente, tempo a se esperar depois de utilizar um comando:",
 		"seconds": "segundos",
 		"commandUtils": {
@@ -24,7 +25,10 @@
 		"argumentOptions": "Opções de Argumento:",
 		"server": "servidor",
 		"mention": "menção",
+		"matchCode": "Codigo da Partida",
 		"nothing": "nada",
+		"language": "linguagem",
+		"id": "ID",
 		"command": "comando",
 		"wantToKnowMore": "Se você quer saber mais sobre um comando, use:",
 		"avatar": {
@@ -36,11 +40,74 @@
 				},
 				"actualDescription": "Exibe um avatar"
 			},
-			"image": "https://cdn.discordapp.com/attachments/499671331021914132/562064359719698462/unknown.png"
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/562747491250995200/unknown.png"
+		},
+		"help": {
+			"description": {
+				"argumentOptions": {
+					"command": "Mostra a lista de informações sobre o comando.",
+					"nothing": "Mostra a prefix, exemplo de uso e lista de comandos."
+				},
+				"actualDescription": "Exibe um avatar"
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/562747600370008074/unknown.png"
+		},
+		"ram": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Mostra quanta RAM o bot está usando via RSS e heapUsed."
+				},
+				"actualDescription": "Mostra quanta RAM o bot está usando."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566588001191460888/unknown.png"
+		},
+		"ping": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Mostra quantos ms o bot está tendo para enviar uma mensagem."
+				},
+				"actualDescription": "Mostra o ping do bot."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566588388904271884/unknown.png"
+		},
+		"set-language": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Mostra a lista de linguagens disponiveis.",
+					"language": "Define a linguagem do bot."
+				},
+				"actualDescription": "Defina a linguagem do bot."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566601647816704000/unknown.png"
+		},
+		"tictactoe": {
+			"description": {
+				"argumentOptions": {
+					"mention": "Começa uma partida de jogo de velha com a pessoa mencionada."
+				},
+				"actualDescription": "Jogue uma partida de jogo de velha!Esse comando salva as partidas, suas virotias, derrotas, empates; Utilize o codigo da partida como argumento no comando tictactoe-match.\n\n_Tem um pequeno easter egg, jogue com o primeiro jogador estando com um apelido que contenha 'zerinho6' ou o segundo estando com 'topera' ou ambos!_"
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566604076201017357/unknown.png"
+		},
+		"tictactoe-match": {
+			"description": {
+				"argumentOptions": {
+					"matchCode": "Mostra os detalhes da partida."
+				},
+				"actualDescription": "Mostra os detalhes de uma partida pelo código da partida.\n\n'Como pegar o código de partida': Jogue uma partida de jogo da velha, finalize ela(não importa quem ganhar), copie o codigo da0 partida obtivel no fundo do embed."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566604952877924388/unknown.png"
+		},
+		"tictactoe-profile": {
+			"description": {
+				"argumentOptions": {
+					"mention": "Mostra o perfil do usuário mencionado.",
+					"id": "Mostra o perfil de um usuário.."
+				},
+				"actualDescription": "Mostra o historico no jogo de velha de um usuário."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566605395553026060/unknown.png"
 		}
-	},
-	"say": {
-		"userSaid": "disse"
 	},
 	"set-language": {
 		"languageList": "Lista de linguagens",
@@ -54,5 +121,48 @@
 	},
 	"embed": {
 		"noArgumentOrImage": "Você não mandou nenhum argumento nem mesmo uma imagem."
+	},
+	"ping": {
+		"ping": "Ping..",
+		"pong": "Pong! :ping_pong:",
+		"ms": "ms"
+	},
+	"tictactoe": {
+		"turn": "Turno!",
+		"draw": "Empate",
+		"winner": "Vencedor",
+		"loser": "Perdedor",
+		"selfMention": "Você não pode jogar com você mesmo.",
+		"botMention": "Você não pode jogar com um bot.",
+		"watchingAd": "Está assistindo? Reaja com 👀 para mostrar!",
+		"watchers": "Torcedores",
+		"peopleWatching": "pessoas estão assistindo esse jogo!",
+		"timeExpired": "Tempo expirado, ninguém venceu, a partida não vai ser registrada.",
+		"results": "Resultados",
+		"theMatchTaken": {
+			"part1": "A partida durou",
+			"part2": "segundos",
+			"part3": "E tinha",
+			"part4": "pessoas assistindo essa partida!"
+		},
+		"matchCode": "Codigo da partida",
+		"matchResult": "Resultado da partida",
+		"moves": "Movimentos"
+	},
+	"tictactoe-profile": {
+		"userNotFound": "Parece que esse usuário não tem um historico ainda.",
+		"argsNotNumber": "O argumento que você passou não é nem mesmo um número pra ser um ID",
+		"profileOf": "Perfil de",
+		"wins": "Vitorias",
+		"loses": "Derrotas",
+		"draws": "Empates",
+		"matchs": "Partidas"
+	},
+	"tictactoe-match": {
+		"matchNotFound": "Não consegui achat nenhuma partida com esse codigo",
+		"movimentsOf": "Movimentos de",
+		"theWinnerWas": "O Vencedor foi",
+		"noOne": "Ninguém",
+		"vs": "vs"
 	}
 }

@@ -1,6 +1,6 @@
 const fs = require("fs"),
 { commandNeeds } = require("../local_storage"),
-Commands = fs.readdirSync("./commands").map( (v) => v.replace( /.js/gi , "").toLowerCase() );
+Commands = fs.readdirSync("./commands").map((v) => v.replace(/.js/gi , "").toLowerCase());
 
 module.exports = {
 	/*
@@ -29,7 +29,9 @@ module.exports = {
 		if (commandPerms.needAttch && !message.attachments.size >= 1) {
 			return t("utils:commandUtils.needAttch");
 		}
+		
 		if (commandPerms.needMention && !message.mentions.users.first()) {
+			console.log("Returning need mention");
 			return t("utils:commandUtils.needMention");
 		}
 

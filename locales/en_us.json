@@ -5,6 +5,7 @@
 		"source": "Description"
 	},
 	"utils": {
+		"needEmbedLinks": "Sorry but, literally 99% of the bot commands use embed so I really need EMBED_LINKS permission, if you can ask someone to give me, please do it.(I check permissions on channel, so if there's any permission overwriting, it won't work.)",
 		"cooldownWarning": "Hey, wait just a little, after using a command you need to wait",
 		"seconds": "seconds.",
 		"commandUtils": {
@@ -24,7 +25,10 @@
 		"argumentOptions": "Argument Options:",
 		"server": "server",
 		"mention": "@mention",
+		"matchCode": "Match Code",
 		"nothing": "nothing",
+		"language": "language",
+		"id": "ID",
 		"command": "command",
 		"wantToKnowMore": "If you want to know more about some command, use:",
 		"avatar": {
@@ -36,11 +40,74 @@
 				},
 				"actualDescription": "Shows a avatar."
 			},
-			"image": "https://cdn.discordapp.com/attachments/499671331021914132/562064359719698462/unknown.png"
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/562747491250995200/unknown.png"
+		},
+		"help": {
+			"description": {
+				"argumentOptions": {
+					"command": "Basicly shows a manual of the command.",
+					"nothing": "Shows prefix and command list."
+				},
+				"actualDescription": "Shows the list of commands and the manual of the command if ya gave any as argument."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566587422859722782/unknown.png"
+		},
+		"ram": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Shows how much RAM the bot is using via RSS and heapUsed."
+				},
+				"actualDescription": "Show how much ram the bot's using."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566588001191460888/unknown.png"
+		},
+		"ping": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Shows how much ms the bot is taking to send a message."
+				},
+				"actualDescription": "Shows the ms of the bot."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566588388904271884/unknown.png"
+		},
+		"set-language": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Shows the list of available languages.",
+					"language": "Set the bot language to the sent language."
+				},
+				"actualDescription": "Set the bot language."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566589930189619200/unknown.png"
+		},
+		"tictactoe": {
+			"description": {
+				"argumentOptions": {
+					"mention": "Starts a Tictactoe match with the mentioned user."
+				},
+				"actualDescription": "Play tictactoe with someone! It saves your wins, loses, draws, matchs, and even the match via the match code that can be used as argument on tictactoe-match command.\n\n_There's a easter egg on the game, try to play it with p1 having 'zerinho6' nickname or p2 having 'topera' nickname or both!_"
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566590670744322049/unknown.png"
+		},
+		"tictactoe-match": {
+			"description": {
+				"argumentOptions": {
+					"matchCode": "Shows the details of the match."
+				},
+				"actualDescription": "See match details by match-code.\n\n'How to get match-code': Play a Tictactoe match, finish it(it doesn't matter who won), get the match-code on the embed footer."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566599730264539136/unknown.png"
+		},
+		"tictactoe-profile": {
+			"description": {
+				"argumentOptions": {
+					"mention": "Shows the profile of the mentioned user.",
+					"id": "Shows the profile of a user by the sent ID."
+				},
+				"actualDescription": "Shows the Tictactoe profile of a user."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566599524068360193/unknown.png"
 		}
-	},
-	"say": {
-		"userSaid": "said"
 	},
 	"set-language": {
 		"languageList": "Language List",
@@ -54,5 +121,48 @@
 	},
 	"embed": {
 		"noArgumentOrImage": "You din't sent any argument or image."
+	},
+	"ping": {
+		"ping": "Ping..",
+		"pong": "Pong! :ping_pong:",
+		"ms": "ms"
+	},
+	"tictactoe": {
+		"turn": "Turn!",
+		"draw": "Draw",
+		"winner": "Winner",
+		"loser": "Loser",
+		"selfMention": "You can't play with you.",
+		"botMention": "You can't play with another bot.",
+		"watchingAd": "Are you watching this game? React with 👀 to show it!",
+		"watchers": "Watchers",
+		"peopleWatching": "people are watching this game!",
+		"timeExpired": "Time expired, no one have won, match won't be regitered.",
+		"results": "Results",
+		"theMatchTaken": {
+			"part1": "The match has taken",
+			"part2": "seconds",
+			"part3": "And there were",
+			"part4": "people watching that match!"
+		},
+		"matchCode": "Match code",
+		"matchResult": "Match Result",
+		"moves": "Moves"
+	},
+	"tictactoe-profile": {
+		"userNotFound": "Semms that this user doesn't have a TicTacToe profile yet.",
+		"argsNotNumber": "The argument you passed isn't even a number to be a ID",
+		"profileOf": "Profile of",
+		"wins": "Wins",
+		"loses": "Loses",
+		"draws": "Draws",
+		"matchs": "Matchs"
+	},
+	"tictactoe-match": {
+		"matchNotFound": "I couldn't find any match with that code",
+		"movimentsOf": "Moviments of",
+		"theWinnerWas": "The winner has",
+		"noOne": "No one",
+		"vs": "vs"
 	}
 }
