@@ -57,7 +57,7 @@ You wanna translate you bot to you not-yet-translated language? There's a topic 
 
 **[Fernando](https://github.com/fernando4578)**: Helped as much as nirewen giving a lot of help with some function not working, what is cool on code and what isn't, it also helped on the last version of Zerinho6 Bot.
 
-**[Acnologia](https://github.com/Acnologla)**: That's being repetitive but thanks is always needed, the same as Nirewen and Fernando, i would made Zerinho6 Bot TicTacToe based on a vesion that he made.
+**[Acnologia](https://github.com/Acnologla)**: That's being repetitive but thanks is always needed, the same as Nirewen and Fernando, i would made Zerinho6 Bot TicTacToe based on a version that he made.
 
 **[Mete](https://github.com/metehus), [Tsugami](https://github.com/Tsugami)**: The same as Nirewen, Fernando, Acnologia and Switchblade Team.
 
