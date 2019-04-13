@@ -8,14 +8,12 @@ exports.run = (bot, message, args, t) => {
 
 	if (!args[0]) {
 		ZeroEmbed.addField(t("set-language:languageList"), LANGUAGE_LIST_LITERAL);
-
 		message.channel.send(ZeroEmbed);
 		return;
 	}
 
 	if (!Object.keys(LANGUAGE_LIST).includes(args[0])) {
 		ZeroEmbed.setDescription(LANGUAGE_LIST_LITERAL);
-
 		message.channel.send(t("set-language:languageNotExist"));
 		message.channel.send(ZeroEmbed);
 		return;
@@ -36,7 +34,6 @@ exports.run = (bot, message, args, t) => {
 	}
 
 	let result = STORAGE_UTILS.write("./local_storage/guild_language.json", guildLanguage);
-
 	if (result) {
 		message.channel.send(t("set-language:languageDone"));
 		return;

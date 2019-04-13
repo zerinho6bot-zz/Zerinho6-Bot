@@ -1,12 +1,22 @@
 {
-	"say": {
+	"set-language": {
+		"options": {
+			"userNeed": "MANAGE_GUILD"
+		}
+	},
+	"tictactoe": {
+		"options": {
+			"needMention": true
+		}
+	},
+	"tictactoe-profile": {
 		"options": {
 			"needArg": true
 		}
 	},
-	"set-language": {
+	"tictactoe-match": {
 		"options": {
-			"userNeed": "MANAGE_GUILD"
+			"needArg": true
 		}
 	}
 }
