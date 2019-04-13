@@ -114,7 +114,7 @@ exports.run = async function(bot, message, args, t) {
 						loses: 0,
 						matchs: 0,
 						draws: 0
-					}
+					};
 				}
 
 				const actualPlayer = tictactoeProfiles[player.id];
