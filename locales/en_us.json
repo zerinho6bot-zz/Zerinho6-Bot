@@ -160,8 +160,7 @@
 	},
 	"tictactoe-match": {
 		"matchNotFound": "I couldn't find any match with that code",
-		"movimentsOfP1": "Moviments of",
-		"movimentsOfP2": "Moviments of",
+		"movimentsOf": "Moviments of",
 		"theWinnerWas": "The winner has",
 		"noOne": "No one",
 		"vs": "vs"

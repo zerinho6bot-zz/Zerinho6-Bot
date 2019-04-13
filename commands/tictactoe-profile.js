@@ -9,7 +9,7 @@ exports.run = (bot, message, args, t) => {
 			return;
 		}
 
-		user = tictactoeProfiles[message.mentions.users.first().id]
+		user = tictactoeProfiles[message.mentions.users.first().id];
 	}
 
 	if (user === null) {

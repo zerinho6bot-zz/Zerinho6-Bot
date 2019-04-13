@@ -54,16 +54,16 @@ exports.run = async function(bot, message, args, t) {
 			third = [2,5,8,6,7,8,8,6];
 
 			for (let i = 0; i < first.length; i++) {
-				if ([this.map[first[i]], this.map[second[i]], this.map[third[i]]].every(elem => elem === 1)) {
+				if ([this.map[first[i]], this.map[second[i]], this.map[third[i]]].every((elem) => elem === 1)) {
 					return 1;
 				}
 
-				if ([this.map[first[i]], this.map[second[i]], this.map[third[i]]].every(elem => elem === 2)) {
+				if ([this.map[first[i]], this.map[second[i]], this.map[third[i]]].every((elem) => elem === 2)) {
 					return 2;
 				}
 			}
 
-			if (this.map.every(elem => elem !== 0)) {
+			if (this.map.every((elem) => elem !== 0)) {
 				return 3;
 			}
 
@@ -156,7 +156,7 @@ exports.run = async function(bot, message, args, t) {
 			MATCH.p2.tag = this.player2.tag;
 			MATCH.winner = this.winner;
 
-			STORAGE_UTILS.write("./local_storage/tictactoe-matchs.json", tictactoeMatchs)
+			STORAGE_UTILS.write("./local_storage/tictactoe-matchs.json", tictactoeMatchs);
 		}
 	}
 
@@ -207,7 +207,7 @@ exports.run = async function(bot, message, args, t) {
 			} else {
 				watchers = watchers.concat(message.author.id);
 			}
-			GAME.watchers++
+			GAME.watchers++;
 
 			let newEmbed = EMBED;
 			EMBED.fields.length !== 0 ? newEmbed.spliceField(0,1,t("tictactoe:watchers"),`${GAME.watchers} ${t("tictactoe:peopleWatching")}`) : newEmbed.addField(t("tictactoe:watchers"), `${GAME.watchers} ${t("tictactoe:peopleWatching")}`);
@@ -235,26 +235,26 @@ exports.run = async function(bot, message, args, t) {
 		MSG.edit(EMBED);
 	});
 
-	COLLECTION.on("end", r => {
+	COLLECTION.on("end", (r) => {
 		if (!GAME.finished) {
 			message.channel.send(t("tictactoe:timeExpired"));
 			return;
 		}
 
-		const Results_Embed = MESSAGE_UTILS.zerinhoEmbed(message.member),
+		const ResultEmbed = MESSAGE_UTILS.zerinhoEmbed(message.member),
 		TIME = Math.floor((new Date() - GAME.time) / 1000);
 
-		Results_Embed.setTitle(t("tictactoe:results"));
-		Results_Embed.setDescription(`${t("tictactoe:theMatchTaken.part1")} ${TIME} ${t("tictactoe:theMatchTaken.part2")}${GAME.watchers !== 0 ? `...\n\n${t("tictactoe:theMatchTaken.part3")} **${GAME.watchers}** ${t("tictactoe:theMatchTaken.part4")}` : "."} ${GAME.secret ? "\n\nWith the love of zerinho6 and topera\n<:zerinicon:317871174266912768> :heart: <:Toperaicon:317871116934840321>" : ""}`);
-		Results_Embed.setFooter(`${t("tictactoe:matchCode")}: ${MATCH_ID}`);
+		ResultEmbed.setTitle(t("tictactoe:results"));
+		ResultEmbed.setDescription(`${t("tictactoe:theMatchTaken.part1")} ${TIME} ${t("tictactoe:theMatchTaken.part2")}${GAME.watchers !== 0 ? `...\n\n${t("tictactoe:theMatchTaken.part3")} **${GAME.watchers}** ${t("tictactoe:theMatchTaken.part4")}` : "."} ${GAME.secret ? "\n\nWith the love of zerinho6 and topera\n<:zerinicon:317871174266912768> :heart: <:Toperaicon:317871116934840321>" : ""}`);
+		ResultEmbed.setFooter(`${t("tictactoe:matchCode")}: ${MATCH_ID}`);
 		for (let i = 0; i < 2; i++) {
 			let players = GAME.players;
 
-			Results_Embed.addField(players[i].tag, `${t("tictactoe:matchResult")}: ${GAME.getMatchResult(i + 1)}\n${t("tictactoe:moves")}: ${players[i].moves.join(", ")}`);
+			ResultEmbed.addField(players[i].tag, `${t("tictactoe:matchResult")}: ${GAME.getMatchResult(i + 1)}\n${t("tictactoe:moves")}: ${players[i].moves.join(", ")}`);
 		}
 
-		message.channel.send(Results_Embed);
+		message.channel.send(ResultEmbed);
 		GAME.updatePlayersOnlineStats();
 		GAME.uploadMatch(TIME);
 	});
-}
+};

@@ -24,7 +24,7 @@ exports.run = (bot, message, args, t) => {
 	const EMBED = MESSAGE_UTILS.zerinhoEmbed(message.member),
 	MATCH = tictactoeMatchs[args[0]];
 
-	EMBED.setTitle(`${MATCH.p1.tag} ${t("tictactoe-match:vs")} ${MATCH.p2.tag}`)
+	EMBED.setTitle(`${MATCH.p1.tag} ${t("tictactoe-match:vs")} ${MATCH.p2.tag}`);
 	EMBED.setDescription(`${draw(MATCH.map)}\n\n${t("tictactoe:theMatchTaken.part1")} ${MATCH.time} ${t("tictactoe:theMatchTaken.part2")}\n${t("tictactoe-match:theWinnerWas")} ${MATCH.winner === 3 ? t("tictactoe-match:noOne") : MATCH.winner === 1 ? MATCH.p1.tag : MATCH.p2.tag}.`);
 	EMBED.addField(`${t("tictactoe-match:movimentsOf")} ${MATCH.p1.tag}`, MATCH.p1.moves.join(", "));
 	EMBED.addField(`${t("tictactoe-match:movimentsOf")} ${MATCH.p2.tag}`, MATCH.p2.moves.join(", "));
