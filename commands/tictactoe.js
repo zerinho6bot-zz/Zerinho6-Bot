@@ -143,7 +143,7 @@ exports.run = async function(bot, message, args, t) {
 					tag: ""
 				},
 				winner: 0
-			}
+			};
 
 			const MATCH = tictactoeMatchs[MATCH_ID];
 
