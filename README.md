@@ -66,6 +66,8 @@ You wanna translate you bot to you not-yet-translated language? There's a topic 
 
 **[Hellow](https://github.com/HellowDSN)**: Feedback, A LOT of feedback.
 
+**Leticia(Known as topera and my GF)**: For making the bot icon and being such adorable person.
+
 ## Hey, I want to contact you
 
 M-me? Seriusly? You can find my e-mail on my github profile and if you want to talk on Discord, here's my Discord tag: ``Moru Zerinho6
