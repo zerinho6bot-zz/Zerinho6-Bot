@@ -18,6 +18,25 @@ Zerinho6 Bot is a Lite and fast bot that' focused on personal use but available 
 
 - A Discord bot account and the bot Token.
 
+- Git
+
+# Setup
+
+Create a ``.env`` file **via a IDE because you need it to be without name and windows won't let you do that**.
+
+Inside of it, put the follow constants:
+
+```env
+TOKEN=Put the Token of your bot here
+PREFIX=Put the prefix of your bot here
+OWNER=Put your Discord ID here
+COOLDOWN=Put how much in milliseconds the bot will take to accept another command after one has been made
+LANGUAGE=Put here the main language of the bot(MAKE SURE THAT THE LANGUAGE_CODE EXIST ON THE LOCALES FOLDER)
+```
+Remember, ``.env`` should not have spaces.
+
+Open the console window on the bot folder and type ``npm i``, after that you can do ``node bot.js`` or ``npm test``. There'll be a message on console saying how much time it took to the bot to load and that he's ready.
+
 # Helping
 
 I'll be very happy with any possible help that you want to give to Zerinho6 Bot, but please, make sure you read the Wiki and know how the system works, thank you!!!!
