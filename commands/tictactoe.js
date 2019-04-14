@@ -222,12 +222,7 @@ exports.run = async function(bot, message, args, t) {
 		r.users.remove(GAME.turn);
 		r.users.remove(bot.user.id);
 
-		if (r.emoji.name === "m7" && u.id === process.env.OWNER) {
-			GAME.player2.moves = ["lol", "troll"];
-			GAME.map = [1,1,0,0,0,2,0,0,2];
-			GAME.play(2);
-			COLLECTION.stop();
-		} else if (GAME.play(EMOJIS.indexOf(r.emoji.name))) {
+		if (GAME.play(EMOJIS.indexOf(r.emoji.name))) {
 			COLLECTION.stop();
 		}
 
