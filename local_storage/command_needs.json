@@ -18,5 +18,10 @@
 		"options": {
 			"needArg": true
 		}
+	},
+	"embed": {
+		"options": {
+			"needArg": true
+		}
 	}
 }

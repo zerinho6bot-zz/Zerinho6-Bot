@@ -7,5 +7,6 @@ module.exports = {
 	ping: require("./commands/ping.js"),
 	tictactoe: require("./commands/tictactoe.js"),
 	"tictactoe-profile": require("./commands/tictactoe-profile.js"),
-	"tictactoe-match": require("./commands/tictactoe-match.js")
+	"tictactoe-match": require("./commands/tictactoe-match.js"),
+	embed: require("./commands/embed.js")
 };

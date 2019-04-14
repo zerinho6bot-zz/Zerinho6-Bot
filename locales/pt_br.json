@@ -164,5 +164,8 @@
 		"theWinnerWas": "O Vencedor foi",
 		"noOne": "Ninguém",
 		"vs": "vs"
+	},
+	"embed": {
+		"fieldContainsTooMuch": "Sua mensagem contem muitos caracteres pra um field, o titulo só pode ter ate 256 caracteres e a descrição só pode ter ate 1024."
 	}
 }

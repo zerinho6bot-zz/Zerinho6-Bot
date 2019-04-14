@@ -164,5 +164,8 @@
 		"theWinnerWas": "The winner has",
 		"noOne": "No one",
 		"vs": "vs"
+	},
+	"embed": {
+		"fieldContainsTooMuch": "The message have too much characters for a embed field, the title can have a length up to 256 and the description up to 1024."
 	}
 }
