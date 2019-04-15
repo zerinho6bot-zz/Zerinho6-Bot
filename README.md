@@ -5,6 +5,11 @@
 </p>
 <p align="center">  
   <img src="https://api.codacy.com/project/badge/Grade/6b171d4f87074da686cb6b96639b139b">
+  <a href="https://discordapp.com/oauth2/authorize?client_id=332968532096843776&scope=bot&permissions=379968" target="_blank"><img
+    src="https://img.shields.io/badge/invite-to%20your%20Discord%20server-7289da.svg?style=flat-square&logo=discord" alt "Invite Switchblade"></a>
+  <a title="Dependencies" target="_blank" href="https://david-dm.org/zerinho6/Zerinho6-Beta/"><img src="https://david-dm.org/zerinho6/Zerinho6-Beta.svg?style=flat-square"></a>
+  <img src="https://img.shields.io/badge/library-discord.js-blue.svg?style=flat-square" alt="Library">
+  
 </p>
 
 ## Introduction 
@@ -69,5 +74,4 @@ You wanna translate you bot to you not-yet-translated language? There's a topic 
 
 ## Hey, I want to contact you
 
-M-me? Seriusly? You can find my e-mail on my github profile and if you want to talk on Discord, here's my Discord tag: ``Moru Zerinho6
-#3384``
+M-me? Seriusly? You can find my e-mail on my github profile and if you want to talk on Discord, here's my Discord tag: ``Moru Zerinho6#3384``
