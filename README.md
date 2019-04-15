@@ -14,8 +14,6 @@
 
 ## Introduction 
 
-**THIS IS NOT FINISHED, THAT'S JUST A TEASER FOR THE NEXT VERSION, WHEN EVERYTHING IS DONE THE REPOSITORY WILL BE DELETED AND EVERYTHING WILL BE MOVED [TO THE MAIN ONE](https://github.com/zerinho6/Zerinho6-Bot)**
-
 Zerinho6 Bot is a Lite and fast bot that' focused on personal use but available for a public build, i've been working on it for almost 3 years and because of nice people i'm learning how to make a better code and that's also a reason(not the only or main) for Zerinho6 Bot to be open-source.
 
 ## Requirements
