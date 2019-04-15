@@ -1,7 +1,7 @@
 {
 	"please": {
 		"prefixLiteral": "Prefix",
-		"CPW": "Command usage example::",
+		"CPW": "Command usage example:",
 		"source": "Description"
 	},
 	"utils": {
