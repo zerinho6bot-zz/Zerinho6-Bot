@@ -1,7 +1,7 @@
 const { COMMAND_UTILS, LANGUAGE_UTILS, MESSAGE_UTILS } = require("./Utils"),
 COMMANDS = COMMAND_UTILS.getCommandList();
 
-module.exports.run = function (message) {
+exports.run = function (message) {
 	if (message.channel.type === "dm" || message.author.bot || !message.channel.permissionsFor(this.user.id).has("SEND_MESSAGES") || !message.content.startsWith(process.env.PREFIX)) {
 		return;
 	}
@@ -26,7 +26,7 @@ module.exports.run = function (message) {
 
 	if (userCD.length > 0) {
 		if (userCD.length > 3) {
-			message.reply(`${t("utils:cooldownWarning")} ${process.env.COOLDOWN/1000} ${t("utils:seconds")}`);
+			message.reply(`${setUpT.t("utils:cooldownWarning")} ${process.env.COOLDOWN/1000} ${setUpT.t("utils:seconds")}`);
 		}
 		return;
 	}
