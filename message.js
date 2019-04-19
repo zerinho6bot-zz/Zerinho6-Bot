@@ -5,7 +5,7 @@ exports.run = function (message) {
 	if (message.author.bot || !message.content.toLowerCase().startsWith(process.env.PREFIX) || message.channel.type === "dm" || !message.channel.permissionsFor(this.user.id).has("SEND_MESSAGES")) {
 		return;
 	}
-	
+
 	const args = message.content.split(" "),
 	commandName = args[0].slice(process.env.PREFIX.length).toLowerCase();
 	
@@ -16,6 +16,7 @@ exports.run = function (message) {
 	if (!COMMANDS.includes(commandName)) {
 		return;
 	}
+	
 	const { guildLanguage } = require("./local_storage"),
 	setUpT = new LANGUAGE_UTILS.SetUpT(),
 	setT = setUpT.setT(guildLanguage[message.guild.id] ? guildLanguage[message.guild.id].language : process.env.LANGUAGE),
