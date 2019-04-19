@@ -25,6 +25,9 @@
 		"argumentOptions": "Argument Options:",
 		"server": "server",
 		"mention": "@mention",
+		"characters": "Characteres",
+		"barSeparation": "Bar Separation",
+		"image": "Imagem",
 		"matchCode": "Match Code",
 		"nothing": "nothing",
 		"language": "language",
@@ -107,6 +110,36 @@
 				"actualDescription": "Shows the Tictactoe profile of a user."
 			},
 			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566599524068360193/unknown.png"
+		},
+		"embed": {
+			"description": {
+				"argumentOptions": {
+					"characters": "Sends a embed with the content being the same as your message.",
+					"barSeparation": "Sends a embed creating a Field, where the title is what's before the bar and the content being what is after the bar.",
+					"image": "Sends the image on the embed."
+				},
+				"actualDescription": "Sends a embed with the content being your message content."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/568837520406872064/unknown.png"
+		},
+		"bot-invite": {
+			"description": {
+				"argumentOptions": {
+					"id": "Searchs for the user with the given ID.",
+					"mention": "Searchs for the mentioned user."
+				},
+				"actualDescription": "Get the invite link for your favorite bot!"
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/568839761381425152/unknown.png"
+		},
+		"eval": {
+			"description": {
+				"argumentOptions": {
+					"characters": "Execute a eval function in your message."
+				},
+				"actualDescription": "Execute your message."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/568844545924792371/unknown.png"
 		}
 	},
 	"set-language": {
@@ -167,5 +200,15 @@
 	},
 	"embed": {
 		"fieldContainsTooMuch": "The message have too much characters for a embed field, the title can have a length up to 256 and the description up to 1024."
+	},
+	"bot-invite": {
+		"IdOrMentionNotDetected": "I din't detect any ID or mention in your message.",
+		"CouldntFindThatUser": "Sorry, i couldn't find that user.",
+		"userIsntBot": "That user isn't a bot account.",
+		"invite": "Invite"
+	},
+	"eval": {
+		"code": "Code",
+		"result": "Result"
 	}
 }

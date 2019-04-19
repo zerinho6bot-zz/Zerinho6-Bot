@@ -23,5 +23,16 @@
 		"options": {
 			"needArg": true
 		}
+	},
+	"bot-invite": {
+		"options": {
+			"needArg": true
+		}
+	},
+	"eval": {
+		"options": {
+			"needArg": true,
+			"onlyOwner": true
+		}
 	}
 }

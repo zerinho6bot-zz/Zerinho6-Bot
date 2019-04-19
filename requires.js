@@ -8,5 +8,7 @@ module.exports = {
 	tictactoe: require("./commands/tictactoe.js"),
 	"tictactoe-profile": require("./commands/tictactoe-profile.js"),
 	"tictactoe-match": require("./commands/tictactoe-match.js"),
-	embed: require("./commands/embed.js")
+	embed: require("./commands/embed.js"),
+	"bot-invite": require("./commands/bot-invite.js"),
+	eval: require("./commands/eval.js")
 };
