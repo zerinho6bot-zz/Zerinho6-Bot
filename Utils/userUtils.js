@@ -3,7 +3,7 @@ module.exports = {
 	* @async
 	* @function
 	* @param {string} id - The id of the user that will be searched
-	* @returns {(object|boolean)}
+	* @returns {object}
 	*/
 	searchUser: async function(bot, id) { 
 		try {
