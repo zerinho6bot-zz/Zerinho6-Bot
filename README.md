@@ -42,11 +42,11 @@ Open the console window on the bot folder and type ``npm i``, after that you can
 
 ## Helping
 
-I'll be very happy with any possible help that you want to give to Zerinho6 Bot, but please, make sure you read the Wiki and know how the system works, thank you!!!!
+I'll be very happy with any possible help that you want to give to Zerinho6 Bot, but please, make sure you read the [Wiki](https://github.com/zerinho6/Zerinho6-Beta/wiki) and know how the system works, thank you!!!!
 
 ## Translating
 
-You wanna translate you bot to you not-yet-translated language? There's a topic on Wiki saying how you can do that!
+You wanna translate you bot to you not-yet-translated language? [There's a topic on Wiki saying how you can do that!](https://github.com/zerinho6/Zerinho6-Beta/wiki/Translating.)
 
 ## Here's a list of really nice people that made this project possible
 
@@ -64,7 +64,7 @@ You wanna translate you bot to you not-yet-translated language? There's a topic 
 
 **[Mete](https://github.com/metehus), [Tsugami](https://github.com/Tsugami)**: The same as Nirewen, Fernando, Acnologia and Switchblade Team.
 
-**[Smix](https://github.com/smixqse)**: Creator of a old bot called Mixy that doesn't exist anymore, but what started all this Journey.
+**[Smixqse](https://github.com/smixqse)**: Creator of a old bot called Mixy that doesn't exist anymore, but what started all this Journey.
 
 **[Hellow](https://github.com/HellowDSN)**: Feedback, A LOT of feedback.
 
