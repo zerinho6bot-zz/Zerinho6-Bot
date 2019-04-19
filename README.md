@@ -14,14 +14,14 @@
 
 ## Introduction 
 
-Zerinho6 Bot is a Lite and fast bot that' focused on personal use but available for a public build, i've been working on it for almost 3 years and because of nice people i'm learning how to make a better code and that's also a reason(not the only or main) for Zerinho6 Bot to be open-source.
+Zerinho6 Bot is a Lite and fast bot that's focused on personal use but available for a public build, I've been working on it for almost 3 years and because of nice people I'm learning how to make a better code and that's also a reason(not the only or main) for Zerinho6 Bot to be open-source.
 
 ## Requirements
 
-- I recomment **atleast node 10.x.x, [and here's why](https://github.com/discordjs/discord.js/issues/1386)**
+- I recomment **atleast [node](https://nodejs.org/) 10.x.x, [and here's why](https://github.com/discordjs/discord.js/issues/1386)**
 
-- A Discord bot account and the bot Token.
-- Git
+- [A Discord bot account and the bot Token.](https://discordapp.com/developers/applications)
+- [Git](https://git-scm.com/)
 
 ## Setup
 
