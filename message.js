@@ -2,10 +2,10 @@ const { COMMAND_UTILS, LANGUAGE_UTILS, MESSAGE_UTILS } = require("./Utils"),
 COMMANDS = COMMAND_UTILS.getCommandList();
 
 exports.run = function (message) {
-	if (message.channel.type === "dm" || message.author.bot || !message.channel.permissionsFor(this.user.id).has("SEND_MESSAGES") || !message.content.startsWith(process.env.PREFIX)) {
+	if (message.author.bot || !message.content.toLowerCase().startsWith(process.env.PREFIX) || message.channel.type === "dm" || !message.channel.permissionsFor(this.user.id).has("SEND_MESSAGES")) {
 		return;
 	}
-
+	
 	const args = message.content.split(" "),
 	commandName = args[0].slice(process.env.PREFIX.length).toLowerCase();
 	
@@ -16,7 +16,6 @@ exports.run = function (message) {
 	if (!COMMANDS.includes(commandName)) {
 		return;
 	}
-
 	const { guildLanguage } = require("./local_storage"),
 	setUpT = new LANGUAGE_UTILS.SetUpT(),
 	setT = setUpT.setT(guildLanguage[message.guild.id] ? guildLanguage[message.guild.id].language : process.env.LANGUAGE),
@@ -24,8 +23,8 @@ exports.run = function (message) {
 	permissionStr = COMMAND_UTILS.checkCommandPermissions(message, commandName, t.bind(setUpT)),
 	userCD = MESSAGE_UTILS.applyCooldown(message.author.id);
 
-	if (userCD.length > 0) {
-		if (userCD.length > 3) {
+	if (userCD > 0) {
+		if (userCD === 4) {
 			message.reply(`${setUpT.t("utils:cooldownWarning")} ${process.env.COOLDOWN/1000} ${setUpT.t("utils:seconds")}`);
 		}
 		return;

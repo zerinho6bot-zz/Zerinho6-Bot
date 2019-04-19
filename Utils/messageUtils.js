@@ -5,10 +5,10 @@ Discord = require("discord.js");
 
 module.exports = {
 	/**
-	* This function will apply a cooldown to the given user id, it'll return true if it hasn't a cooldown already, and false if it has.
+	* This function will return 0 if the user isn't on CD, it'll return 3 if it's on CD and i'll return 4 if it was warned that it's on CD but still trying.
 	* @function
 	* @param {string} id - The message author ID
-	* @retuns {boolean}
+	* @retuns {number}
 	*/
 	applyCooldown: function(id) {
 
@@ -21,17 +21,17 @@ module.exports = {
 		};
 
 		if (id === process.env.OWNER) {
-			return "";
+			return 0;
 		}
 
 		if (cooldownWarning.has(id)) {
-			return "dnd";
+			return 3;
 		}
 
 		if (cooldown.has(id)) {
 			applyCDWarning();
 
-			return "wait";
+			return 4;
 		}
 
 		cooldown.add(id);
@@ -39,7 +39,7 @@ module.exports = {
 			cooldown.delete(id);
 		}, process.env.COOLDOWN);
 
-		return "";
+		return 0;
 	},
 	/**
 	* Returns a embed with default options
