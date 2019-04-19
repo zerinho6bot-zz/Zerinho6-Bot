@@ -18,8 +18,8 @@ module.exports = {
 
 		let commandPerms = commandNeeds[command].options;
 
-		if (commandPerms.onlyowner && message.author.id !== process.env.OWNER) {
-			return t("utils:commandUtils.onlyowner");
+		if (commandPerms.onlyOwner && message.author.id !== process.env.OWNER) {
+			return t("utils:commandUtils.onlyOwner");
 		}
 
 		if (commandPerms.needArg && message.content.split(" ").length === 1) {

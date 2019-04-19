@@ -9,7 +9,7 @@ module.exports = {
 		try {
 			const finduser = await bot.users.fetch(id);
 
-			return finduser ? finduser : null; 
+			return finduser; 
 		} catch (e) {
 			return null;
 		}
