@@ -178,12 +178,12 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 	//Again, we can't use zSend here because zSend doesn't return the message.
 	const MSG = await message.channel.send(zEmbed);
 
-	if (message.member.nickname.toLowerCase().includes("zerinho6")) {
+	if (message.author.username.toLowerCase().includes("zerinho6")) {
 		GAME.zerinho = true;
 		GAME.player1.emoji = "<:zerinicon:317871174266912768>";
 	}
 
-	if (message.mentions.members.first().nickname.toLowerCase().includes("topera")) {
+	if (message.mentions.users.first().username.toLowerCase().includes("topera")) {
 		GAME.topera = true;
 		GAME.player2.emoji = "<:Toperaicon:317871116934840321>";
 	}

@@ -88,7 +88,7 @@
 				"argumentOptions": {
 					"mention": "Starts a Tictactoe match with the mentioned user."
 				},
-				"actualDescription": "Play tictactoe with someone! It saves your wins, loses, draws, matchs, and even the match via the match code that can be used as argument on tictactoe-match command.\n\n_There's a easter egg on the game, try to play it with p1 having 'zerinho6' nickname or p2 having 'topera' nickname or both!_"
+				"actualDescription": "Play tictactoe with someone! It saves your wins, loses, draws, matchs, and even the match via the match code that can be used as argument on tictactoe-match command.\n\n_There's a easter egg on the game, try to play it with p1 having 'zerinho6' username or p2 having 'topera' or both!_"
 			},
 			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566590670744322049/unknown.png"
 		},

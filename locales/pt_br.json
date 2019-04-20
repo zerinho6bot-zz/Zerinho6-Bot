@@ -88,7 +88,7 @@
 				"argumentOptions": {
 					"mention": "Começa uma partida de jogo de velha com a pessoa mencionada."
 				},
-				"actualDescription": "Jogue uma partida de jogo de velha!Esse comando salva as partidas, suas virotias, derrotas, empates; Utilize o codigo da partida como argumento no comando tictactoe-match.\n\n_Tem um pequeno easter egg, jogue com o primeiro jogador estando com um apelido que contenha 'zerinho6' ou o segundo estando com 'topera' ou ambos!_"
+				"actualDescription": "Jogue uma partida de jogo de velha!Esse comando salva as partidas, suas virotias, derrotas, empates; Utilize o codigo da partida como argumento no comando tictactoe-match.\n\n_Tem um pequeno easter egg, jogue com o primeiro jogador estando com um nome que contenha 'zerinho6' ou o segundo estando com 'topera' ou ambos!_"
 			},
 			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566604076201017357/unknown.png"
 		},
