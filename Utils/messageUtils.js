@@ -56,7 +56,19 @@ module.exports = {
 
 		return zeroEmbed;
 	},
+	/**
+	*
+	* @function
+	* @param {object} message - The message object
+	* @param {object} t - The t function
+	* @returns {object} Returns the zerinhoSend function
+	*/
 	zerinhoConfigSend: function(message, t) {
+		/**
+		* @function
+		* @param {(string|object)} content - The content to send.
+		* @param {boolean} [literal=false] - If the content is a path-to-string for the translate function
+		*/
 		return function zerinhoSend(content, literal) {
 			content = literal ? t(content) : content;
 
