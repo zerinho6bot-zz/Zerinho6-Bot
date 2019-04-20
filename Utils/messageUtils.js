@@ -55,5 +55,14 @@ module.exports = {
 		zeroEmbed.setTimestamp();
 
 		return zeroEmbed;
+	},
+	zerinhoConfigSend: function(message, t) {
+		return function zerinhoSend(content, literal) {
+			content = literal ? t(content) : content;
+
+			message.channel.startTyping(6);
+			message.channel.send(content);
+			message.channel.stopTyping(true);
+		};
 	}
 };
