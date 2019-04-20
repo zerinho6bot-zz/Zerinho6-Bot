@@ -1,5 +1,5 @@
 const EMOJIS = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣', '9⃣'],
-{ STORAGE_UTILS } = require("../Utils"),
+{ MESSAGE_UTILS, STORAGE_UTILS } = require("../Utils"),
 MATCH_ID = Date.now().toString(36),
 { tictactoeMatchs, tictactoeProfiles } = require("../local_storage");
 
