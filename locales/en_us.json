@@ -152,9 +152,6 @@
 	"avatar": {
 		"server": "server"
 	},
-	"embed": {
-		"noArgumentOrImage": "You din't sent any argument or image."
-	},
 	"ping": {
 		"ping": "Ping..",
 		"pong": "Pong! :ping_pong:",

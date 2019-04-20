@@ -152,9 +152,6 @@
 	"avatar": {
 		"server": "servidor"
 	},
-	"embed": {
-		"noArgumentOrImage": "Você não mandou nenhum argumento nem mesmo uma imagem."
-	},
 	"ping": {
 		"ping": "Ping..",
 		"pong": "Pong! :ping_pong:",
