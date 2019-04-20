@@ -1,9 +1,9 @@
 const EMOJIS = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣', '9⃣'],
-{ MESSAGE_UTILS, STORAGE_UTILS } = require("../Utils"),
+{ STORAGE_UTILS } = require("../Utils"),
 MATCH_ID = Date.now().toString(36),
 { tictactoeMatchs, tictactoeProfiles } = require("../local_storage");
 
-exports.run = async function(bot, message, args, t) {
+exports.run = async function(bot, message, args, t, zSend, zEmbed) {
 	class TicTacToe {
 		constructor(p1,p2) {
 			this.player1 = {
@@ -161,21 +161,21 @@ exports.run = async function(bot, message, args, t) {
 	}
 
 	if (message.mentions.members.first().id === message.author.id) {
-		message.reply(t("tictactoe:selfMention"));
+		zSend("tictactoe:selfMention", true);
 		return;
 	}
 
 	if (message.mentions.members.first().bot) {
-		message.reply(t("tictactoe:botMention"));
+		zSend("tictactoe:botMention", true);
 		return;
 	}
 
-	const GAME = new TicTacToe(message.author, message.mentions.users.first()),
-	EMBED = MESSAGE_UTILS.zerinhoEmbed(message.member);
+	const GAME = new TicTacToe(message.author, message.mentions.users.first());
 
 	let watchers = [];
-	EMBED.setDescription(GAME.description);
-	EMBED.setFooter(t("tictactoe:watchingAd"));
+	zEmbed.setDescription(GAME.description);
+	zEmbed.setFooter(t("tictactoe:watchingAd"));
+	//Again, we can't use zSend here because zSend doesn't return the message.
 	const MSG = await message.channel.send(EMBED);
 
 	if (message.member.nickname.toLowerCase().includes("zerinho6")) {
@@ -209,8 +209,8 @@ exports.run = async function(bot, message, args, t) {
 			}
 			GAME.watchers++;
 
-			let newEmbed = EMBED;
-			EMBED.fields.length !== 0 ? newEmbed.spliceField(0,1,t("tictactoe:watchers"),`${GAME.watchers} ${t("tictactoe:peopleWatching")}`) : newEmbed.addField(t("tictactoe:watchers"), `${GAME.watchers} ${t("tictactoe:peopleWatching")}`);
+			let newEmbed = zEmbed;
+			zEmbed.fields.length !== 0 ? newEmbed.spliceField(0,1,t("tictactoe:watchers"),`${GAME.watchers} ${t("tictactoe:peopleWatching")}`) : newEmbed.addField(t("tictactoe:watchers"), `${GAME.watchers} ${t("tictactoe:peopleWatching")}`);
 			MSG.edit(newEmbed);
 			return;
 		}
@@ -226,8 +226,8 @@ exports.run = async function(bot, message, args, t) {
 			COLLECTION.stop();
 		}
 
-		EMBED.setDescription(GAME.description);
-		MSG.edit(EMBED);
+		zEmbed.setDescription(GAME.description);
+		MSG.edit(zEmbed);
 	});
 
 	COLLECTION.on("end", (r) => {
@@ -248,7 +248,7 @@ exports.run = async function(bot, message, args, t) {
 			ResultEmbed.addField(players[i].tag, `${t("tictactoe:matchResult")}: ${GAME.getMatchResult(i + 1)}\n${t("tictactoe:moves")}: ${players[i].moves.join(", ")}`);
 		}
 
-		message.channel.send(ResultEmbed);
+		zSend(ResultEmbed);
 		GAME.updatePlayersOnlineStats();
 		GAME.uploadMatch(TIME);
 	});

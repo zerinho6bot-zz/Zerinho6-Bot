@@ -1,12 +1,12 @@
-const { MESSAGE_UTILS, USER_UTILS } = require("../Utils"),
+const { USER_UTILS } = require("../Utils"),
 REGEX = /<@\!?(.*)\>/;
 
-exports.run = async (bot, message, args, t) => {
+exports.run = async (bot, message, args, t, zSend, zEmbed) => {
 	const MATCHED_REGEX = args[0].match(REGEX);
 
 	if (MATCHED_REGEX === null) {
 		if (isNaN(args[0]) && !args[0].length >= 16 && 18 >= !args.length) {
-			message.channel.send(t("bot-invite:IdOrMentionNotDetected"));
+			zSend("bot-invite:IdOrMentionNotDetected", true);
 			return;
 		}
 	}
@@ -15,20 +15,18 @@ exports.run = async (bot, message, args, t) => {
 	USER = await USER_UTILS.searchUser(bot, ID);
 
 	if (USER === null) {
-		message.channel.send(t("bot-invite:CouldntFindThatUser"));
+		zSend("bot-invite:CouldntFindThatUser", true);
 		return;
 	}
 
 	if (!USER.bot) {
-		message.channel.send(t("bot-invite:userIsntBot"));
+		zSend("bot-invite:userIsntBot", true);
 		return;
 	}
 
-	const EMBED = MESSAGE_UTILS.zerinhoEmbed(message.member);
-
-	EMBED.setAuthor(USER.username + USER.discriminator, USER.displayAvatarURL({size: 2048}));
-	EMBED.setThumbnail(USER.displayAvatarURL({size: 2048}));
-	EMBED.addField(t("bot-invite:invite"), `https://discordapp.com/oauth2/authorize?&client_id=${USER.id}&scope=bot&permissions=8`);
+	zEmbed.setAuthor(USER.username + USER.discriminator, USER.displayAvatarURL({size: 2048}));
+	zEmbed.setThumbnail(USER.displayAvatarURL({size: 2048}));
+	zEmbed.addField(t("bot-invite:invite"), `https://discordapp.com/oauth2/authorize?&client_id=${USER.id}&scope=bot&permissions=8`);
 	
-	message.channel.send(EMBED);
+	zSend(zEmbed);
 };

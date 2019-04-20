@@ -10,5 +10,6 @@ module.exports = {
 	"tictactoe-match": require("./commands/tictactoe-match.js"),
 	embed: require("./commands/embed.js"),
 	"bot-invite": require("./commands/bot-invite.js"),
-	eval: require("./commands/eval.js")
+	eval: require("./commands/eval.js"),
+	stoptyping: require("./commands/stoptyping.js")
 };

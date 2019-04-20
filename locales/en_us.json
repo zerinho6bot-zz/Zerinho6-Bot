@@ -210,5 +210,8 @@
 	"eval": {
 		"code": "Code",
 		"result": "Result"
+	},
+	"stoptyping": {
+		"CANYOUSTOPTYPINGHOLYSHIT": "Trying to stop typing..:no_mouth:"
 	}
 }

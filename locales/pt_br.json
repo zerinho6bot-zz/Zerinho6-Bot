@@ -208,7 +208,10 @@
 		"invite": "Convite"
 	},
 	"eval": {
-		"code": "Codigo",
+		"code": "Código ",
 		"result": "Resultado"
+	},
+	"stoptyping": {
+		"CANYOUSTOPTYPINGHOLYSHIT": "Tentando parar de digitar...:no_mouth:"
 	}
 }

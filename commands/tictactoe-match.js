@@ -14,24 +14,23 @@ function draw(map) {
 
 	return mapS;
 }
-exports.run = (bot, message, args, t) => {
+exports.run = (bot, message, args, t, zSend, zEmbed) => {
 	
 	if (!tictactoeMatchs[args[0]]) {
-		message.channel.send(t("tictactoe-match:matchNotFound"));
+		zSend("tictactoe-match:matchNotFound", true);
 		return;
 	}
 
-	const EMBED = MESSAGE_UTILS.zerinhoEmbed(message.member),
-	MATCH = tictactoeMatchs[args[0]];
+	const MATCH = tictactoeMatchs[args[0]];
 
-	EMBED.setTitle(`${MATCH.p1.tag} ${t("tictactoe-match:vs")} ${MATCH.p2.tag}`);
-	EMBED.setDescription(`${draw(MATCH.map)}\n\n${t("tictactoe:theMatchTaken.part1")} ${MATCH.time} ${t("tictactoe:theMatchTaken.part2")}\n${t("tictactoe-match:theWinnerWas")} ${MATCH.winner === 3 ? t("tictactoe-match:noOne") : MATCH.winner === 1 ? MATCH.p1.tag : MATCH.p2.tag}.`);
-	EMBED.addField(`${t("tictactoe-match:movimentsOf")} ${MATCH.p1.tag}`, MATCH.p1.moves.join(", "));
-	EMBED.addField(`${t("tictactoe-match:movimentsOf")} ${MATCH.p2.tag}`, MATCH.p2.moves.join(", "));
+	zEmbed.setTitle(`${MATCH.p1.tag} ${t("tictactoe-match:vs")} ${MATCH.p2.tag}`);
+	zEmbed.setDescription(`${draw(MATCH.map)}\n\n${t("tictactoe:theMatchTaken.part1")} ${MATCH.time} ${t("tictactoe:theMatchTaken.part2")}\n${t("tictactoe-match:theWinnerWas")} ${MATCH.winner === 3 ? t("tictactoe-match:noOne") : MATCH.winner === 1 ? MATCH.p1.tag : MATCH.p2.tag}.`);
+	zEmbed.addField(`${t("tictactoe-match:movimentsOf")} ${MATCH.p1.tag}`, MATCH.p1.moves.join(", "));
+	zEmbed.addField(`${t("tictactoe-match:movimentsOf")} ${MATCH.p2.tag}`, MATCH.p2.moves.join(", "));
 
 	if (MATCH.watchers !== 0) {
-		EMBED.setFooter(`${t("tictactoe:theMatchTaken.part3")} ${MATCH.watchers} ${t("tictactoe:theMatchTaken.part4")}`);
+		zEmbed.setFooter(`${t("tictactoe:theMatchTaken.part3")} ${MATCH.watchers} ${t("tictactoe:theMatchTaken.part4")}`);
 	}
 
-	message.channel.send(EMBED);
+	zSend(zEmbed);
 };

@@ -1,27 +1,26 @@
 const { guildLanguage } = require("../local_storage"),
-{ LANGUAGE_UTILS, STORAGE_UTILS, MESSAGE_UTILS } = require("../Utils"),
+{ LANGUAGE_UTILS, STORAGE_UTILS } = require("../Utils"),
 LANGUAGE_LIST = LANGUAGE_UTILS.getLanguages(),
 LANGUAGE_LIST_LITERAL = Object.keys(LANGUAGE_LIST).join(", ");
 
-exports.run = (bot, message, args, t) => {
-	const ZeroEmbed = MESSAGE_UTILS.zerinhoEmbed(message.member);
+exports.run = (bot, message, args, t, zSend, zEmbed) => {
 
 	if (!args[0]) {
-		ZeroEmbed.addField(t("set-language:languageList"), LANGUAGE_LIST_LITERAL);
-		message.channel.send(ZeroEmbed);
+		zEmbed.addField(t("set-language:languageList"), LANGUAGE_LIST_LITERAL);
+		zSend(zEmbed);
 		return;
 	}
 
 	if (!Object.keys(LANGUAGE_LIST).includes(args[0])) {
-		ZeroEmbed.setDescription(LANGUAGE_LIST_LITERAL);
-		message.channel.send(t("set-language:languageNotExist"));
-		message.channel.send(ZeroEmbed);
+		zEmbed.setDescription(LANGUAGE_LIST_LITERAL);
+		zSend("set-language:languageNotExist", true);
+		zSend(zEmbed);
 		return;
 	}
 
 	if (guildLanguage[message.guild.id]) {
 		if (args[0] === guildLanguage[message.guild.id].language) {
-			message.channel.send(t("set-language:languageIsDefault"));
+			zSend("set-language:languageIsDefault", true);
 			return;
 		}
 
@@ -35,10 +34,8 @@ exports.run = (bot, message, args, t) => {
 
 	let result = STORAGE_UTILS.write("./local_storage/guild_language.json", guildLanguage);
 	if (result) {
-		message.channel.send(t("set-language:languageDone"));
-		return;
+		zSend("set-language:languageDone", true);
 	} else {
-		message.channel.send(t("set-language:languageError"));
-		return;
+		zSend("set-language:languageError", true);
 	}
 };

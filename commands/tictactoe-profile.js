@@ -1,11 +1,10 @@
-const { MESSAGE_UTILS } = require("../Utils"),
-{ tictactoeProfiles } = require("../local_storage");
-exports.run = (bot, message, args, t) => {
+const { tictactoeProfiles } = require("../local_storage");
+exports.run = (bot, message, args, t, zSend, zEmbed) => {
 	let user = null;
 
 	if (message.mentions.users.first()) {
 		if (!tictactoeProfiles[message.mentions.users.first().id]) {
-			message.channel.send(t("tictactoe-profile:userNotFound"));
+			zSend("tictactoe-profile:userNotFound", true);
 			return;
 		}
 
@@ -14,21 +13,20 @@ exports.run = (bot, message, args, t) => {
 
 	if (user === null) {
 		if (isNaN(args[0])) {
-			message.channel.send(t("tictactoe-profile:argsNotNumber"));
+			zSend("tictactoe-profile:argsNotNumber", true);
 			return;
 		}
 
 		if(!tictactoeProfiles[args[0]]) {
-			message.channel.send(t("tictactoe-profile:userNotFound"));
+			zSend("tictactoe-profile:userNotFound", true);
 			return;
 		}
 
 		user = tictactoeProfiles[args[0]];
 	}
-	const ZeroEmbed = MESSAGE_UTILS.zerinhoEmbed(message.member);
 
-	ZeroEmbed.setTitle(`${t("tictactoe-profile:profileOf")} ${user.tag}`);
-	ZeroEmbed.setDescription(`**${t("tictactoe-profile:wins")}**: ${user.wins}\n**${t("tictactoe-profile:loses")}**: ${user.loses}\n**${t("tictactoe-profile:draws")}**: ${user.draws}\n**${t("tictactoe-profile:matchs")}**: ${user.matchs}`);
+	zEmbed.setTitle(`${t("tictactoe-profile:profileOf")} ${user.tag}`);
+	zEmbed.setDescription(`**${t("tictactoe-profile:wins")}**: ${user.wins}\n**${t("tictactoe-profile:loses")}**: ${user.loses}\n**${t("tictactoe-profile:draws")}**: ${user.draws}\n**${t("tictactoe-profile:matchs")}**: ${user.matchs}`);
 
-	message.channel.send(ZeroEmbed);
+	zSend(zEmbed);
 };
