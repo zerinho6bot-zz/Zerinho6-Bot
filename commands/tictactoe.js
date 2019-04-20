@@ -176,7 +176,7 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 	zEmbed.setDescription(GAME.description);
 	zEmbed.setFooter(t("tictactoe:watchingAd"));
 	//Again, we can't use zSend here because zSend doesn't return the message.
-	const MSG = await message.channel.send(EMBED);
+	const MSG = await message.channel.send(zEmbed);
 
 	if (message.member.nickname.toLowerCase().includes("zerinho6")) {
 		GAME.zerinho = true;
