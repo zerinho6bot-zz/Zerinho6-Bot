@@ -6,7 +6,7 @@ function renderCommands() {
 	return `\`${COMMAND_LIST.join("`, `")}\``;
 }
 
-exports.run = (bot, message, args, t, zSend, zEmbed) => {
+exports.run = ({ args, t, zSend, zEmbed }) => {
 	const ArgsLower = args[0] ? args[0].toLowerCase() : "";
 
 	function renderArguments(command) {

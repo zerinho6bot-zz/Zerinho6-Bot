@@ -3,7 +3,7 @@ const EMOJIS = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣', 
 MATCH_ID = Date.now().toString(36),
 { tictactoeMatchs, tictactoeProfiles } = require("../local_storage");
 
-exports.run = async function(bot, message, args, t, zSend, zEmbed) {
+exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 	class TicTacToe {
 		constructor(p1,p2) {
 			this.player1 = {

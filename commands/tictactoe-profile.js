@@ -1,5 +1,5 @@
 const { tictactoeProfiles } = require("../local_storage");
-exports.run = (bot, message, args, t, zSend, zEmbed) => {
+exports.run = ({ message, args, t, zSend, zEmbed }) => {
 	let user = null;
 
 	if (message.mentions.users.first()) {

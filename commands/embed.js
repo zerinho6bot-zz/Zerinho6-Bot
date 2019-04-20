@@ -3,7 +3,7 @@ const REGEX = /(.*?)\s\|\s(.*)/;
 function reachedLimit(name, value) {
 	return name > 256 || value > 1024;
 }
-exports.run = (bot, message, args, t, zSend, zEmbed) => {
+exports.run = ({ message, zSend, zEmbed }) => {
 	const FULL_ARGUMENT = message.content.split(" ").slice(1).join(" "),
 	MATCH = FULL_ARGUMENT.match(REGEX);
 
