@@ -18,27 +18,28 @@ exports.run = function (message) {
 	}
 	
 	const { guildLanguage } = require("./local_storage"),
-	setUpT = new LANGUAGE_UTILS.SetUpT(),
-	setT = setUpT.setT(guildLanguage[message.guild.id] ? guildLanguage[message.guild.id].language : process.env.LANGUAGE),
-	t = setUpT.t,
-	permissionStr = COMMAND_UTILS.checkCommandPermissions(message, commandName, t.bind(setUpT)),
-	userCD = MESSAGE_UTILS.applyCooldown(message.author.id);
+	SetUpT = new LANGUAGE_UTILS.SetUpT(),
+	setT = SetUpT.setT(guildLanguage[message.guild.id] ? guildLanguage[message.guild.id].language : process.env.LANGUAGE),
+	T = SetUpT.t,
+	PermissionStr = COMMAND_UTILS.checkCommandPermissions(message, commandName, T.bind(SetUpT)),
+	UserCD = MESSAGE_UTILS.applyCooldown(message.author.id),
+	Zsend = MESSAGE_UTILS.zerinhoConfigSend(message, T.bind(SetUpT));
 
-	if (userCD > 0) {
-		if (userCD === 4) {
-			message.reply(`${setUpT.t("utils:cooldownWarning")} ${process.env.COOLDOWN/1000} ${setUpT.t("utils:seconds")}`);
+	if (UserCD > 0) {
+		if (UserCD === 4) {
+			Zsend(`${SetUpT.t("utils:cooldownWarning")} ${process.env.COOLDOWN/1000} ${SetUpT.t("utils:seconds")}`);
 		}
 		return;
 	}
 
 	if (!message.channel.permissionsFor(this.user.id).has("EMBED_LINKS")) {
-		message.channel.send(t("utils:needEmbedLinks"));
+		Zsend("utils:needEmbedLinks", true);
 		return;
 	}
 	
-	if (!permissionStr.length > 0) {
-		COMMAND_UTILS.getCommandRequirer(commandName).run(this, message, args.slice(1), t.bind(setUpT));
+	if (!PermissionStr.length > 0) {
+		COMMAND_UTILS.getCommandRequirer(commandName).run(this, message, args.slice(1), T.bind(SetUpT), Zsend, MESSAGE_UTILS.zerinhoEmbed(message.member));
 	} else {
-		message.reply(permissionStr);
+		Zsend(PermissionStr);
 	}
 };
