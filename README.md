@@ -6,7 +6,7 @@
 <p align="center">  
   <img src="https://api.codacy.com/project/badge/Grade/6b171d4f87074da686cb6b96639b139b">
   <a href="https://discordapp.com/oauth2/authorize?client_id=332968532096843776&scope=bot&permissions=379968" target="_blank"><img
-    src="https://img.shields.io/badge/invite-to%20your%20Discord%20server-7289da.svg?style=flat-square&logo=discord" alt "Invite Switchblade"></a>
+    src="https://img.shields.io/badge/invite-to%20your%20Discord%20server-7289da.svg?style=flat-square&logo=discord" alt="Invite Zerinho6 Bot"></a>
   <a title="Dependencies" target="_blank" href="https://david-dm.org/zerinho6/Zerinho6-Beta/"><img src="https://david-dm.org/zerinho6/Zerinho6-Beta.svg?style=flat-square"></a>
   <img src="https://img.shields.io/badge/library-discord.js-blue.svg?style=flat-square" alt="Library">
   
@@ -58,7 +58,7 @@ You wanna translate you bot to you not-yet-translated language? [There's a topic
 
 **[The whole Switchblade Team](https://github.com/orgs/SwitchbladeBot/people)**: A lot of things on Zerinho6 Bot was inspired on [SwitchBlade Bot](https://github.com/SwitchbladeBot/switchblade).
 
-**[Fernando](https://github.com/fernando4578)**: Helped as much as nirewen giving a lot of help with some function not working, what is cool on code and what isn't, it also helped on the last version of Zerinho6 Bot.
+**[Fernando](https://github.com/fernando457829)**: Helped as much as nirewen giving a lot of help with some function not working, what is cool on code and what isn't, it also helped on the last version of Zerinho6 Bot.
 
 **[Acnologia](https://github.com/Acnologla)**: That's being repetitive but thanks is always needed, the same as Nirewen and Fernando, i would made Zerinho6 Bot TicTacToe based on a version that he made.
 
