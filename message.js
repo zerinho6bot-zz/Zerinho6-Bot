@@ -23,6 +23,7 @@ exports.run = function (message) {
 	T = SetUpT.t,
 	PermissionStr = COMMAND_UTILS.checkCommandPermissions(message, commandName, T.bind(SetUpT)),
 	UserCD = MESSAGE_UTILS.applyCooldown(message.author.id),
+	zEmbed = MESSAGE_UTILS.zerinhoEmbed(message.member),
 	zSend = MESSAGE_UTILS.zerinhoConfigSend(message, T.bind(SetUpT));
 
 	if (UserCD > 0) {
