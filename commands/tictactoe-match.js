@@ -14,7 +14,7 @@ function draw(map) {
 
 	return mapS;
 }
-exports.run = (bot, message, args, t, zSend, zEmbed) => {
+exports.run = ({ args, t, zSend, zEmbed }) => {
 	
 	if (!tictactoeMatchs[args[0]]) {
 		zSend("tictactoe-match:matchNotFound", true);

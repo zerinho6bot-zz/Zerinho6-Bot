@@ -1,7 +1,7 @@
 const { USER_UTILS } = require("../Utils"),
 REGEX = /<@\!?(.*)\>/;
 
-exports.run = async (bot, message, args, t, zSend, zEmbed) => {
+exports.run = async ({ bot, args, t, zSend, zEmbed }) => {
 	const MATCHED_REGEX = args[0].match(REGEX);
 
 	if (MATCHED_REGEX === null) {

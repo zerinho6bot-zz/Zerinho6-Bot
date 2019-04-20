@@ -3,7 +3,7 @@ const { guildLanguage } = require("../local_storage"),
 LANGUAGE_LIST = LANGUAGE_UTILS.getLanguages(),
 LANGUAGE_LIST_LITERAL = Object.keys(LANGUAGE_LIST).join(", ");
 
-exports.run = (bot, message, args, t, zSend, zEmbed) => {
+exports.run = ({ message, args, t, zSend, zEmbed }) => {
 
 	if (!args[0]) {
 		zEmbed.addField(t("set-language:languageList"), LANGUAGE_LIST_LITERAL);
