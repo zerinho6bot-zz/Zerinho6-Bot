@@ -11,5 +11,6 @@ module.exports = {
 	embed: require("./commands/embed.js"),
 	"bot-invite": require("./commands/bot-invite.js"),
 	eval: require("./commands/eval.js"),
-	stoptyping: require("./commands/stoptyping.js")
+	stoptyping: require("./commands/stoptyping.js"),
+	userinfo: require("./commands/userinfo.js")
 };
