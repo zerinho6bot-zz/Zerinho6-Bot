@@ -210,5 +210,13 @@
 	},
 	"stoptyping": {
 		"CANYOUSTOPTYPINGHOLYSHIT": "Trying to stop typing..:no_mouth:"
+	},
+	"userinfo": {
+		"tag": "Tag",
+		"accountCreatedIn": "Account created in",
+		"hexColor": "Color Hex",
+		"roleAmount": "Role Amount",
+		"noRole": "That user doesn't have any roles! Patetic!",
+		"joinedAt": "Joined At"
 	}
 }

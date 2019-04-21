@@ -210,5 +210,13 @@
 	},
 	"stoptyping": {
 		"CANYOUSTOPTYPINGHOLYSHIT": "Tentando parar de digitar...:no_mouth:"
+	},
+	"userinfo": {
+		"tag": "Tag",
+		"accountCreatedIn": "Conta criada em",
+		"hexColor": "Cor Hex",
+		"roleAmount": "Quantidade de cargos",
+		"noRole": "Esse usuário não tem nenhum cargo! Patetico!",
+		"joinedAt": "Entrou em"
 	}
 }
