@@ -12,5 +12,7 @@ module.exports = {
 	"bot-invite": require("./commands/bot-invite.js"),
 	eval: require("./commands/eval.js"),
 	stoptyping: require("./commands/stoptyping.js"),
-	userinfo: require("./commands/userinfo.js")
+	userinfo: require("./commands/userinfo.js"),
+	serverinfo: require("./commands/serverinfo.js"),
+	render: require("./commands/render.js")
 };
