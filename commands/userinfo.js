@@ -9,9 +9,9 @@ exports.run = async ({ bot, args, message, t, zSend, zEmbed }) => {
 		user = SearchedUser === null ? user : SearchedUser;
 	}
 
-	zEmbed.addField(t("userinfo:tag"), user.username + user.discriminator);
-	zEmbed.addField(t("help:id"), user.id);
-	zEmbed.addField(t("userinfo:accountCreatedIn"), Moment(user.createdAt).format("LL"));
+	zEmbed.addField(t("userinfo:tag"), user.username + user.discriminator, true);
+	zEmbed.addField(t("help:id"), user.id, true);
+	zEmbed.addField(t("userinfo:accountCreatedIn"), Moment(user.createdAt).format("LL"), true);
 
 	const member = message.guild.member(user);
 	if (member !== null) {

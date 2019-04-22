@@ -26,6 +26,7 @@
 		"server": "servidor",
 		"mention": "menção",
 		"characters": "Caracteres",
+		"messageLink": "Message Link",
 		"barSeparation": "Separação por barra",
 		"image": "Imagem",
 		"matchCode": "Codigo da Partida",
@@ -140,6 +141,44 @@
 				"actualDescription": "Execute a sua mensagem."
 			},
 			"image": "https://cdn.discordapp.com/attachments/499671331021914132/568844436444938243/unknown.png"
+		},
+		"render": {
+			"description": {
+				"argumentOptions": {
+					"messageLink": "Renderiza a mensagem pelo link."
+				},
+				"actualDescription": "Renderize uma mensagem de qualquer lugar em que o Bot também possa ver."
+			},
+			"image": "https://cdn.discordapp.com/attachments/490329576300609538/569857599613304833/unknown.png"
+		},
+		"serverinfo": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Mostra varias informações do servidor."
+				},
+				"actualDescription": "Mostra informações do servidor em que o comando foi executado."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/569859186641469460/unknown.png"
+		},
+		"userinfo": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Mostra informações sobre você.",
+					"id": "Mostra informações de um usuário pelo ID.",
+					"mention": "Mostra informações do usuário mencionado."
+				},
+				"actualDescription": "Veja as suas informações de usuário ou as de outra pessoa."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/569859967813681182/unknown.png"
+		},
+		"stoptyping": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Tento calar a boca."
+				},
+				"actualDescription": "Faça o bot para de digitar caso ele não tenha parado ate agora."
+			},
+			"image": "https://cdn.discordapp.com/attachments/490329576300609538/569860429317144582/unknown.png"
 		}
 	},
 	"set-language": {
@@ -218,5 +257,28 @@
 		"roleAmount": "Quantidade de cargos",
 		"noRole": "Esse usuário não tem nenhum cargo! Patetico!",
 		"joinedAt": "Entrou em"
+	},
+	"serverinfo": {
+		"guildName": "Nome do servidor",
+		"memberCount": "Quantidade de membros",
+		"guildOwner": "Dono do servidor",
+		"guildRegion": "Região do servidor",
+		"guildID": "ID do servidor",
+		"guildCreatedAt": "Servidor criado em",
+		"roleAmount": "Quantidade de cargos",
+		"verificationLevel": "Nivel de verificação",
+		"thisGuildIsVerified": "Esse servidor é verificado!",
+		"unrestricted": "Inrrestrito",
+		"needEmail": "É necessário que sua conta tenha um e-mail verificado.",
+		"waitFiveMinutesOnDiscord": "É necessário que você tenha usado o Discord por pelo menos 5 minutos.",
+		"waitTenMinutesOnTheServer": "É necessário que você esteja no servidor por 10 minutos.",
+		"heyYouGuysDontHavePhones": "É necessário que sua conta tenha um número de telefone verificado."
+	},
+	"render": {
+		"wrongFormat": "Formato incorreto, o link tem que ser igual a esse ``https://discordapp.com/channels/298518634765221890/298518634765221890/569720426604003359``",
+		"incorrectID": "Os IDs da mensagem então incorretos.",
+		"messageNotFound": "Não consegui encontrar essa mensagem, talvez eu não esteja no servidor ou não possa ver o canal.",
+		"tryingToMoveAMessageFromNsfwToNotNsfw": "Você está tentando renderizar uma mensagem de um canal nsfw para um não nsfw.",
+		"sentBy": "Enviado por"
 	}
 }

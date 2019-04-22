@@ -26,6 +26,7 @@
 		"server": "server",
 		"mention": "@mention",
 		"characters": "Characteres",
+		"messageLink": "Message Link",
 		"barSeparation": "Bar Separation",
 		"image": "Imagem",
 		"matchCode": "Match Code",
@@ -140,6 +141,44 @@
 				"actualDescription": "Execute your message."
 			},
 			"image": "https://cdn.discordapp.com/attachments/499671331021914132/568844545924792371/unknown.png"
+		},
+		"render": {
+			"description": {
+				"argumentOptions": {
+					"messageLink": "Renders the message link."
+				},
+				"actualDescription": "Render any message that the bot can see."
+			},
+			"image": "https://cdn.discordapp.com/attachments/490329576300609538/569857599613304833/unknown.png"
+		},
+		"serverinfo": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Shows the actual guild informations."
+				},
+				"actualDescription": "Shows lots of informations about the actual guild."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/569859076381605889/unknown.png"
+		},
+		"userinfo": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Shows informations about you.",
+					"id": "Shows informations about the user from the sent ID.",
+					"mention": "Shows informations about the mentioned user."
+				},
+				"actualDescription": "Get informations about you or another user."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/569860076173525003/unknown.png"
+		},
+		"stoptyping": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "I try to shut up."
+				},
+				"actualDescription": "Make me shut up if I'm still typing."
+			},
+			"image": "https://cdn.discordapp.com/attachments/490329576300609538/569860429317144582/unknown.png"
 		}
 	},
 	"set-language": {
@@ -218,5 +257,28 @@
 		"roleAmount": "Role Amount",
 		"noRole": "That user doesn't have any roles! Patetic!",
 		"joinedAt": "Joined At"
+	},
+	"serverinfo": {
+		"guildName": "Guild Name",
+		"memberCount": "Member Count",
+		"guildOwner": "Guild Owner",
+		"guildRegion": "Guild Region",
+		"guildID": "Guild ID",
+		"guildCreatedAt": "Guild CreatedAt",
+		"roleAmount": "Role Amount",
+		"verificationLevel": "Verification Level",
+		"thisGuildIsVerified": "This guild is verified! Nice!",
+		"unrestricted": "Unrestricted",
+		"needEmail": "It's necessary that your account have a verified e-mail.",
+		"waitFiveMinutesOnDiscord": "It's necessary that you're using Discord for 5 minutes.",
+		"waitTenMinutesOnTheServer": "It's necessary that you're on the Server for 10 minutes.",
+		"heyYouGuysDontHavePhones": "'You guys have phones Right?' It's necessary that you account have a phone number."
+	},
+	"render": {
+		"wrongFormat": "Incorrect format, it should be like this ``https://discordapp.com/channels/298518634765221890/298518634765221890/569720426604003359``",
+		"incorrectID": "The IDs of that message link are incorrect.",
+		"messageNotFound": "I couldn't find that message, maybe I'm not on the server or i can't see the channel.",
+		"tryingToMoveAMessageFromNsfwToNotNsfw": "You're trying to render a message from a nsfw in a not nsfw channel.",
+		"sentBy": "Sent by"
 	}
 }
