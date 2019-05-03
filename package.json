@@ -22,7 +22,6 @@
     "discord.js": "git+https://github.com/discordjs/discord.js.git#master",
     "dotenv": "^7.0.0",
     "fs": "0.0.1-security",
-    "google": "^2.1.0",
     "moment": "^2.23.0",
     "npm": "^6.6.0"
   }
