@@ -1,4 +1,9 @@
 {
+	"updates": {
+		"version": "Changelog - Versão",
+		"ver": "1.1",
+		"changelog": "Na ultima atualização, nós adicionamos vários meios de costumização para os desenvolvedores do bot, caso você esteja interessado, aqui está o github original: https://github.com/zerinho6bot/Zerinho6-Bot\n-Concertado um bug no qual todos os movimentos no embed de resultados da partida no tictactoe estavam um a menos(Não se aplica a partidas antigas)."
+	},
 	"please": {
 		"prefixLiteral": "Prefix",
 		"CPW": "Exemplo de uso de comando:",
@@ -10,16 +15,50 @@
 		"seconds": "segundos",
 		"commandUtils": {
 			"onlyOwner": "Esse comando só é disponivel para o dono do bot.",
-			"needArg": "Esse comando requer argumento.",
-			"needAttch": "Você precisa usar o comando com algum arquivo junto como imagem.",
-			"needMention": "Você precisa mencionar alguém como argumento no comando.",
+			"guildOwner": "Apenas o dono do servidor pode utilizar esse comando.",
+			"needArg": {
+				"default": "Esse comando requer argumento.",
+				"thisCommandNeeds": "Esse comando requer",
+				"arguments": "argumentos",
+				"andYourMessageOnlyHave": "e a sua mensagem só tem"
+			},
+			"needAttch": {
+				"default": "Você precisa usar esse comando enviando",
+				"attachment": "arquivo(ex: Imagem).",
+				"attachments": "arquivos(ex: Imagens)."
+			},
+			"needMention": {
+				"needToMention": "Você precisa mencionar",
+				"someone": "alguém",
+				"users": "usuários",
+				"inOrderTo": "para que esse comando funcione."
+			},
 			"userNeed": {
 				"part1": "Você precisa da permissão de",
 				"part2": "para usar esse comando."
+			},
+			"specificNeeds": {
+				"specificAuthor": {
+					"pluralReturn": "Apenas um usuário com um desses IDs pode usar esse comando:",
+					"defaultReturn": "Apenas um usuário com esse ID pode usar esse comando:"
+				},
+				"specificGuild": {
+					"pluralReturn": "Você só pode executar esse comando em um servidor com um desses IDs:",
+					"defaultReturn": "Você só pode executar esse comando em um servidor com esse ID:"
+				},
+				"specificChannel": {
+					"pluralReturn": "Você só pode executar esse comando em um canal com um desses IDs:",
+					"defaultReturn": "Você só pode executar esse comando em um canal com esse ID:"
+				},
+				"specificRole": {
+					"defaultReturn": "Apenas um usuário com um cargo com o seguinte ID pode usar esse comando:",
+					"nameReturn": "Apenas um usuário com um cargo com o seguinte nome pode usar esse comando:"
+				}
 			}
 		}
 	},
 	"help": {
+		"exclusiveCommandsWarning": "Por causa de uma atualização, você só pode ver os comando que você pode executar, se você deixou de conseguir ver algum comando na lista de ajuda, foi porque você não tem a permissão para executar ele, o comando de set-langua requer a permissão de ``gerenciar servidor`` por exemplo.",
 		"commands": "Comandos",
 		"commandList": "Lista de comandos",
 		"argumentOptions": "Opções de Argumento:",

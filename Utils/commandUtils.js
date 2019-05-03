@@ -1,6 +1,14 @@
-const fs = require("fs"),
-{ commandNeeds } = require("../local_storage"),
-Commands = fs.readdirSync("./commands").map((v) => v.replace(/.js/gi , "").toLowerCase());
+const Fs = require("fs"),
+{ commandNeeds, commandAvailables } = require("../local_storage"),
+Commands = Fs.readdirSync("./commands").map((v) => v.replace(/.js/gi , "").toLowerCase());
+
+function setIsType(options){
+	this.options = options;
+	return function isType(key, type) {
+		return typeof this.options[key] === type;
+	}
+	return typeof options[key] === type;
+}
 
 module.exports = {
 	/*
@@ -16,29 +24,81 @@ module.exports = {
 			return "";
 		}
 
-		let commandPerms = commandNeeds[command].options;
+		const CommandPerms = commandNeeds[command].options,
+		Args = message.content.split(" ").slice(1),
+		IsType = setIsType(CommandPerms);
 
-		if (commandPerms.onlyOwner && message.author.id !== process.env.OWNER) {
+		if (CommandPerms.onlyOwner && message.author.id !== process.env.OWNER) {
 			return t("utils:commandUtils.onlyOwner");
 		}
 
-		if (commandPerms.needArg && message.content.split(" ").length === 1) {
-			return t("utils:commandUtils.needArg");
+		if (CommandPerms.specificAuthor) {
+			if (IsType("specificAuthor", "object") && !CommandPerms.specificAuthor.includes(message.author.id)) {
+				return `${t("utils:commandUtils.specificNeeds.specificAuthor.pluralReturn")} ${CommandPerms.specificAuthor.join(", ")}`;
+			} else if (message.author.id !== CommandPerms.specificAuthor) {
+				return `${t("utils:commandUtils.specificNeeds.specificAuthor.defaultReturn")} ${CommandPerms.specificAuthor}`;
+			}
 		}
 
-		if (commandPerms.needAttch && !message.attachments.size >= 1) {
-			return t("utils:commandUtils.needAttch");
+		if (CommandPerms.specificGuild) {
+			if (IsType("specificGuild", "object") && !CommandPerms.specificGuild.includes(message.guild.id)) {
+				return `${t("utils:commandUtils.specificNeeds.specificGuild.pluralReturn")} ${CommandPerms.specificGuild.join(", ")}`;
+			} else if (message.guild.id !== CommandPerms.specificGuild) {
+				return `${t("utils:commandUtils.specificNeeds.specificGuild.defaultReturn")} ${CommandPerms.specificGuild}`;
+			}
+		}
+
+		if (CommandPerms.specificChannel) {
+
+			if (IsType("specificChannel", "object") && !CommandPerms.specificChannel.includes(message.channel.id)) {
+				return `${t("utils:commandUtils.specificNeeds.specificChannel.pluralReturn")} ${CommandPerms.specificChannel.join(", ")}`;
+			} else if (message.channel.id !== CommandPerms.specificChannel) {
+				return `${t("utils:commandUtils.specificNeeds.specificChannel.defaultReturn")} ${CommandPerms.specificChannel}`;
+			}
+		}
+		//
+		if (CommandPerms.specificRole) {
+			const Roles = message.member.roles;
+
+			if (isNaN(CommandPerms.specificRole) && !Roles.find(r => r.name.toLowerCase() === CommandPerms.specificRole)){
+				return `${t("utils:commandUtils.specificNeeds.specificRole.nameReturn")} ${CommandPerms.specificRole}`;
+			} else if (!Roles.has(CommandPerms.specificRole)) {
+				return `${t("utils:commandUtils.specificNeeds.specificRole.defaultReturn")} ${CommandPerms.specificRole}`;
+			}
+		}
+
+		if (CommandPerms.needArg) {
+			if (IsType("needArg", "number") && CommandPerms.needArg > Args.length) {
+				return `${t("utils:commandUtils.needArg.thisCommandNeeds")} **${CommandPerms.needArg}** ${t("utils:commandUtils.needArg.arguments")} ${t("utils:commandUtils.needArg.andYourMessageOnlyHave")} **${Args.length}** ${t("utils:commandUtils.needArg.arguments")}`;
+			} else if (!Args.length >= 1) {
+				return t("utils:commandUtils.needArg");
+			}
+		}
+
+		if (CommandPerms.needAttch) {
+			if (IsType("needAttch", "number") && !message.attachments.size >= CommandPerms.needAttch) {
+				return `${t("utils:commandUtils.needAttch.default")} ${CommandPerms.needAttch} ${t("utils:commandUtils.needAttch.attachments")}`;
+			} else if (!message.attachments.size >= 1) {
+				return `${t("utils:commandUtils.needAttch.default")} 1 ${t("utils:commandUtils.needAttch.attachment")}`;
+			}
 		}
 		
-		if (commandPerms.needMention && !message.mentions.users.first()) {
-			console.log("Returning need mention");
-			return t("utils:commandUtils.needMention");
+		if (CommandPerms.needMention) {
+			if (IsType("needMention", "number") && !message.mentions.users >= CommandPerms.needMention) {
+				return `${t("utils:commandUtils.needMention.needToMention")} ${CommandPerms.needMention} ${t("utils:commandUtils.needMention.users")} ${t("utils:commandUtils.needMention.inOrderTo")}`;
+			} else if (!message.mentions.users.first()) {
+				return `${t("utils:commandUtils.needMention.needToMention")} ${t("utils:commandUtils.needMention.users")} ${t("utils:commandUtils.needMention.inOrderTo")}`;
+			}
 		}
 
-		if (commandPerms.userNeed) {
-			if (!message.channel.permissionsFor(message.author.id).has(commandPerms.userNeed)) {
-				return `${t("utils:commandUtils.userNeed.part1")} ${commandPerms.userNeed} ${t("utils:commandUtils.userNeed.part2")}`;
+		if (CommandPerms.userNeed) {
+			if (!message.channel.permissionsFor(message.author.id).has(CommandPerms.userNeed)) {
+				return `${t("utils:commandUtils.userNeed.part1")} ${CommandPerms.userNeed} ${t("utils:commandUtils.userNeed.part2")}`;
 			}
+		}
+
+		if (CommandPerms.guildOwner && message.author.id !== message.guild.owner.user.id) {
+			return t("utils:commandUtils.guildOwner");
 		}
 
 		return "";
@@ -60,5 +120,48 @@ module.exports = {
 		let requires = require("../requires.js");
 
 		return requires[command];
+	},
+	getAvailableCommandsForUser(message) {
+		let commands = commandAvailables.all.join(", ");
+		const Keys = Object.keys(commandAvailables);
+
+		for (let i = 1; i < Keys.length; i++) {
+			const Elem = Keys[i];
+
+			if (Elem === "owner" && message.author.id !== process.env.OWNER) {
+				continue;
+			}
+
+			if (Elem.startsWith("p.") && !message.channel.permissionsFor(message.author.id).has(Elem.replace("p.", ""))) {
+				continue;
+			}
+
+			const RoleVerify = Elem.startsWith("r.") ? Elem.replace("r.", "") : null;
+
+			if (RoleVerify !== null) {
+				const Roles = message.member.roles;
+
+				if (isNaN(RoleVerify) && !Roles.find(r => r.name.toLowerCase() === RoleVerify)) {
+					continue;
+				} else if (!Roles.has(RoleVerify)) {
+					continue;
+				}
+			}
+
+			if (Elem.startsWith("c.") && message.channel.id !== Elem.replace("c.", "")) {
+				continue;
+			}
+
+			if (Elem.startsWith("g.") && message.guild.id !== Elem.replace("g.", "")) {
+				continue;
+			}
+
+			if (Elem.startsWith("a.") && message.author.id !== Elem.replace("a.", "")) {
+				continue;
+			}
+			commands += ", " + commandAvailables[Elem].join(", ");
+		}
+
+		return commands;
 	}
 };

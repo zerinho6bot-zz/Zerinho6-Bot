@@ -1,4 +1,9 @@
 {
+	"updates": {
+		"version": "Updates Log - Version",
+		"ver": "1.1",
+		"changelog": "On the newest update we added a lot of costumization code-side for the bot, you can check the original github here: https://github.com/zerinho6bot/Zerinho6-Bot\n-Fixed bug where the moves of tictactoe on result embed where all -1(Not fixed for old matchs)."
+	},
 	"please": {
 		"prefixLiteral": "Prefix",
 		"CPW": "Command usage example:",
@@ -10,16 +15,50 @@
 		"seconds": "seconds.",
 		"commandUtils": {
 			"onlyOwner": "This command is only for the bot owner.",
-			"needArg": "This command need argument.",
-			"needAttch": "You need to use the command with a attachment.",
-			"needMention": "You also need to mention someone.",
+			"guildOwner": "Only the guild owner can use this command.",
+			"needArg": {
+				"default": "This command requires a argument.",
+				"thisCommandNeeds": "This command requires",
+				"arguments": "arguments",
+				"andYourMessageOnlyHave": "and your message only have"
+			},
+			"needAttch": {
+				"default": "You need to use the command with",
+				"attachment": "attachment(ex: Image).",
+				"attachments": "attachments(ex: Images)."
+			},
+			"needMention": {
+				"needToMention": "You need to mention",
+				"someone": "someone",
+				"users": "users",
+				"inOrderTo": "in order for this command to work."
+			},
 			"userNeed": {
 				"part1": "You need",
 				"part2": "permission to use that command."
+			},
+			"specificNeeds": {
+				"specificAuthor": {
+					"pluralReturn": "Only users with those IDs can use that command:",
+					"defaultReturn": "Only a user with the follow id can use that command:"
+				},
+				"specificGuild": {
+					"pluralReturn": "You can execute this command only in one of Guilds of those IDs:",
+					"defaultReturn": "You can execute this command only on the Guild with the follow ID:"
+				},
+				"specificChannel": {
+					"pluralReturn": "You can only execute this command on channels with those IDs:",
+					"defaultReturn": "You can only execute this command in a channel with the follow ID:"
+				},
+				"specificRole": {
+					"defaultReturn": "Only a member with a role with the follow ID can use this command:",
+					"nameReturn": "You need a role with the follow name to use that command:"
+				}
 			}
 		}
 	},
 	"help": {
+		"exclusiveCommandsWarning": "Because of a update now you can only see the commands that you have permission to execute, for example: you need MANAGE_GUILD to be able to see set-language on the commands list and there's also specific Guild, Author, Channel, User or even Role related that can make possible to see/acess specific commads.",
 		"commands": "Commands",
 		"commandList": "Command List",
 		"argumentOptions": "Argument Options:",
@@ -28,7 +67,7 @@
 		"characters": "Characteres",
 		"messageLink": "Message Link",
 		"barSeparation": "Bar Separation",
-		"image": "Imagem",
+		"image": "Image",
 		"matchCode": "Match Code",
 		"nothing": "nothing",
 		"language": "language",

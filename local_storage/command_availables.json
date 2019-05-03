@@ -1,0 +1,9 @@
+{
+	"all": [
+		"tictactoe", "tictactoe-match", "tictactoe-profile",
+		"help", "avatar", "bot-invite", "embed", "ping", "ram",
+		"render", "serverinfo", "stoptyping", "userinfo" 
+	],
+	"p.MANAGE_GUILD": ["set-language"],
+	"owner": ["eval"]
+}

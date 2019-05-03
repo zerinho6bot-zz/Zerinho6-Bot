@@ -85,7 +85,7 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 
 			let turnEqualsX = this.turn === this.x;
 
-			turnEqualsX? this.player1.moves = this.player1.moves.concat(house) : this.player2.moves = this.player2.moves.concat(house);
+			turnEqualsX? this.player1.moves = this.player1.moves.concat(house + 1) : this.player2.moves = this.player2.moves.concat(house + 1);
 			this.map[house] = turnEqualsX ? 1 : 2;
 			this.turn = turnEqualsX ? this.o : this.x;
 			this.description = `${turnEqualsX ? this.player1.emoji : this.player2.emoji} ${t("tictactoe:turn")} (${this.turn === this.x ? this.player1.tag : this.player2.tag}).\n\n${this.draw()}`;
@@ -118,13 +118,11 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 				}
 
 				const actualPlayer = tictactoeProfiles[player.id];
-
 				actualPlayer.tag = player.tag;
 				actualPlayer.matchs++;
-				actualPlayer.wins = this.winner === i+1 ? actualPlayer.wins + 1 : actualPlayer.wins;
-				actualPlayer.loses = this.winner !== i+1 ? actualPlayer.loses + 1 : actualPlayer.loses;
+				actualPlayer.wins = this.winner === i + 1 ? actualPlayer.wins + 1 : actualPlayer.wins;
+				actualPlayer.loses = this.winner !== i + 1 ? actualPlayer.loses + 1 : actualPlayer.loses;
 				actualPlayer.draws = this.winner === 3 ? actualPlayer.draws + 1 : actualPlayer.draws;
-
 				STORAGE_UTILS.write("./local_storage/tictactoe-profiles.json", tictactoeProfiles);
 			}
 		}
@@ -146,7 +144,6 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 			};
 
 			const MATCH = tictactoeMatchs[MATCH_ID];
-
 			MATCH.time = time;
 			MATCH.map = this.map;
 			MATCH.watchers = this.watchers;
@@ -155,7 +152,6 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 			MATCH.p1.tag = this.player1.tag;
 			MATCH.p2.tag = this.player2.tag;
 			MATCH.winner = this.winner;
-
 			STORAGE_UTILS.write("./local_storage/tictactoe-matchs.json", tictactoeMatchs);
 		}
 	}
@@ -171,8 +167,8 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 	}
 
 	const GAME = new TicTacToe(message.author, message.mentions.users.first());
-
 	let watchers = [];
+
 	zEmbed.setDescription(GAME.description);
 	zEmbed.setFooter(t("tictactoe:watchingAd"));
 	//Again, we can't use zSend here because zSend doesn't return the message.
@@ -242,6 +238,7 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 		ResultEmbed.setTitle(t("tictactoe:results"));
 		ResultEmbed.setDescription(`${t("tictactoe:theMatchTaken.part1")} ${TIME} ${t("tictactoe:theMatchTaken.part2")}${GAME.watchers !== 0 ? `...\n\n${t("tictactoe:theMatchTaken.part3")} **${GAME.watchers}** ${t("tictactoe:theMatchTaken.part4")}` : "."} ${GAME.secret ? "\n\nWith the love of zerinho6 and topera\n<:zerinicon:317871174266912768> :heart: <:Toperaicon:317871116934840321>" : ""}`);
 		ResultEmbed.setFooter(`${t("tictactoe:matchCode")}: ${MATCH_ID}`);
+		
 		for (let i = 0; i < 2; i++) {
 			let players = GAME.players;
 

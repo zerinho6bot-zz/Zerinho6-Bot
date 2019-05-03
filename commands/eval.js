@@ -1,4 +1,4 @@
-exports.run = ({ message, t, zSend, zEmbed }) => {
+exports.run = ({ bot, message, t, zSend, zEmbed }) => {
 	try {
 		const FULL_ARGUMENT = message.content.split(" ").slice(1).join(" ");
 
