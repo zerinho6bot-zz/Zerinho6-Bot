@@ -7,7 +7,7 @@
   <img src="https://api.codacy.com/project/badge/Grade/6b171d4f87074da686cb6b96639b139b">
   <a href="https://discordapp.com/oauth2/authorize?client_id=332968532096843776&scope=bot&permissions=379968" target="_blank"><img
     src="https://img.shields.io/badge/invite-to%20your%20Discord%20server-7289da.svg?style=flat-square&logo=discord" alt="Invite Zerinho6 Bot"></a>
-  <a title="Dependencies" target="_blank" href="https://david-dm.org/zerinho6/Zerinho6-Beta/"><img src="https://david-dm.org/zerinho6/Zerinho6-Beta.svg?style=flat-square"></a>
+  <a title="Dependencies" target="_blank" href="https://david-dm.org/zerinho6bot/Zerinho6-Bot/"><img src="https://david-dm.org/zerinho6bot/Zerinho6-Bot.svg?style=flat-square"></a>
   <img src="https://img.shields.io/badge/library-discord.js-blue.svg?style=flat-square" alt="Library">
   
 </p>
@@ -40,13 +40,14 @@ Remember, ``.env`` should not have spaces.
 
 Open the console window on the bot folder and type ``npm i``, after that you can do ``node bot.js`` or ``npm test``. There'll be a message on console saying how much time it took to the bot to load and that he's ready.
 
+Want to know more about the code? There's a whole [Wiki](https://github.com/zerinho6bot/Zerinho6-Bot/wiki) made for for!
 ## Helping
 
-I'll be very happy with any possible help that you want to give to Zerinho6 Bot, but please, make sure you read the [Wiki](https://github.com/zerinho6/Zerinho6-Beta/wiki) and know how the system works, thank you!!!!
+I'll be very happy with any possible help that you want to give to Zerinho6 Bot, but please, make sure you read the [Wiki](https://github.com/zerinho6bot/Zerinho6-Bot/wiki) and know how the system works, thank you!!!!
 
 ## Translating
 
-You wanna translate you bot to you not-yet-translated language? [There's a topic on Wiki saying how you can do that!](https://github.com/zerinho6/Zerinho6-Beta/wiki/Translating.)
+You wanna translate you bot to you not-yet-translated language? [There's a topic on Wiki saying how you can do that!](https://github.com/zerinho6bot/Zerinho6-Bot/wiki/Translating.)
 
 ## Here's a list of really nice people that made this project possible
 
@@ -60,7 +61,7 @@ You wanna translate you bot to you not-yet-translated language? [There's a topic
 
 **[Fernando](https://github.com/fernando457829)**: Helped as much as nirewen giving a lot of help with some function not working, what is cool on code and what isn't, it also helped on the last version of Zerinho6 Bot.
 
-**[Acnologia](https://github.com/Acnologla)**: That's being repetitive but thanks is always needed, the same as Nirewen and Fernando, i would made Zerinho6 Bot TicTacToe based on a version that he made.
+**[Acnologia](https://github.com/Acnologla)**: That's being repetitive but thanks is always needed, the same as Nirewen and Fernando, I made Zerinho6 Bot TicTacToe based on a version that he made.
 
 **[Mete](https://github.com/metehus), [Tsugami](https://github.com/Tsugami)**: The same as Nirewen, Fernando, Acnologia and Switchblade Team.
 
