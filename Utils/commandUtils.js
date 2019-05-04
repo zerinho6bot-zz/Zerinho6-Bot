@@ -7,8 +7,7 @@ function setIsType(options){
 	return function isType(key, type) {
 		return typeof this.options[key] === type;
 	}
-	return typeof options[key] === type;
-}
+};
 
 module.exports = {
 	/*
@@ -60,7 +59,7 @@ module.exports = {
 		if (CommandPerms.specificRole) {
 			const Roles = message.member.roles;
 
-			if (isNaN(CommandPerms.specificRole) && !Roles.find(r => r.name.toLowerCase() === CommandPerms.specificRole)){
+			if (isNaN(CommandPerms.specificRole) && !Roles.find((r) => r.name.toLowerCase() === CommandPerms.specificRole)){
 				return `${t("utils:commandUtils.specificNeeds.specificRole.nameReturn")} ${CommandPerms.specificRole}`;
 			} else if (!Roles.has(CommandPerms.specificRole)) {
 				return `${t("utils:commandUtils.specificNeeds.specificRole.defaultReturn")} ${CommandPerms.specificRole}`;
@@ -141,7 +140,7 @@ module.exports = {
 			if (RoleVerify !== null) {
 				const Roles = message.member.roles;
 
-				if (isNaN(RoleVerify) && !Roles.find(r => r.name.toLowerCase() === RoleVerify)) {
+				if (isNaN(RoleVerify) && !Roles.find((r) => r.name.toLowerCase() === RoleVerify)) {
 					continue;
 				} else if (!Roles.has(RoleVerify)) {
 					continue;
