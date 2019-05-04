@@ -2,15 +2,27 @@ const Fs = require("fs"),
 { commandNeeds, commandAvailables } = require("../local_storage"),
 Commands = Fs.readdirSync("./commands").map((v) => v.replace(/.js/gi , "").toLowerCase());
 
+/**
+* Sets up the key from where isType function will get properties.
+* @function
+* @param {object} options - Basicly a JSON file or a key with properties
+* @return {object}
+*/
 function setIsType(options){
 	this.options = options;
-	return function isType(key, type) {
-		return typeof this.options[key] === type;
+	/**
+	* A function to check if the typeof propertie is equal to the expected type.
+	* @function
+	* @param {string} propertie - The propertie that you want from options
+	* @param {string} type - The type to check if it's or not  
+	*/
+	return function isType(propertie, type) {
+		return typeof this.options[propertie] === type;
 	}
 };
 
 module.exports = {
-	/*
+	/**
 	* This function will return a empty string if all the command needs are follow, or a string teeling what the user did wrong.
 	* @function
 	* @param {object} message - The message object
@@ -102,7 +114,7 @@ module.exports = {
 
 		return "";
 	},
-	/*
+	/**
 	* This function returns every command listed on command_needs.json
 	* @function
 	* @retuns {Array<string>}
@@ -110,7 +122,7 @@ module.exports = {
 	getCommandList: function() {
 		return Commands;
 	},
-	/*
+	/**
 	* This function returns the require of the given command
 	* @param {string} command - The command name
 	* @returns {object}
@@ -120,6 +132,12 @@ module.exports = {
 
 		return requires[command];
 	},
+	/**
+	* Returns a list of commands that the user can use.
+	* @function
+	* @param {object} message - The message object
+	* @returns {string}
+	*/
 	getAvailableCommandsForUser(message) {
 		let commands = commandAvailables.all.join(", ");
 		const Keys = Object.keys(commandAvailables);

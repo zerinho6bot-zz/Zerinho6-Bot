@@ -24,10 +24,8 @@ exports.run = ({ message, t, zSend, zEmbed }) => {
 	if (message.guild.splash !== null) {
 		zEmbed.setImage(message.guild.splash);
 	}
-
 	if (message.guild.verified) {
 		zEmbed.setDescription(t("serverinfo:thisGuildIsVerified"));
 	}
-
 	zSend(zEmbed);
 };
