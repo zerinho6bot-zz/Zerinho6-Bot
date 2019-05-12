@@ -1,7 +1,7 @@
-const { guildLanguage } = require("../local_storage"),
-{ LANGUAGE_UTILS, STORAGE_UTILS } = require("../Utils"),
-LANGUAGE_LIST = LANGUAGE_UTILS.getLanguages(),
-LANGUAGE_LIST_LITERAL = Object.keys(LANGUAGE_LIST).join(", ");
+const { guildLanguage } = require("../local_storage");
+const { LANGUAGE_UTILS, STORAGE_UTILS } = require("../Utils");
+const LANGUAGE_LIST = LANGUAGE_UTILS.getLanguages();
+const LANGUAGE_LIST_LITERAL = Object.keys(LANGUAGE_LIST).join(", ");
 
 exports.run = ({ message, args, t, zSend, zEmbed }) => {
 
@@ -32,7 +32,7 @@ exports.run = ({ message, args, t, zSend, zEmbed }) => {
 		guildLanguage[message.guild.id].language = args[0];
 	}
 
-	let result = STORAGE_UTILS.write("./local_storage/guild_language.json", guildLanguage);
+	const result = STORAGE_UTILS.write("./local_storage/guild_language.json", guildLanguage);
 	if (result) {
 		zSend("set-language:languageDone", true);
 	} else {

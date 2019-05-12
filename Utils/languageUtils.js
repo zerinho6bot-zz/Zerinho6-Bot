@@ -3,8 +3,8 @@ const Locales = require("../locales");
 module.exports = {
 	SetUpT: class {
 		constructor(){
-			this.languages = Locales;
-			this.defaultLanguage = this.languages[process.env.LANGUAGE];
+			this.languages = ["pt_br.json", "en_us.json"];
+			this.defaultLanguage = "pt_br";
 			this.language = "";
 		}
 		/**

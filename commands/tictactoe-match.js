@@ -1,5 +1,5 @@
-const { MESSAGE_UTILS } = require("../Utils"),
-{ tictactoeMatchs } = require("../local_storage");
+const { MESSAGE_UTILS } = require("../Utils");
+const { tictactoeMatchs } = require("../local_storage");
 
 function draw(map) {
 	const EMOJIS = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣', '9⃣'];

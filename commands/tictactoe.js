@@ -1,7 +1,7 @@
-const EMOJIS = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣', '9⃣'],
-{ MESSAGE_UTILS, STORAGE_UTILS } = require("../Utils"),
-MATCH_ID = Date.now().toString(36),
-{ tictactoeMatchs, tictactoeProfiles } = require("../local_storage");
+const EMOJIS = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣', '9⃣'];
+const { MESSAGE_UTILS, STORAGE_UTILS } = require("../Utils");
+const MATCH_ID = Date.now().toString(36);
+const { tictactoeMatchs, tictactoeProfiles } = require("../local_storage");
 
 exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 	class TicTacToe {
@@ -49,9 +49,9 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 		}
 
 		check() {
-			const first = [0,3,6,0,1,2,0,2],
-			second = [1,4,7,3,4,5,4,4],
-			third = [2,5,8,6,7,8,8,6];
+			const first = [0,3,6,0,1,2,0,2];
+			const second = [1,4,7,3,4,5,4,4];
+			const third = [2,5,8,6,7,8,8,6];
 
 			for (let i = 0; i < first.length; i++) {
 				if ([this.map[first[i]], this.map[second[i]], this.map[third[i]]].every((elem) => elem === 1)) {
@@ -83,9 +83,9 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 				return false;
 			}
 
-			let turnEqualsX = this.turn === this.x;
+			const turnEqualsX = this.turn === this.x;
 
-			turnEqualsX? this.player1.moves = this.player1.moves.concat(house + 1) : this.player2.moves = this.player2.moves.concat(house + 1);
+			turnEqualsX ? this.player1.moves = this.player1.moves.concat(house + 1) : this.player2.moves = this.player2.moves.concat(house + 1);
 			this.map[house] = turnEqualsX ? 1 : 2;
 			this.turn = turnEqualsX ? this.o : this.x;
 			this.description = `${turnEqualsX ? this.player1.emoji : this.player2.emoji} ${t("tictactoe:turn")} (${this.turn === this.x ? this.player1.tag : this.player2.tag}).\n\n${this.draw()}`;
@@ -96,7 +96,7 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 				this.finished = true;
 				this.winner = winner;
 
-				let playerWhoWon = winner === 1 ? this.player1 : this.player2;
+				const playerWhoWon = winner === 1 ? this.player1 : this.player2;
 				this.description = (winner === 3 ? `:loudspeaker: ${t("tictactoe:draw")}` : `${playerWhoWon.emoji} - ${playerWhoWon.tag} ${t("tictactoe:winner")}!`) + `\n\n${this.draw()}`;
 				return true;
 			}
@@ -105,7 +105,7 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 
 		updatePlayersOnlineStats() {
 			for(let i = 0; i < this.players.length; i++) {
-				let player = this.players[i];
+				const player = this.players[i];
 
 				if(!tictactoeProfiles[player.id]) {
 					tictactoeProfiles[player.id] = {
@@ -193,7 +193,7 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 	}
 	MSG.react("👀");
 
-	const COLLECTION = MSG.createReactionCollector((r, u) => (EMOJIS.includes(r.emoji.name) || r.emoji.name === r.emoji.name) && !u.bot, {time: 600000});
+	const COLLECTION = MSG.createReactionCollector((r, u) => (EMOJIS.includes(r.emoji.name) || r.emoji.name === r.emoji.name) && !u.bot, {time: 300});
 	COLLECTION.on("collect", (r, u) => {
 
 		if (r.emoji.name === "👀") {
@@ -232,15 +232,15 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 			return;
 		}
 
-		const ResultEmbed = MESSAGE_UTILS.zerinhoEmbed(message.member),
-		TIME = Math.floor((new Date() - GAME.time) / 1000);
+		const ResultEmbed = MESSAGE_UTILS.zerinhoEmbed(message.member);
+		const TIME = Math.floor((new Date() - GAME.time) / 1000);
+		const players = GAME.players;
 
 		ResultEmbed.setTitle(t("tictactoe:results"));
 		ResultEmbed.setDescription(`${t("tictactoe:theMatchTaken.part1")} ${TIME} ${t("tictactoe:theMatchTaken.part2")}${GAME.watchers !== 0 ? `...\n\n${t("tictactoe:theMatchTaken.part3")} **${GAME.watchers}** ${t("tictactoe:theMatchTaken.part4")}` : "."} ${GAME.secret ? "\n\nWith the love of zerinho6 and topera\n<:zerinicon:317871174266912768> :heart: <:Toperaicon:317871116934840321>" : ""}`);
 		ResultEmbed.setFooter(`${t("tictactoe:matchCode")}: ${MATCH_ID}`);
 		
 		for (let i = 0; i < 2; i++) {
-			let players = GAME.players;
 
 			ResultEmbed.addField(players[i].tag, `${t("tictactoe:matchResult")}: ${GAME.getMatchResult(i + 1)}\n${t("tictactoe:moves")}: ${players[i].moves.join(", ")}`);
 		}

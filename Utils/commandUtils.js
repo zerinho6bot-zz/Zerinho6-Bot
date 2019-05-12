@@ -1,6 +1,6 @@
-const Fs = require("fs"),
-{ commandNeeds, commandAvailables } = require("../local_storage"),
-Commands = Fs.readdirSync("./commands").map((v) => v.replace(/.js/gi , "").toLowerCase());
+const Fs = require("fs");
+const { commandNeeds, commandAvailables } = require("../local_storage");
+const Commands = Fs.readdirSync("./commands").map((v) => v.replace(/.js/gi , ""));
 
 /**
 * Sets up the key from where isType function will get properties.
@@ -9,7 +9,6 @@ Commands = Fs.readdirSync("./commands").map((v) => v.replace(/.js/gi , "").toLow
 * @return {object}
 */
 function setIsType(options){
-	this.options = options;
 	/**
 	* A function to check if the typeof propertie is equal to the expected type.
 	* @function
@@ -17,7 +16,7 @@ function setIsType(options){
 	* @param {string} type - The type to check if it's or not  
 	*/
 	return function isType(propertie, type) {
-		return typeof this.options[propertie] === type;
+		return typeof options[propertie] === type;
 	}
 };
 
@@ -35,9 +34,9 @@ module.exports = {
 			return "";
 		}
 
-		const CommandPerms = commandNeeds[command].options,
-		Args = message.content.split(" ").slice(1),
-		IsType = setIsType(CommandPerms);
+		const CommandPerms = commandNeeds[command].options;
+		const Args = message.content.split(" ").slice(1);
+		const IsType = setIsType(CommandPerms);
 
 		if (CommandPerms.onlyOwner && message.author.id !== process.env.OWNER) {
 			return t("utils:commandUtils.onlyOwner");

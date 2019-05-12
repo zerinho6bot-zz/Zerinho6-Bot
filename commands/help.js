@@ -1,6 +1,6 @@
-const { COMMAND_UTILS } = require("../Utils"),
-COMMAND_LIST = COMMAND_UTILS.getCommandList(),
-{ guildLanguage } = require("../local_storage");
+const { COMMAND_UTILS } = require("../Utils");
+const COMMAND_LIST = COMMAND_UTILS.getCommandList();
+const { guildLanguage } = require("../local_storage");
 
 exports.run = ({ message, args, t, zSend, zEmbed }) => {
 	const ArgsLower = args[0] ? args[0].toLowerCase() : "";
@@ -12,8 +12,8 @@ exports.run = ({ message, args, t, zSend, zEmbed }) => {
 	function renderArguments(command) {
 		let argument = "";
 
-		const keys = Object.keys(t(`help:${command}.description.argumentOptions`)),
-		values = Object.values(t(`help:${command}.description.argumentOptions`));
+		const keys = Object.keys(t(`help:${command}.description.argumentOptions`));
+		const values = Object.values(t(`help:${command}.description.argumentOptions`));
 
 		keys.forEach((e, index) => {
 			argument += `🔹 ${t(`help:${keys[index]}`)}: **${values[index]}**\n`;

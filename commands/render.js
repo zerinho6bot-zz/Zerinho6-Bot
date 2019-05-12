@@ -1,10 +1,10 @@
-const { MESSAGE_UTILS } = require("../Utils"),
-Discord = require("discord.js");
+const { MESSAGE_UTILS } = require("../Utils");
+const Discord = require("discord.js");
 
 exports.run = async ({ bot, args, message, t, zSend, zEmbed }) => {
 	async function findMessage(guildID, channelID, messageID) {
-		const GUILD = bot.guilds.resolve(guildID),
-		CHANNEL = GUILD !== null ? GUILD.channels.resolve(channelID) : null;
+		const GUILD = bot.guilds.resolve(guildID);
+		const CHANNEL = GUILD !== null ? GUILD.channels.resolve(channelID) : null;
 
 		if (CHANNEL !== null) {
 			try {
@@ -18,8 +18,8 @@ exports.run = async ({ bot, args, message, t, zSend, zEmbed }) => {
 		}
 	}
 
-	const REGEX = /https\:\/\/discordapp.com\/channels\/([0-9]{16,18})\/([0-9]{16,18})\/([0-9]{16,18})/,
-	MatchedRegex = args[0].match(REGEX);
+	const REGEX = /https\:\/\/discordapp.com\/channels\/([0-9]{16,18})\/([0-9]{16,18})\/([0-9]{16,18})/;
+	const MatchedRegex = args[0].match(REGEX);
 
 	if (MatchedRegex === null) {
 		zSend("render:wrongFormat", true);
@@ -42,7 +42,7 @@ exports.run = async ({ bot, args, message, t, zSend, zEmbed }) => {
 		zSend("render:tryingToMoveAMessageFromNsfwToNotNsfw", true);
 		return;
 	}
-
+//Como o hellow consegue fazer tanta merda
 	if (MSG.embeds.length !== 0) {
 		zEmbed = MSG.embeds[0];
 		zSend(zEmbed);

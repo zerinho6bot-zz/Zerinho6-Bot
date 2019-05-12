@@ -1,5 +1,5 @@
-const { USER_UTILS } = require("../Utils"),
-Moment = require("moment");
+const { USER_UTILS } = require("../Utils");
+const Moment = require("moment");
 exports.run = async ({ bot, args, message, t, zSend, zEmbed }) => {
 	let user = message.author;
 

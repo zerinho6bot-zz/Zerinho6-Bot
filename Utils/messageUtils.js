@@ -1,7 +1,7 @@
 /* global Set */
-const cooldown = new Set(),
-cooldownWarning = new Set(),
-Discord = require("discord.js");
+const cooldown = new Set();
+const cooldownWarning = new Set();
+const Discord = require("discord.js");
 
 module.exports = {
 	/**
@@ -48,13 +48,13 @@ module.exports = {
 	* @returns {object}
 	*/
 	zerinhoEmbed: function(member){
-		const zeroEmbed = new Discord.MessageEmbed();
+		const ZeroEmbed = new Discord.MessageEmbed()
 
-		zeroEmbed.setAuthor(member.user.tag, member.user.displayAvatarURL({size:2048}));
-		zeroEmbed.setColor(member.displayHexColor);
-		zeroEmbed.setTimestamp();
+		ZeroEmbed.setAuthor(member.user.tag, member.user.displayAvatarURL({size:2048}));
+		ZeroEmbed.setColor(member.displayHexColor);
+		ZeroEmbed.setTimestamp();
 
-		return zeroEmbed;
+		return ZeroEmbed;
 	},
 	/**
 	*
@@ -70,6 +70,7 @@ module.exports = {
 		* @param {boolean} [literal=false] - If the content is a path-to-string for the translate function
 		*/
 		return function zerinhoSend(content, literal) {
+			//If literal is true, then it'll use the content as param for the translate function, else it'll just use the content as the message, literally.
 			content = literal ? t(content) : content;
 
 			message.channel.startTyping(6);

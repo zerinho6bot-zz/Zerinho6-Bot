@@ -1,5 +1,5 @@
-const { USER_UTILS } = require("../Utils"),
-REGEX = /<@\!?(.*)\>/;
+const { USER_UTILS } = require("../Utils");
+const REGEX = /<@\!?(.*)\>/;
 
 exports.run = async ({ bot, args, t, zSend, zEmbed }) => {
 	const MATCHED_REGEX = args[0].match(REGEX);
@@ -11,8 +11,8 @@ exports.run = async ({ bot, args, t, zSend, zEmbed }) => {
 		}
 	}
 
-	const ID = MATCHED_REGEX === null ? args[0] : MATCHED_REGEX[1],
-	USER = await USER_UTILS.searchUser(bot, ID);
+	const ID = MATCHED_REGEX === null ? args[0] : MATCHED_REGEX[1];
+	const USER = await USER_UTILS.searchUser(bot, ID);
 
 	if (USER === null) {
 		zSend("bot-invite:CouldntFindThatUser", true);
