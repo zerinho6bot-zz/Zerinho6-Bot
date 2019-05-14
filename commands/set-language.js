@@ -32,8 +32,8 @@ exports.run = ({ message, args, t, zSend, zEmbed }) => {
 		guildLanguage[message.guild.id].language = args[0];
 	}
 
-	const result = STORAGE_UTILS.write("./local_storage/guild_language.json", guildLanguage);
-	if (result) {
+	const Result = STORAGE_UTILS.write("./local_storage/guild_language.json", guildLanguage);
+	if (Result) {
 		zSend("set-language:languageDone", true);
 	} else {
 		zSend("set-language:languageError", true);

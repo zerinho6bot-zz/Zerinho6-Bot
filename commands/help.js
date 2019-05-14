@@ -12,11 +12,11 @@ exports.run = ({ message, args, t, zSend, zEmbed }) => {
 	function renderArguments(command) {
 		let argument = "";
 
-		const keys = Object.keys(t(`help:${command}.description.argumentOptions`));
-		const values = Object.values(t(`help:${command}.description.argumentOptions`));
+		const Keys = Object.keys(t(`help:${command}.description.argumentOptions`));
+		const Values = Object.values(t(`help:${command}.description.argumentOptions`));
 
-		keys.forEach((e, index) => {
-			argument += `🔹 ${t(`help:${keys[index]}`)}: **${values[index]}**\n`;
+		Keys.forEach((e, index) => {
+			argument += `🔹 ${t(`help:${Keys[index]}`)}: **${Values[index]}**\n`;
 		});
 
 		return "\n" + t(`help:argumentOptions`) + "\n" + argument;

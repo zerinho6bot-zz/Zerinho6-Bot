@@ -1,10 +1,10 @@
 const Locales = require("../locales");
 
 module.exports = {
-	SetUpT: class {
+	InitTranslationClass: class {
 		constructor(){
-			this.languages = ["pt_br.json", "en_us.json"];
-			this.defaultLanguage = "pt_br";
+			this.languages = Locales;
+			this.defaultLanguage = process.env.LANGUAGE;
 			this.language = "";
 		}
 		/**
@@ -12,7 +12,7 @@ module.exports = {
 		* @function
 		* @param {string} language - The language code
 		*/
-		setT(language) {
+		DefineLanguageForTranslation(language) {
 			if (this.languages[language]) {
 				this.language = this.languages[language];
 			} else {
@@ -26,10 +26,10 @@ module.exports = {
 		* @param {string} path - The path to the expected value.
 		* @example
 		* //Returns the value of "commands" key from "help"
-		* t("help:commands");
+		* Translate("help:commands");
 		* @returns {string}
 		*/
-		t(path) {
+		Translate(path) {
 			const foundStr = path.split(/\.|\:/g).reduce((a, b) => a[b], this.language);
 
 			if (foundStr) {

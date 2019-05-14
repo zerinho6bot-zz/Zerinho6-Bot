@@ -1,8 +1,8 @@
 {
 	"updates": {
 		"version": "Updates Log - Version",
-		"ver": "1.1",
-		"changelog": "On the newest update we added a lot of costumization code-side for the bot, you can check the original github here: https://github.com/zerinho6bot/Zerinho6-Bot\n-Fixed bug where the moves of tictactoe on result embed where all -1(Not fixed for old matchs)."
+		"ver": "1.2",
+		"changelog": "On the newest update we fixed a memory leak and changed from d.js master(12.0.0) to d.js stable(11.5.0), a lot of bug fix and optimizations have been made\n\n-Now you can pass nothing to tictactoe-profile command that it'll search for you.\n-Render command doesn't execute a lot of functions when the message is literally from the same channel where the command was executed."
 	},
 	"please": {
 		"prefixLiteral": "Prefix",
@@ -71,6 +71,7 @@
 		"matchCode": "Match Code",
 		"nothing": "nothing",
 		"language": "language",
+		"messageLink&Channel": "Message Link and Channel",
 		"id": "ID",
 		"command": "command",
 		"wantToKnowMore": "If you want to know more about some command, use:",
@@ -144,6 +145,7 @@
 		"tictactoe-profile": {
 			"description": {
 				"argumentOptions": {
+					"nothing": "Shows your profile.",
 					"mention": "Shows the profile of the mentioned user.",
 					"id": "Shows the profile of a user by the sent ID."
 				},
@@ -203,7 +205,7 @@
 			"description": {
 				"argumentOptions": {
 					"nothing": "Shows informations about you.",
-					"id": "Shows informations about the user from the sent ID.",
+					"id": "Shows informations about the user from the sent ID(It may not work with users that I've never seen).",
 					"mention": "Shows informations about the mentioned user."
 				},
 				"actualDescription": "Get informations about you or another user."
@@ -218,6 +220,15 @@
 				"actualDescription": "Make me shut up if I'm still typing."
 			},
 			"image": "https://cdn.discordapp.com/attachments/490329576300609538/569860429317144582/unknown.png"
+		},
+		"move": {
+			"description": {
+				"argumentOptions": {
+					"messageLink&Channel": "Gets the message by the message link and send it to the channel.(The channel can be a ID or channel mention)"
+				},
+				"actualDescription": "Move a message from a channel to another!"
+			},
+			"image": "https://cdn.discordapp.com/attachments/419448847853420564/577977221776670770/unknown.png"
 		}
 	},
 	"set-language": {
@@ -236,6 +247,8 @@
 		"ms": "ms"
 	},
 	"tictactoe": {
+		"oneOfThePlayersIsAlreadyPlaying": "You or the mentioned user are still in a match.",
+		"turn": "Turno!",
 		"turn": "Turn!",
 		"draw": "Draw",
 		"winner": "Winner",
@@ -319,5 +332,18 @@
 		"messageNotFound": "I couldn't find that message, maybe I'm not on the server or i can't see the channel.",
 		"tryingToMoveAMessageFromNsfwToNotNsfw": "You're trying to render a message from a nsfw in a not nsfw channel.",
 		"sentBy": "Sent by"
+	},
+	"move": {
+		"aChannelWithThatIdDoesntExistOnThisGuild": "A channel with that ID doesn't exist on this guild.",
+		"missingManageMessagePermissionOnTheChannel": "I don't have the permission to delete messages on channel where the message is.",
+		"theMessageIsFromAnotherServer": "The message is on another server, I'm 100% not moving messages from another server.",
+		"youDontHavePermissionToDeleteMessage": "You don't have permission to delete message on that channel.",
+		"youDontHavePermissionToSeeMessages": "You don't have permission to see messages on that channel.",
+		"missingSendMessagePermissionOnTheChannel": "I don't have the permission to send messages to that channel.",
+		"missingEmbedLinksPermissionOnTheChannel": "I don't have the permission to send embed links to that channel.",
+		"couldntDeleteTheMessage": "I tried by best to delete the message, but I coudln't, aborting.",
+		"messageSentBy": "Message sent by",
+		"movedFrom": "moved from",
+		"by": "by"
 	}
 }

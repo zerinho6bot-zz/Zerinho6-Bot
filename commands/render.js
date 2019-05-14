@@ -1,24 +1,8 @@
 const { MESSAGE_UTILS } = require("../Utils");
 const Discord = require("discord.js");
+const REGEX = /https\:\/\/discordapp.com\/channels\/([0-9]{16,18})\/([0-9]{16,18})\/([0-9]{16,18})/;
 
 exports.run = async ({ bot, args, message, t, zSend, zEmbed }) => {
-	async function findMessage(guildID, channelID, messageID) {
-		const GUILD = bot.guilds.resolve(guildID);
-		const CHANNEL = GUILD !== null ? GUILD.channels.resolve(channelID) : null;
-
-		if (CHANNEL !== null) {
-			try {
-				const MSG = await CHANNEL.messages.fetch(messageID);
-				return MSG;
-			} catch (e) {
-				return null;
-			}
-		} else {
-			return null;
-		}
-	}
-
-	const REGEX = /https\:\/\/discordapp.com\/channels\/([0-9]{16,18})\/([0-9]{16,18})\/([0-9]{16,18})/;
 	const MatchedRegex = args[0].match(REGEX);
 
 	if (MatchedRegex === null) {
@@ -31,8 +15,8 @@ exports.run = async ({ bot, args, message, t, zSend, zEmbed }) => {
 		return;
 	}
 
-	const MSG = await findMessage(MatchedRegex[1], MatchedRegex[2], MatchedRegex[3]);
-	
+	const MSG = await MESSAGE_UTILS.findMessage(bot, message, MatchedRegex[1], MatchedRegex[2], MatchedRegex[3]);
+
 	if (MSG === null) {
 		zSend("render:messageNotFound", true);
 		return;
@@ -42,7 +26,7 @@ exports.run = async ({ bot, args, message, t, zSend, zEmbed }) => {
 		zSend("render:tryingToMoveAMessageFromNsfwToNotNsfw", true);
 		return;
 	}
-//Como o hellow consegue fazer tanta merda
+
 	if (MSG.embeds.length !== 0) {
 		zEmbed = MSG.embeds[0];
 		zSend(zEmbed);

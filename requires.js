@@ -14,5 +14,6 @@ module.exports = {
 	stoptyping: require("./commands/stoptyping.js"),
 	userinfo: require("./commands/userinfo.js"),
 	serverinfo: require("./commands/serverinfo.js"),
-	render: require("./commands/render.js")
+	render: require("./commands/render.js"),
+	move: require("./commands/move.js")
 };

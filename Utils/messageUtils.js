@@ -48,22 +48,21 @@ module.exports = {
 	* @returns {object}
 	*/
 	zerinhoEmbed: function(member){
-		const ZeroEmbed = new Discord.MessageEmbed()
+		const ZeroEmbed = new Discord.RichEmbed()
 
-		ZeroEmbed.setAuthor(member.user.tag, member.user.displayAvatarURL({size:2048}));
+		ZeroEmbed.setAuthor(member.user.tag, member.user.displayAvatarURL);
 		ZeroEmbed.setColor(member.displayHexColor);
 		ZeroEmbed.setTimestamp();
-
 		return ZeroEmbed;
 	},
 	/**
 	*
 	* @function
-	* @param {object} message - The message object
+	* @param {object} channel - The channel object
 	* @param {object} t - The t function
 	* @returns {object} Returns the zerinhoSend function
 	*/
-	zerinhoConfigSend: function(message, t) {
+	zerinhoConfigSend: function(channel, t) {
 		/**
 		* @function
 		* @param {(string|object)} content - The content to send.
@@ -73,9 +72,24 @@ module.exports = {
 			//If literal is true, then it'll use the content as param for the translate function, else it'll just use the content as the message, literally.
 			content = literal ? t(content) : content;
 
-			message.channel.startTyping(6);
-			message.channel.send(content);
-			message.channel.stopTyping(true);
+			channel.startTyping(6);
+			channel.send(content);
+			channel.stopTyping(true);
 		};
+	},
+	findMessage: async function(bot, message, guildID, channelID, messageID) {
+		const GUILD = guildID === message.guild.id ? message.guild : bot.guilds.get(guildID);
+		const CHANNEL = GUILD !== null ? channelID === message.channel.id ? message.channel : GUILD.channels.get(channelID) : null;
+		//We don't want to give a lot of jobs to the bot without reason.
+		if (CHANNEL !== null) {
+			try {
+				const MSG = await CHANNEL.fetchMessage(messageID);
+				return MSG || null;
+			} catch (e) {
+				return null;
+			}
+		} else {
+			return null;
+		}
 	}
 };

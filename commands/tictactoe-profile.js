@@ -12,17 +12,23 @@ exports.run = ({ message, args, t, zSend, zEmbed }) => {
 	}
 
 	if (user === null) {
-		if (isNaN(args[0])) {
-			zSend("tictactoe-profile:argsNotNumber", true);
-			return;
+		if (args[0]) {
+			if (isNaN(args[0])) {
+				zSend("tictactoe-profile:argsNotNumber", true);
+				return;
+			}
+
+			user = args[0]
+		} else {
+			user = message.author.id
 		}
 
-		if(!tictactoeProfiles[args[0]]) {
+		if(!tictactoeProfiles[user]) {
 			zSend("tictactoe-profile:userNotFound", true);
 			return;
 		}
 
-		user = tictactoeProfiles[args[0]];
+		user = tictactoeProfiles[user];
 	}
 
 	zEmbed.setTitle(`${t("tictactoe-profile:profileOf")} ${user.tag}`);

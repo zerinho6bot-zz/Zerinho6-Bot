@@ -24,9 +24,8 @@ exports.run = async ({ bot, args, t, zSend, zEmbed }) => {
 		return;
 	}
 
-	zEmbed.setAuthor(USER.username + USER.discriminator, USER.displayAvatarURL({size: 2048}));
-	zEmbed.setThumbnail(USER.displayAvatarURL({size: 2048}));
+	zEmbed.setAuthor(USER.username + USER.discriminator, USER.displayAvatarURL);
+	zEmbed.setThumbnail(USER.displayAvatarURL);
 	zEmbed.addField(t("bot-invite:invite"), `https://discordapp.com/oauth2/authorize?&client_id=${USER.id}&scope=bot&permissions=8`);
-	
 	zSend(zEmbed);
 };

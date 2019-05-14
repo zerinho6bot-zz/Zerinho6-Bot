@@ -81,7 +81,7 @@ module.exports = {
 			if (IsType("needArg", "number") && CommandPerms.needArg > Args.length) {
 				return `${t("utils:commandUtils.needArg.thisCommandNeeds")} **${CommandPerms.needArg}** ${t("utils:commandUtils.needArg.arguments")} ${t("utils:commandUtils.needArg.andYourMessageOnlyHave")} **${Args.length}** ${t("utils:commandUtils.needArg.arguments")}`;
 			} else if (!Args.length >= 1) {
-				return t("utils:commandUtils.needArg");
+				return t("utils:commandUtils.needArg.default");
 			}
 		}
 

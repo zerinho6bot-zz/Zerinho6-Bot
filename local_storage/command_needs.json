@@ -34,5 +34,16 @@
 			"needArg": true,
 			"onlyOwner": true
 		}
+	},
+	"render": {
+		"options": {
+			"needArg": true
+		}
+	},
+	"move": {
+		"options": {
+			"needArg": 2,
+			"userNeed": "MANAGE_MESSAGES"
+		}
 	}
 }

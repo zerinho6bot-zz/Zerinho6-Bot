@@ -1,8 +1,8 @@
 {
 	"updates": {
 		"version": "Changelog - Versão",
-		"ver": "1.1",
-		"changelog": "Na ultima atualização, nós adicionamos vários meios de costumização para os desenvolvedores do bot, caso você esteja interessado, aqui está o github original: https://github.com/zerinho6bot/Zerinho6-Bot\n-Concertado um bug no qual todos os movimentos no embed de resultados da partida no tictactoe estavam um a menos(Não se aplica a partidas antigas)."
+		"ver": "1.2",
+		"changelog": "Na ultima atualização, nós concertamos o memory leak e optimizamos varias partes to bot, agora não usamos mais o d.js master(12.0.0) mas sim o d.js stable(11.5.0)\n\n-Agora você pode ver o seu profile com o comando tictactoe-profile sem tem que passar seu proprio ID.\n-O comando de render não vai mais executar varias funções atoa quando a msg é do no mesmo canal onde o comando foi executado, o que causava um lag desnecessário."
 	},
 	"please": {
 		"prefixLiteral": "Prefix",
@@ -58,19 +58,20 @@
 		}
 	},
 	"help": {
-		"exclusiveCommandsWarning": "Por causa de uma atualização, você só pode ver os comando que você pode executar, se você deixou de conseguir ver algum comando na lista de ajuda, foi porque você não tem a permissão para executar ele, o comando de set-langua requer a permissão de ``gerenciar servidor`` por exemplo.",
+		"exclusiveCommandsWarning": "Por causa de uma atualização, você só pode ver os comando que você pode executar, se você deixou de conseguir ver algum comando na lista de ajuda, foi porque você não tem a permissão para executar ele, o comando de set-language requer a permissão de ``gerenciar servidor`` por exemplo.",
 		"commands": "Comandos",
 		"commandList": "Lista de comandos",
 		"argumentOptions": "Opções de Argumento:",
 		"server": "servidor",
 		"mention": "menção",
 		"characters": "Caracteres",
-		"messageLink": "Message Link",
+		"messageLink": "Link de mensagem",
 		"barSeparation": "Separação por barra",
 		"image": "Imagem",
 		"matchCode": "Codigo da Partida",
 		"nothing": "nada",
 		"language": "linguagem",
+		"messageLink&Channel": "Link de mensagem e canal",
 		"id": "ID",
 		"command": "comando",
 		"wantToKnowMore": "Se você quer saber mais sobre um comando, use:",
@@ -144,6 +145,7 @@
 		"tictactoe-profile": {
 			"description": {
 				"argumentOptions": {
+					"nothing": "Mostra o seu perfil.",
 					"mention": "Mostra o perfil do usuário mencionado.",
 					"id": "Mostra o perfil de um usuário.."
 				},
@@ -203,7 +205,7 @@
 			"description": {
 				"argumentOptions": {
 					"nothing": "Mostra informações sobre você.",
-					"id": "Mostra informações de um usuário pelo ID.",
+					"id": "Mostra informações de um usuário pelo ID(Pode não funcionar com usuários que eu nunca vi).",
 					"mention": "Mostra informações do usuário mencionado."
 				},
 				"actualDescription": "Veja as suas informações de usuário ou as de outra pessoa."
@@ -218,6 +220,15 @@
 				"actualDescription": "Faça o bot para de digitar caso ele não tenha parado ate agora."
 			},
 			"image": "https://cdn.discordapp.com/attachments/490329576300609538/569860429317144582/unknown.png"
+		},
+		"move": {
+			"description": {
+				"argumentOptions": {
+					"messageLink&Channel": "Pega a mensagem pelo link da mensagem e envia pro canal especificado(O canal pode ser definido por ID ou uma menção de canal)"
+				},
+				"actualDescription": "Mova uma mensagem de um canal para outro!"
+			},
+			"image": "https://cdn.discordapp.com/attachments/419448847853420564/577976996169121813/unknown.png"
 		}
 	},
 	"set-language": {
@@ -236,6 +247,7 @@
 		"ms": "ms"
 	},
 	"tictactoe": {
+		"oneOfThePlayersIsAlreadyPlaying": "Um de vocês já está jogando uma partida.",
 		"turn": "Turno!",
 		"draw": "Empate",
 		"winner": "Vencedor",
@@ -319,5 +331,18 @@
 		"messageNotFound": "Não consegui encontrar essa mensagem, talvez eu não esteja no servidor ou não possa ver o canal.",
 		"tryingToMoveAMessageFromNsfwToNotNsfw": "Você está tentando renderizar uma mensagem de um canal nsfw para um não nsfw.",
 		"sentBy": "Enviado por"
+	},
+	"move": {
+		"aChannelWithThatIdDoesntExistOnThisGuild": "Não existe um canal com esse ID nesse servidor.",
+		"missingManageMessagePermissionOnTheChannel": "Eu não tenho a permissão de deletar mensagens no canal onde a mensagem está.",
+		"theMessageIsFromAnotherServer": "A mensagem é de outro servidor, eu 100% não vou deletar uma mensagem de outro servidor e enviar o conteudo dela aqui.",
+		"youDontHavePermissionToDeleteMessage": "Você não tem permissão de deletar mensagens no canal da mensagem.",
+		"youDontHavePermissionToSeeMessages": "Você não tem permissão de ler mensagens no canal da mensagem.",
+		"missingSendMessagePermissionOnTheChannel": "Eu não tenho permissão de enviar mensagens no canal onde devo enviar a mensagem.",
+		"missingEmbedLinksPermissionOnTheChannel": "Eu não tenho permissão de enviar embed no canal onde devo enviar a msg.",
+		"couldntDeleteTheMessage": "Eu tentei o meu melhor para deletar a mensagem, mas não consegui, abortando..",
+		"messageSentBy": "Mensagem enviada por",
+		"movedFrom": "movida de",
+		"by": "por"
 	}
 }

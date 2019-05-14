@@ -3,16 +3,16 @@ const { tictactoeMatchs } = require("../local_storage");
 
 function draw(map) {
 	const EMOJIS = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣', '9⃣'];
-	let mapS = "";
+	let mapString = "";
 
 	for (let i = 0; i < map.length; i++) {
 		const ActualHouse = map[i];
 
-		mapS += ActualHouse === 0 ? EMOJIS[i] : ActualHouse === 1 ? ":x:" : ":o:";
-		mapS += (i === 2 || i === 5 || i === 8) ? "\n": " | ";
+		mapString += ActualHouse === 0 ? EMOJIS[i] : ActualHouse === 1 ? ":x:" : ":o:";
+		mapString += (i === 2 || i === 5 || i === 8) ? "\n": " | ";
 	}
 
-	return mapS;
+	return mapString;
 }
 exports.run = ({ args, t, zSend, zEmbed }) => {
 	

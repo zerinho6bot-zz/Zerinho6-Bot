@@ -6,6 +6,6 @@ exports.run = ({ bot, message, t, zSend, zEmbed }) => {
 		zEmbed.addField(t("eval:result"), `\`\`\`JavaScript\n${eval(FULL_ARGUMENT)}\`\`\``);
 		zSend(zEmbed);
 	} catch (e) {
-		zSend(e.toString());
+		zSend(String(e));
 	}
 };

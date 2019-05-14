@@ -5,14 +5,14 @@ function reachedLimit(name, value) {
 }
 exports.run = ({ message, zSend, zEmbed }) => {
 	const FULL_ARGUMENT = message.content.split(" ").slice(1).join(" ");
-	const MATCH = FULL_ARGUMENT.match(REGEX);
+	const MATCHED_REGEX = FULL_ARGUMENT.match(REGEX);
 
-	if (MATCH !== null) {
-		if (reachedLimit(MATCH[1], MATCH[2])) {
+	if (MATCHED_REGEX !== null) {
+		if (reachedLimit(MATCHED_REGEX[1], MATCHED_REGEX[2])) {
 			zSend("enbed:fieldContainsTooMuch", true);
 			return;
 		}
-		zEmbed.addField(MATCH[1],MATCH[2]);
+		zEmbed.addField(MATCHED_REGEX[1],MATCHED_REGEX[2]);
 	} else {
 		zEmbed.setDescription(FULL_ARGUMENT);
 	}

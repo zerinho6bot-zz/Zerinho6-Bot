@@ -9,7 +9,7 @@ exports.run = ({ message, t, zSend, zEmbed }) => {
 		"4": t("serverinfo:heyYouGuysDontHavePhones")
 	};
 
-	zEmbed.setThumbnail(message.guild.iconURL() ? message.guild.iconURL() : `https://guild-default-icon.herokuapp.com/${message.guild.nameAcronym}`);
+	zEmbed.setThumbnail(message.guild.iconURL ? message.guild.iconURL : `https://guild-default-icon.herokuapp.com/${message.guild.nameAcronym}`);
 	zEmbed.addField(t("serverinfo:guildName"), message.guild.name, true);
 	zEmbed.addField(t("serverinfo:memberCount"), message.guild.memberCount, true);
 

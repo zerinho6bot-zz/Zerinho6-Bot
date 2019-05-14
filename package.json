@@ -7,7 +7,8 @@
   "bugs": "https://github.com/zerinho6bot/Zerinho6-Bot/issues",
   "repository": "https://github.com/zerinho6bot/Zerinho6-Bot",
   "scripts": {
-    "test": "node bot.js"
+    "test": "node bot.js",
+    "start": "node bot.js"
   },
   "author": {
     "name": "Jorge Luiz",
@@ -19,10 +20,8 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "discord.js": "git+https://github.com/discordjs/discord.js.git#master",
-    "dotenv": "^7.0.0",
-    "fs": "0.0.1-security",
-    "moment": "^2.23.0",
-    "npm": "^6.6.0"
+    "discord.js": "^11.5.0",
+    "dotenv": "^8.0.0",
+    "moment": "^2.24.0"
   }
 }
