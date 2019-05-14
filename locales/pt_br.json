@@ -2,7 +2,7 @@
 	"updates": {
 		"version": "Changelog - Versão",
 		"ver": "1.2",
-		"changelog": "Na ultima atualização, nós concertamos o memory leak e optimizamos varias partes to bot, agora não usamos mais o d.js master(12.0.0) mas sim o d.js stable(11.5.0)\n\n-Agora você pode ver o seu profile com o comando tictactoe-profile sem tem que passar seu proprio ID.\n-O comando de render não vai mais executar varias funções atoa quando a msg é do no mesmo canal onde o comando foi executado, o que causava um lag desnecessário."
+		"changelog": "Na ultima atualização, nós concertamos o memory leak e optimizamos varias partes to bot, agora não usamos mais o d.js master(12.0.0) mas sim o d.js stable(11.5.0)\n\n-Agora você pode ver o seu profile com o comando tictactoe-profile sem tem que passar seu proprio ID.\n-O comando de render não vai mais executar varias funções atoa quando a msg é do no mesmo canal onde o comando foi executado, o que causava um lag desnecessário.\n-Novo comando: move, mova uma mensagem de um canal par ao outro, use o comando de ajuda(prefix.help move) para saber mais."
 	},
 	"please": {
 		"prefixLiteral": "Prefix",

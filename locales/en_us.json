@@ -2,7 +2,7 @@
 	"updates": {
 		"version": "Updates Log - Version",
 		"ver": "1.2",
-		"changelog": "On the newest update we fixed a memory leak and changed from d.js master(12.0.0) to d.js stable(11.5.0), a lot of bug fix and optimizations have been made\n\n-Now you can pass nothing to tictactoe-profile command that it'll search for you.\n-Render command doesn't execute a lot of functions when the message is literally from the same channel where the command was executed."
+		"changelog": "On the newest update we fixed a memory leak and changed from d.js master(12.0.0) to d.js stable(11.5.0), a lot of bug fix and optimizations have been made\n\n-Now you can pass nothing to tictactoe-profile command that it'll search for you.\n-Render command doesn't execute a lot of functions when the message is literally from the same channel where the command was executed.\n-New command: move, move a message from a channel to another, use the help command(prefix.help move) for more info."
 	},
 	"please": {
 		"prefixLiteral": "Prefix",
