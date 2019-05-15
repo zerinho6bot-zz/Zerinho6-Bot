@@ -47,7 +47,7 @@ I'll be very happy with any possible help that you want to give to Zerinho6 Bot,
 
 ## Translating
 
-You wanna translate you bot to you not-yet-translated language? [There's a topic on Wiki saying how you can do that!](https://github.com/zerinho6bot/Zerinho6-Bot/wiki/Translating.)
+You wanna translate you bot to your not-yet-translated language? [There's a topic on Wiki saying how you can do that!](https://github.com/zerinho6bot/Zerinho6-Bot/wiki/Translating.)
 
 ## Here's a list of really nice people that made this project possible
 
