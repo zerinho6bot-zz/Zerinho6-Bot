@@ -28,9 +28,5 @@ exports.run = ({ args, t, zSend, zEmbed }) => {
 	zEmbed.addField(`${t("tictactoe-match:movimentsOf")} ${MATCH.p1.tag}`, MATCH.p1.moves.join(", "));
 	zEmbed.addField(`${t("tictactoe-match:movimentsOf")} ${MATCH.p2.tag}`, MATCH.p2.moves.join(", "));
 
-	if (MATCH.watchers !== 0) {
-		zEmbed.setFooter(`${t("tictactoe:theMatchTaken.part3")} ${MATCH.watchers} ${t("tictactoe:theMatchTaken.part4")}`);
-	}
-
 	zSend(zEmbed);
 };

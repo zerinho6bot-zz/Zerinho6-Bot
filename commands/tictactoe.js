@@ -31,7 +31,6 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 			this.zerinho = false;
 			this.topera = false;
 			this.secret = 0;
-			this.watchers = 0;
 			this.finished = false;
 			this.description = `${this.player1.emoji} ${t("tictactoe:turn")} (${this.player1.tag})\n\n${this.draw()}`;
 		}
@@ -43,7 +42,7 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 				const ActualHouse = this.map[i];
 
 				mapString += ActualHouse === 0 ? EMOJIS[i] : ActualHouse === 1 ? this.player1.emoji : this.player2.emoji;
-				mapString += (i === 2 || i === 5 || i === 8) ? "\n": " | ";
+				mapString += (i === 2 || i === 5 || i === 8) ? "\n" : " | ";
 			}
 
 			return mapString;
@@ -93,7 +92,7 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 
 			const Winner = this.check();
 
-			if (winner !== 0) {
+			if (Winner !== 0) {
 				this.finished = true;
 				this.winner = Winner;
 
@@ -132,7 +131,6 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 			tictactoeMatchs[MATCH_ID] = {
 				time: 0,
 				map: [],
-				watchers: 0,
 				p1: {
 					moves: [],
 					tag: ""
@@ -147,7 +145,6 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 			const MATCH = tictactoeMatchs[MATCH_ID];
 			MATCH.time = time;
 			MATCH.map = this.map;
-			MATCH.watchers = this.watchers;
 			MATCH.p1.moves = this.player1.moves;
 			MATCH.p2.moves = this.player2.moves;
 			MATCH.p1.tag = this.player1.tag;
@@ -194,10 +191,8 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 	
 	PlayersPlaying.add(message.author.id);
 	PlayersPlaying.add(message.mentions.members.first().id);
-	let watchers = [];
 
 	zEmbed.setDescription(GAME.description);
-	zEmbed.setFooter(t("tictactoe:watchingAd"));
 	//Again, we can't use zSend here because zSend doesn't return the message.
 	const MSG = await message.channel.send(zEmbed);
 
@@ -216,34 +211,18 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 	}
 
 	for (let i = 0; i < EMOJIS.length; i++) {
-		MSG.react(EMOJIS[i]);
+		await MSG.react(EMOJIS[i]);
 	}
-	MSG.react("👀");
 
-	const COLLECTION = MSG.createReactionCollector((r, u) => !u.bot, {time: 300000});
-	COLLECTION.on("collect", (r, u) => {
-
-		if (r.emoji.name === "👀") {
-
-			if (watchers.includes(message.author.id) || u.id === GAME.x || u.id === GAME.o) {
-				return;
-			} else {
-				watchers = watchers.concat(message.author.id);
-			}
-			GAME.watchers++;
-
-			let newEmbed = zEmbed;
-			zEmbed.fields.length !== 0 ? newEmbed.fields.splice(0, 1, t("tictactoe:watchers"),`${GAME.watchers} ${t("tictactoe:peopleWatching")}`) : newEmbed.addField(t("tictactoe:watchers"), `${GAME.watchers} ${t("tictactoe:peopleWatching")}`);
-			MSG.edit(newEmbed);
+	const COLLECTION = MSG.createReactionCollector((r, u) => r.emoji.name === r.emoji.name && !u.bot, {time: 300000});
+	COLLECTION.on("collect", (r) => {
+		if (r.users.last().id !== GAME.turn) {
 			return;
 		}
 
-		if (u.id !== GAME.turn) {
-			return;
-		}
-
-		r.users.remove(GAME.turn);
-		r.users.remove(bot.user.id);
+		r.users.forEach((u) => {
+			r.remove(u);
+		});
 
 		if (GAME.play(EMOJIS.indexOf(r.emoji.name))) {
 			COLLECTION.stop();
@@ -253,7 +232,7 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 		MSG.edit(zEmbed);
 	});
 
-	COLLECTION.on("end", (r) => {
+	COLLECTION.on("end", () => {
 		PlayersPlaying.add(message.author.id);
 		PlayersPlaying.add(message.mentions.members.first().id);
 		
@@ -267,7 +246,7 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 		const Players = GAME.Players;
 
 		ResultEmbed.setTitle(t("tictactoe:results"));
-		ResultEmbed.setDescription(`${t("tictactoe:theMatchTaken.part1")} ${TIME} ${t("tictactoe:theMatchTaken.part2")}${GAME.watchers !== 0 ? `...\n\n${t("tictactoe:theMatchTaken.part3")} **${GAME.watchers}** ${t("tictactoe:theMatchTaken.part4")}` : "."} ${GAME.secret ? "\n\nWith the love of zerinho6 and topera\n<:zerinicon:317871174266912768> :heart: <:Toperaicon:317871116934840321>" : ""}`);
+		ResultEmbed.setDescription(`${t("tictactoe:theMatchTaken.part1")} ${TIME} ${t("tictactoe:theMatchTaken.part2")}.${GAME.secret ? "\n\nWith the love of zerinho6 and topera\n<:zerinicon:317871174266912768> :heart: <:Toperaicon:317871116934840321>" : ""}`);
 		ResultEmbed.setFooter(`${t("tictactoe:matchCode")}: ${MATCH_ID}`);
 		
 		for (let i = 0; i < 2; i++) {

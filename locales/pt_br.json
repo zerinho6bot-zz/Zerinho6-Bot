@@ -2,7 +2,7 @@
 	"updates": {
 		"version": "Changelog - Versão",
 		"ver": "1.2",
-		"changelog": "Na ultima atualização, nós concertamos o memory leak e optimizamos varias partes to bot, agora não usamos mais o d.js master(12.0.0) mas sim o d.js stable(11.5.0)\n\n-Agora você pode ver o seu profile com o comando tictactoe-profile sem tem que passar seu proprio ID.\n-O comando de render não vai mais executar varias funções atoa quando a msg é do no mesmo canal onde o comando foi executado, o que causava um lag desnecessário.\n-Novo comando: move, mova uma mensagem de um canal par ao outro, use o comando de ajuda(prefix.help move) para saber mais."
+		"changelog": "Na ultima atualização, nós concertamos o memory leak e optimizamos varias partes to bot, agora não usamos mais o d.js master(12.0.0) mas sim o d.js stable(11.5.0)\n\n-Agora você pode ver o seu profile com o comando tictactoe-profile sem ter que passar seu proprio ID.\n-O comando de render não vai mais executar varias funções atoa quando a msg é do no mesmo canal onde o comando foi executado, o que causava um lag desnecessário.\n-Novo comando: move, mova uma mensagem de um canal par ao outro, use o comando de ajuda(prefix.help move) para saber mais."
 	},
 	"please": {
 		"prefixLiteral": "Prefix",
@@ -254,16 +254,11 @@
 		"loser": "Perdedor",
 		"selfMention": "Você não pode jogar com você mesmo.",
 		"botMention": "Você não pode jogar com um bot.",
-		"watchingAd": "Está assistindo? Reaja com 👀 para mostrar!",
-		"watchers": "Torcedores",
-		"peopleWatching": "pessoas estão assistindo esse jogo!",
 		"timeExpired": "Tempo expirado, ninguém venceu, a partida não vai ser registrada.",
 		"results": "Resultados",
 		"theMatchTaken": {
 			"part1": "A partida durou",
-			"part2": "segundos",
-			"part3": "E tinha",
-			"part4": "pessoas assistindo essa partida!"
+			"part2": "segundos"
 		},
 		"matchCode": "Codigo da partida",
 		"matchResult": "Resultado da partida",
