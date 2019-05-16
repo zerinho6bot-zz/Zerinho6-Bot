@@ -9,11 +9,6 @@
 			"needMention": true
 		}
 	},
-	"tictactoe-profile": {
-		"options": {
-			"needArg": true
-		}
-	},
 	"tictactoe-match": {
 		"options": {
 			"needArg": true

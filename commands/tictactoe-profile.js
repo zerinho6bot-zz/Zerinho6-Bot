@@ -3,11 +3,6 @@ exports.run = ({ message, args, t, zSend, zEmbed }) => {
 	let user = null;
 
 	if (message.mentions.users.first()) {
-		if (!tictactoeProfiles[message.mentions.users.first().id]) {
-			zSend("tictactoe-profile:userNotFound", true);
-			return;
-		}
-
 		user = tictactoeProfiles[message.mentions.users.first().id];
 	}
 
@@ -17,18 +12,16 @@ exports.run = ({ message, args, t, zSend, zEmbed }) => {
 				zSend("tictactoe-profile:argsNotNumber", true);
 				return;
 			}
-
-			user = args[0]
+			user = args[0];
 		} else {
-			user = message.author.id
+			user = message.author.id;
 		}
-
-		if(!tictactoeProfiles[user]) {
-			zSend("tictactoe-profile:userNotFound", true);
-			return;
-		}
-
 		user = tictactoeProfiles[user];
+	}
+
+	if(!tictactoeProfiles[user]) {
+		zSend("tictactoe-profile:userNotFound", true);
+		return;
 	}
 
 	zEmbed.setTitle(`${t("tictactoe-profile:profileOf")} ${user.tag}`);
