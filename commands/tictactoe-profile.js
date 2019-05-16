@@ -16,7 +16,6 @@ exports.run = ({ message, args, t, zSend, zEmbed }) => {
 		} else {
 			user = message.author.id;
 		}
-		user = tictactoeProfiles[user];
 	}
 
 	if(!tictactoeProfiles[user]) {
@@ -24,6 +23,7 @@ exports.run = ({ message, args, t, zSend, zEmbed }) => {
 		return;
 	}
 
+	user = tictactoeProfiles[user];
 	zEmbed.setTitle(`${t("tictactoe-profile:profileOf")} ${user.tag}`);
 	zEmbed.setDescription(`**${t("tictactoe-profile:wins")}**: ${user.wins}\n**${t("tictactoe-profile:loses")}**: ${user.loses}\n**${t("tictactoe-profile:draws")}**: ${user.draws}\n**${t("tictactoe-profile:matchs")}**: ${user.matchs}`);
 
