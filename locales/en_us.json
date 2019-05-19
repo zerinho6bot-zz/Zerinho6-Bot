@@ -248,7 +248,6 @@
 	},
 	"tictactoe": {
 		"oneOfThePlayersIsAlreadyPlaying": "You or the mentioned user are still in a match.",
-		"turn": "Turno!",
 		"turn": "Turn!",
 		"draw": "Draw",
 		"winner": "Winner",

@@ -118,7 +118,7 @@ exports.run = async function({ bot, message, t, zSend, zEmbed }) {
 				}
 
 				const actualPlayer = tictactoeProfiles[Player.id];
-				actualPlayer.tag = player.tag;
+				actualPlayer.tag = Player.tag;
 				actualPlayer.matchs++;
 				actualPlayer.wins = this.winner === i + 1 ? actualPlayer.wins + 1 : actualPlayer.wins;
 				actualPlayer.loses = this.winner !== i + 1 ? actualPlayer.loses + 1 : actualPlayer.loses;

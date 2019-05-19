@@ -48,7 +48,7 @@ module.exports = {
 	* @returns {object}
 	*/
 	zerinhoEmbed: function(member){
-		const ZeroEmbed = new Discord.RichEmbed()
+		const ZeroEmbed = new Discord.RichEmbed();
 
 		ZeroEmbed.setAuthor(member.user.tag, member.user.displayAvatarURL);
 		ZeroEmbed.setColor(member.displayHexColor);

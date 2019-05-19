@@ -32,7 +32,7 @@ exports.run = function (bot, message) {
 	const checkMissingPermission = COMMAND_UTILS.checkCommandPermissions(message, CommandName, Translate);
 	if (checkMissingPermission === "") {
 		const FastEmbed = MESSAGE_UTILS.zerinhoEmbed(message.member);
-		console.log(`Executing command: ${CommandName}, by user ${message.author.username} on guild ${message.guild.name}, RAM: ${Math.round(process.memoryUsage().rss / 1024 / 1024)}`)
+		console.log(`Executing command: ${CommandName}, by user ${message.author.username} on guild ${message.guild.name}, RAM: ${Math.round(process.memoryUsage().rss / 1024 / 1024)}`);
 		COMMAND_UTILS.getCommandRequirer(CommandName).run({
 			bot: bot,
 			message,

@@ -49,7 +49,7 @@ exports.run = async ({ bot, message, args, t, zSend, zEmbed }) => {
 	//I know I've already made a check for that, but never trust the user.
 	if (MSG.guild.id !== message.guild.id) {
 		zSend("move:theMessageIsFromAnotherServer", true);
-		return
+		return;
 	}
 
 	if (!MSG.channel.permissionsFor(message.author.id).has("MANAGE_MESSAGES")) {

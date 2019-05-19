@@ -15,4 +15,4 @@ Bot.on("error", (error) => {
 	console.log(error);
 });
 
-Bot.login(process.env.TOKEN).then(console.log(`Took: ${Math.round(new Date() - Time)}ms to load.\n\nReady to rock`))
+Bot.login(process.env.TOKEN).then(console.log(`Took: ${Math.round(new Date() - Time)}ms to load.\n\nReady to rock`));

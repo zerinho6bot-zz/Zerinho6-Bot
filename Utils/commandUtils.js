@@ -17,8 +17,8 @@ function setIsType(options){
 	*/
 	return function isType(propertie, type) {
 		return typeof options[propertie] === type;
-	}
-};
+	};
+}
 
 module.exports = {
 	/**
