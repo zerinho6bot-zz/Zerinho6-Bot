@@ -136,7 +136,7 @@ exports.run = async ({ bot, message, t, zSend }) => {
 				switch (player.effects[i]) {
 					case "nauseated_face":
 					player.hp -= 6;
-
+					player.wasPlayerDamagedLastTurn = true;
 					if (this.turn === this.p1.userObject) {
 						this.p2.damageDealtFromNausea += 6;
 					} else {
@@ -179,10 +179,12 @@ exports.run = async ({ bot, message, t, zSend }) => {
 					this.Playerturn.damageDealt += DAMAGE_WEAK;
 				} else {
 					TARGET.hp -= DAMAGE;
+					TARGET.wasPlayerDamagedLastTurn = true;
 					this.Playerturn.damageDealt += DAMAGE;
 				}
 				break;
 				case "candle":
+				TARGET.wasPlayerDamagedLastTurn = true;
 				TARGET.hp -= DAMAGE;
 				break;
 				case "nauseated_face":
