@@ -1,8 +1,8 @@
 {
 	"updates": {
 		"version": "Changelog - Versão",
-		"ver": "1.2",
-		"changelog": "Na ultima atualização, nós concertamos o memory leak e optimizamos varias partes to bot, agora não usamos mais o d.js master(12.0.0) mas sim o d.js stable(11.5.0)\n\n-Agora você pode ver o seu profile com o comando tictactoe-profile sem ter que passar seu proprio ID.\n-O comando de render não vai mais executar varias funções atoa quando a msg é do no mesmo canal onde o comando foi executado, o que causava um lag desnecessário.\n-Novo comando: move, mova uma mensagem de um canal par ao outro, use o comando de ajuda(prefix.help move) para saber mais.\n-Não é mais possivel ser um torcedor em uma partida de jogo da velha."
+		"ver": "1.3",
+		"changelog": "Novos comandos! rpg e info, rpg é um novo jogo único do Zerinho6 Bot onde você pode jogar um rpg básico mas estratégico com outro usuário, info onde você vê informações tecnicas do Bot.\n\n-Corrigido um erro em que tentar usar o comando render em uma mensagem de um usuário que saiu do servidor finalize com o bot.\n-Corrigido um erro com partidas TicTacToe não funcionando corretamente por erro de escrita no codigo."
 	},
 	"please": {
 		"prefixLiteral": "Prefix",
@@ -229,7 +229,26 @@
 				"actualDescription": "Mova uma mensagem de um canal para outro!"
 			},
 			"image": "https://cdn.discordapp.com/attachments/419448847853420564/577976996169121813/unknown.png"
+		},
+		"rpg": {
+			"description": {
+				"argumentOptions": {
+					"mention": "Começa uma partida rpg com o usuário mencionado."
+				},
+				"actualDescription": "Jogue uma partida rpg com alguém!\n\nInstruções:\n\nCada jogador tem 200 de vida, essa é a sua vida máxima e não tem jeito de ultrapassar isso, seu objetivo é matar o inimigo, reduzindo a vida dele para 0 ou menos.\n\nVocê tem 5 **ações**:\n\n🗡 -Adaga: Dê **30 de dano** ao inimigo.\n🛡 -Escudo: Faz a adaga dar apenas metade do dano e repele 5 de dano, **funciona por apenas um turno e não protege contra vela.**\n🕯 -Vela: dê **15 de dano** ao inimigo, o dano ignora escudo e o dano não é repelado.\n🍬 -Doce: **Cure 20 de vida** e remova o efeito de nausea se você tiver.\n🤢 -Nausea: Faça o inimigo sofrer de nausea, ele vai levar **6 de dano** a cada turno ate que ele se cure com o Doce.\n\nApós usar cada ação, ela vai ir para um tempo de recarga de 3 turnos, você não pode usar a ação ate que esse tempo de recarga chegue em 0, um :x: vai aparecer na habilidade que você não pode usar para te ajudar."
+			},
+			"image": "https://cdn.discordapp.com/attachments/490329576300609538/580119182537129998/unknown.png"
+		},
+		"info": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Mostra varias informações sobre o bot."
+				},
+				"actualDescription": "Exibe varias informações especificas sobre o bot, tais como: uso de ram, versão do d.js e tempo sem reniciar."
+			},
+			"image": "https://cdn.discordapp.com/attachments/490329576300609538/580144195617161217/unknown.png"
 		}
+
 	},
 	"set-language": {
 		"languageList": "Lista de linguagens",
@@ -339,5 +358,36 @@
 		"messageSentBy": "Mensagem enviada por",
 		"movedFrom": "movida de",
 		"by": "por"
+	},
+	"rpg": {
+		"thatActionStillOnCooldown": "essa ação ainda está indisponível",
+		"hp": "hp",
+		"time(s)": "Vez(es)",
+		"damageDealt(DaggerAndShield)": "Dano causado(Adaga e escudo)",
+		"damageDealtFromNausea": "Dano causado da Nausea",
+		"damageDealtFromCandle": "Dano causado da Vela",
+		"damageBlocked": "Dano Bloqueado",
+		"healthRestored": "Vida Recuperada",
+		"timesThatYouUsedEachAction": "Vezes que você usou cada ação",
+		"damageDealtAndRestoredHistory": "Historico de dano e recuperação de vida.",
+		"noOne": "Ninguém",
+		"history": "Historia",
+		"turnOf": "Turno de",
+		"actions": "Ações",
+		"dagger": "Adaga",
+		"shield": "Escudo",
+		"candle": "Vela",
+		"candy": "Doce",
+		"nauseated_face": "Nausea"
+	},
+	"info": {
+		"guilds": "Servidores",
+		"users": "Usuários",
+		"gitRepository": "Repositorio Git",
+		"reportBugsIt": "Reporte bugs em",
+		"uptime": "Tempo sem reiniciar",
+		"ownerID": "ID do Dono do bot",
+		"defaultLanguage": "Linguagem padrão do bot",
+		"history": "La em 2016, eu estava precisando de bots para o meu servidor, e eu realmente precisava de um com um modulo de auto-resposta avançada, coisa que apenas a Tatsumaki tinha no momento(Época que o mee6 era uma merda, lol) e eu realmente queria mais, então eu achei um bot chamado 'Mixy' que tinha essa função, eu o adicionei no meu servidor e comecei a usar bastante, o dono do bot notou isso e fez o bot criar um link de convite no servidor, eu notei que Smix era o dono do bot pois eu já conhecia ele de outro servidor, mas eu estava surpreso que ele foi ate o meu servidor falar sobre o bot e atualizações pois, assim como o Zerinho6 Bot, o foco dele não é o uso publico, mas sim pessoal, então ele me mostoru o codigo do bot(Era horrivel, mas ele era novo e o codigo pelo menos funcionava), eu estava tipo 'Mas que p, é essa, o que eu estou olhando?' e desde então eu comecei a aprender programação e trabalhar no Zerinho6 Bot."
 	}
 }

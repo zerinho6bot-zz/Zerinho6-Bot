@@ -1,8 +1,8 @@
 {
 	"updates": {
 		"version": "Updates Log - Version",
-		"ver": "1.2",
-		"changelog": "On the newest update we fixed a memory leak and changed from d.js master(12.0.0) to d.js stable(11.5.0), a lot of bug fix and optimizations have been made\n\n-Now you can pass nothing to tictactoe-profile command that it'll search for you.\n-Render command doesn't execute a lot of functions when the message is literally from the same channel where the command was executed.\n-New command: move, move a message from a channel to another, use the help command(prefix.help move) for more info.\nIt's no longer possible to 'be a watcher' on tictactoe matchs."
+		"ver": "1.3",
+		"changelog": "New commands! rpg and info, with rpg you can play a fast but strategic, and info that shows thechnic informations about the Bot.\n\n-Fixed a error where render command would crash if you try to render a message from a member that isn't on the guild anymore.\n-Fixed tictactoe not finishing, for real this time."
 	},
 	"please": {
 		"prefixLiteral": "Prefix",
@@ -229,6 +229,24 @@
 				"actualDescription": "Move a message from a channel to another!"
 			},
 			"image": "https://cdn.discordapp.com/attachments/419448847853420564/577977221776670770/unknown.png"
+		},
+		"rpg": {
+			"description": {
+				"argumentOptions": {
+					"mention": "Starts a rpg match with the mentioned user."
+				},
+				"actualDescription": "Play a rpg math with someone!\n\nInstructions:\n\nEach player have **200 health**, that's you max health and there's no way to pass that, your objective is to kill the enemy making his health 0 or lower than 0.\n\nYou have 5 **actions**:\n\n🗡 -Dagger: Deal **30 damage** to the enemy.\n🛡 -Shield: Makes dagger deal half of the damage and repeal 5 damage, **works for only one turn and doesn't protect from candle**.\n🕯 -Candle: Deal **15 damage** to the enemy, it ignores shield protection and you don't take damage back from it.\n🍬 -Candy: **Heal for 20** and removes nausea if you have it.\n🤢 -Nausea: Makes the enemy suffer from nausea, it'll take **6 damage** each turn.\n\nAfter using any action it'll go on a cooldown of 3 turns, you can't use it if the action is not with the value of 0, a :x: will appear to make it more easy to see what you can and can't use."
+			},
+			"image": "https://cdn.discordapp.com/attachments/490329576300609538/580107805797646386/unknown.png"
+		},
+		"info": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "shows a lot of informations about the bot."
+				},
+				"actualDescription": "See a lot of specific information about the bot: Uptime, version of d.js, repository link..etc"
+			},
+			"image": "https://cdn.discordapp.com/attachments/490329576300609538/580143680745242634/unknown.png"
 		}
 	},
 	"set-language": {
@@ -344,5 +362,36 @@
 		"messageSentBy": "Message sent by",
 		"movedFrom": "moved from",
 		"by": "by"
+	},
+	"rpg": {
+		"thatActionStillOnCooldown": "that action still on cooldown",
+		"hp": "hp",
+		"time(s)": "Time(s)",
+		"damageDealt(DaggerAndShield)": "Damage Dealt(Dagger and Shield)",
+		"damageDealtFromNausea": "Damage Dealt From Nausea",
+		"damageDealtFromCandle": "Damage Dealt From Candle",
+		"damageBlocked": "Damage Blocked",
+		"healthRestored": "Health Healed",
+		"timesThatYouUsedEachAction": "Times that you used each action",
+		"damageDealtAndRestoredHistory": "Damage Dealt and Healed History",
+		"noOne": "No one",
+		"history": "History",
+		"turnOf": "Turn of",
+		"actions": "Actions",
+		"dagger": "Dagger",
+		"shield": "Shield",
+		"candy": "Candy",
+		"candle": "Candle",
+		"nauseated_face": "Nausea"
+	},
+	"info": {
+		"guilds": "Guilds",
+		"users": "Users",
+		"gitRepository": "Git Repository",
+		"reportBugsIt": "Report Bugs In",
+		"uptime": "Uptime",
+		"ownerID": "Owner ID",
+		"defaultLanguage": "Default Language",
+		"history": "Back in 2016, I was nedding bots for my server, and I really wanted one with advanded auto-reply, thing that only Tatsumaki bot had at the time(back when mee6 was trash, lol) and I really wanted more, then I found a bot called 'Mixy' that had this function, I added to my server and started to use it a lot, the owner of the bot noticed that(the basic console.log(message.guild.name...) ) and made the bot make a invite link to enter on the server, I noticed that it was Smix tue bot owner because I already meet him on another server but I was surprised that it made all the way to my server to talk with me about the bot and the updates, because, just like Zerinho6 Bot, it isn't public fucused but personal usage, then he showed me the code of the bot(It was horrible, but it was a trainee developer and atleast the code works) I was like 'What the f is that, what i'm looking at?' and since then I started to learn programming and work on Zerinho6 Bot."
 	}
 }

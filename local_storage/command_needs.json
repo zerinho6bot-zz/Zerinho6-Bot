@@ -40,5 +40,10 @@
 			"needArg": 2,
 			"userNeed": "MANAGE_MESSAGES"
 		}
+	},
+	"rpg": {
+		"options": {
+			"needMention": true
+		}
 	}
 }
