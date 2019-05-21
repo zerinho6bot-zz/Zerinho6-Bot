@@ -280,7 +280,7 @@ exports.run = async ({ bot, message, t, zSend }) => {
 				let stringWithKeysAndValues = "";
 
 				for (let i = 0; i < Keys.length; i++) {
-					stringWithKeysAndValues += ` -${t("rpg:" + Keys[i]}: ${Values[i]} ${t("rpg:time(s)")}\n`;
+					stringWithKeysAndValues += ` -${t("rpg:" + Keys[i])}: ${Values[i]} ${t("rpg:time(s)")}\n`;
 				}
 
 				return stringWithKeysAndValues;
