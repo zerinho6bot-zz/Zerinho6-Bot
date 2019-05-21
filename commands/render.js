@@ -27,12 +27,22 @@ exports.run = async ({ bot, args, message, t, zSend, zEmbed }) => {
 		return;
 	}
 
-	if (MSG.embeds.length !== 0) {
-		zEmbed = MSG.embeds[0];
-		zSend(zEmbed);
-	}
+	if (MSG.embeds.length > 0) {
+		const DataFrom = MSG.embeds[0];
 
-	if (MSG.embeds.length === 0) {
+		zEmbed.fields = DataFrom.fields;
+		zEmbed.title = DataFrom.title;
+		zEmbed.description = DataFrom.description;
+		zEmbed.url = DataFrom.url;
+		zEmbed.timestamp = DataFrom.timestamp;
+		zEmbed.color = DataFrom.color;
+		zEmbed.video = DataFrom.video;
+		zEmbed.image = DataFrom.image;
+		zEmbed.thumbnail = DataFrom.thumbnail;
+		zEmbed.author = DataFrom.author;
+
+		zSend(zEmbed);
+	} else {
 		const EMBED = new Discord.RichEmbed();
 		//We don't use zerinhoEmbed from message Utils because if a user fetch message from a member that
 		//isn't on the guild anymore, it won't return the member property which is required as argument for zerinhoEmbed. 
@@ -47,13 +57,5 @@ exports.run = async ({ bot, args, message, t, zSend, zEmbed }) => {
 
 		EMBED.setFooter(MSG.guild.name);
 		zSend(EMBED);
-	} else {
-		if (MSG.content.length > 0) {
-			zSend(MSG.content);
-		}
-
-		if (MSG.attachments.size >= 1) {
-			zSend(new Discord.MessageAttachment(MSG.attachments.first().url));
-		}
 	}
 };
