@@ -15,16 +15,18 @@ exports.run = async ({ bot, args, message, t, zSend, zEmbed }) => {
 		}
 	}
 
-	zEmbed.addField(t("userinfo:tag"), user.username + user.discriminator, true);
-	zEmbed.addField(t("help:id"), user.id, true);
-	zEmbed.addField(t("userinfo:accountCreatedIn"), Moment(user.createdAt).format("LL"), true);
-
-	const Member = message.guild.member(user);
+	const Member = message.mentions.members.size > 0 ? message.mentions.members.first() : message.guild.member(user);
 	if (Member !== null) {
+		zEmbed.addField(t("userinfo:tag"), Member.user.username + Member.user.discriminator, true);
+		zEmbed.addField(t("help:id"), Member.user.id, true);
+		zEmbed.addField(t("userinfo:accountCreatedIn"), Moment(Member.user.createdAt).format("LL"), true);
 		zEmbed.addField(t("userinfo:hexColor"), Member.displayHexColor, true);
 		zEmbed.addField(t("userinfo:roleAmount"), Member.roles.size > 1 ? Member.roles.size : t("userinfo:noRole"), true);
 		zEmbed.addField(t("userinfo:joinedAt"), Moment(user.createdAt).format("LL"), true);
+		zEmbed.setThumbnail(Member.user.displayAvatarURL);
+		zSend(zEmbed);
+	} else {
+		zSend(t("bot-invite:CouldntFindThatUser"));
+		return;
 	}
-	zEmbed.setThumbnail(user.displayAvatarURL);
-	zSend(zEmbed);
 };
