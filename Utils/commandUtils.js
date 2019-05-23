@@ -94,7 +94,7 @@ module.exports = {
 		}
 		
 		if (CommandPerms.needMention) {
-			if (IsType("needMention", "number") && !message.mentions.users >= CommandPerms.needMention) {
+			if (IsType("needMention", "number") && !message.mentions.users.size >= CommandPerms.needMention) {
 				return `${t("utils:commandUtils.needMention.needToMention")} ${CommandPerms.needMention} ${t("utils:commandUtils.needMention.users")} ${t("utils:commandUtils.needMention.inOrderTo")}`;
 			} else if (!message.mentions.users.first()) {
 				return `${t("utils:commandUtils.needMention.needToMention")} ${t("utils:commandUtils.needMention.users")} ${t("utils:commandUtils.needMention.inOrderTo")}`;
