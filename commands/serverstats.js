@@ -9,11 +9,11 @@ const TimeMonth = Time.getMonth();
  * @function
  * @param {object} t - The translate function. 
  * @param {number} month - The month related number.
- * @returns {string|undefined} 
+ * @returns {string|boolean} 
  */
 function Months(t, month) {
     const MonthsTranslated = Object.keys(t("serverstats:months"));
-    return MonthsTranslated[month] ? t(`serverstats:months.${MonthsTranslated[month]}`) : undefined;
+    return MonthsTranslated[month] ? t(`serverstats:months.${MonthsTranslated[month]}`) : false;
 }
 
 /**
@@ -56,7 +56,7 @@ exports.run = async ({ bot, message, args, t, zSend, zEmbed }) => {
                     zSend("serverstats:staffDecidedYes_Part1", true);
                     guildWantingStats.servers[Msg.guild.id] = {
                         lastMonthUpdated: 13 // Little trick, if I put 0 and the month is January...
-                    }
+                    };
                     STORAGE_UTILS.write("./local_storage/guild_wanting_stats.json");
                     zSend("serverstats:staffDecidedYes_Part2", true);
                     ServerStats.updateServersStats();

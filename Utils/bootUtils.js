@@ -36,10 +36,10 @@ module.exports = {
              * @function
              * @returns {number}
              */
-            const Lucky_Number = () => {
+            const LuckyNumber = () => {
                 return parseInt(Math.random() * 615);
-            }
-            const SaveNumber = Lucky_Number();
+            };
+            const SaveNumber = LuckyNumber();
             const { tips } = require("../local_storage");
             const RandomTip = tips[parseInt(Math.random() * Object.keys(tips).length)];
 

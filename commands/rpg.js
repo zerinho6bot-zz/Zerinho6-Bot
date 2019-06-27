@@ -1,6 +1,6 @@
 const EMOJIS = {
 	dagger: "🗡",
-	crossed_sword: "⚔",
+	crossedSword: "⚔",
 	shield: "🛡",
 	candle: "🕯",
 	candy: "🍬",
@@ -267,9 +267,9 @@ exports.run = async ({ bot, message, t, zSend }) => {
 
 			const ANNOUNCER = `     ----- ${t("rpg:turnOf")} ${this.Playerturn.name} -----`;
 			// A emoji is equal to like, 3 characters, that's why we do this  \/
-			const BANNER = `${ANNOUNCER}\n${" ".repeat((ANNOUNCER.length / 2) - 3)}${this.p1.icon} ${EMOJIS["crossed_sword"]} ${this.p2.icon}`;
+			const BANNER = `${ANNOUNCER}\n${" ".repeat((ANNOUNCER.length / 2) - 3)}${this.p1.icon} ${EMOJIS["crossedSword"]} ${this.p2.icon}`;
 
-			return `${BANNER}\n\n${displayStats(this.p1)}\n\n${displayStats(this.p2)}\n\n${this.history.length > 0 ? `${t("rpg:history")}: ${GAME.history.join(", ")}` : ""}`;
+			return `${BANNER}\n\n${displayStats(this.p1)}\n\n${displayStats(this.p2)}\n\n${this.history.length > 0 ? `${t("rpg:history")}: ${this.history.join(", ")}` : ""}`;
 		}
 
 		//Game Over
@@ -367,8 +367,8 @@ exports.run = async ({ bot, message, t, zSend }) => {
 	});
 
 	COLLECTION.on("end", () => {
-		PlayersPlaying.add(message.author.id);
-		PlayersPlaying.add(message.mentions.members.first().id);
+		PlayersPlaying.delete(message.author.id);
+		PlayersPlaying.delete(message.mentions.members.first().id);
 		if (GAME.winner === null) {
 			zSend("tictactoe:timeExpired", true);
 		}

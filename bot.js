@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 const { guildStats } = require("./local_storage");
 const { STORAGE_UTILS, BOOT_UTILS } = require("./Utils");
 const Bot = new Discord.Client({ messageCacheMaxSize: 30, messageCacheLifeTime: 300, messageSweepInterval: 350});
-const Server_Stats = new STORAGE_UTILS.ServerStats(guildStats, Bot);
+const ServerStats = new STORAGE_UTILS.ServerStats(guildStats, Bot);
 const EnvVariables = BOOT_UTILS.envConfigs();
 
 Bot.on("message", (message) => {
@@ -20,9 +20,9 @@ Bot.on("error", (error) => {
 
 Bot.login(EnvVariables.TOKEN).then(() => {
 	BOOT_UTILS.wowSuchGraphics(Bot);
-	Server_Stats.updateServersStats(true);
+	ServerStats.updateServersStats(true);
 	
 	setTimeout(() => {
-		Server_Stats.updateServersStats(true);
+		ServerStats.updateServersStats(true);
 	}, 86400000);//24h
 });

@@ -174,7 +174,7 @@ module.exports = {
 				membersCount: 0,
 				rolesCount: 0,
 				channelsCount: 0
-			}
+			};
 			//Explanation of what it would look like in line 144.
 			return key;
 		}
@@ -187,7 +187,7 @@ module.exports = {
 		 * @returns {object} - The key updated.
 		 */
 		writeServer(key, id) {
-			key[id] = {}
+			key[id] = {};
 			return key;
 		}
 
