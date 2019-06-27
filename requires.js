@@ -17,5 +17,6 @@ module.exports = {
 	render: require("./commands/render.js"),
 	move: require("./commands/move.js"),
 	rpg: require("./commands/rpg.js"),
-	info: require("./commands/info.js")
+	info: require("./commands/info.js"),
+	serverstats: require("./commands/serverstats.js")
 };

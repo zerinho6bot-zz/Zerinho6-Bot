@@ -1,19 +1,22 @@
 const Fs = require("fs");
 const { commandNeeds, commandAvailables } = require("../local_storage");
+const Utils = require("./");
 const Commands = Fs.readdirSync("./commands").map((v) => v.replace(/.js/gi , ""));
+const { BOOT_UTILS } = Utils;
+const EnvVariables = BOOT_UTILS.envConfigs();
 
 /**
 * Sets up the key from where isType function will get properties.
 * @function
-* @param {object} options - Basicly a JSON file or a key with properties
+* @param {object} options - Basicly a JSON file or a key with properties.
 * @return {object}
 */
-function setIsType(options){
+function setIsType(options) {
 	/**
 	* A function to check if the typeof propertie is equal to the expected type.
 	* @function
-	* @param {string} propertie - The propertie that you want from options
-	* @param {string} type - The type to check if it's or not  
+	* @param {string} propertie - The propertie that you want from options.
+	* @param {string} type - The type to check if it's or not  .
 	*/
 	return function isType(propertie, type) {
 		return typeof options[propertie] === type;
@@ -24,8 +27,9 @@ module.exports = {
 	/**
 	* This function will return a empty string if all the command needs are follow, or a string teeling what the user did wrong.
 	* @function
-	* @param {object} message - The message object
-	* @param {string} command - The command name
+	* @param {object} message - The message object.
+	* @param {string} command - The command name.
+	* @param {object} t - The translation function.
 	* @returns {string}
 	*/
 	checkCommandPermissions: function (message, command, t) {
@@ -38,7 +42,7 @@ module.exports = {
 		const Args = message.content.split(" ").slice(1);
 		const IsType = setIsType(CommandPerms);
 
-		if (CommandPerms.onlyOwner && message.author.id !== process.env.OWNER) {
+		if (CommandPerms.onlyOwner && message.author.id !== EnvVariables.OWNER) {
 			return t("utils:commandUtils.onlyOwner");
 		}
 
@@ -59,7 +63,6 @@ module.exports = {
 		}
 
 		if (CommandPerms.specificChannel) {
-
 			if (IsType("specificChannel", "object") && !CommandPerms.specificChannel.includes(message.channel.id)) {
 				return `${t("utils:commandUtils.specificNeeds.specificChannel.pluralReturn")} ${CommandPerms.specificChannel.join(", ")}`;
 			} else if (message.channel.id !== CommandPerms.specificChannel) {
@@ -94,7 +97,7 @@ module.exports = {
 		}
 		
 		if (CommandPerms.needMention) {
-			if (IsType("needMention", "number") && !message.mentions.users.size >= CommandPerms.needMention) {
+			if (IsType("needMention", "number") && !message.mentions.users >= CommandPerms.needMention) {
 				return `${t("utils:commandUtils.needMention.needToMention")} ${CommandPerms.needMention} ${t("utils:commandUtils.needMention.users")} ${t("utils:commandUtils.needMention.inOrderTo")}`;
 			} else if (!message.mentions.users.first()) {
 				return `${t("utils:commandUtils.needMention.needToMention")} ${t("utils:commandUtils.needMention.users")} ${t("utils:commandUtils.needMention.inOrderTo")}`;
@@ -114,16 +117,17 @@ module.exports = {
 		return "";
 	},
 	/**
-	* This function returns every command listed on command_needs.json
+	* This function returns every command listed on command_needs.json.
 	* @function
-	* @retuns {Array<string>}
+	* @returns {Array<string>}
 	*/
 	getCommandList: function() {
 		return Commands;
 	},
 	/**
-	* This function returns the require of the given command
-	* @param {string} command - The command name
+	* This function returns the require of the given command.
+	* @function
+	* @param {string} command - The command name.
 	* @returns {object}
 	*/
 	getCommandRequirer: function(command) {
@@ -134,7 +138,7 @@ module.exports = {
 	/**
 	* Returns a list of commands that the user can use.
 	* @function
-	* @param {object} message - The message object
+	* @param {object} message - The message object.
 	* @returns {string}
 	*/
 	getAvailableCommandsForUser(message) {
@@ -163,7 +167,7 @@ module.exports = {
 					continue;
 				}
 			}
-
+			
 			if (Elem.startsWith("c.") && message.channel.id !== Elem.replace("c.", "")) {
 				continue;
 			}

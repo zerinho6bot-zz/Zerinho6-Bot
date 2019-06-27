@@ -1,8 +1,8 @@
 {
 	"updates": {
 		"version": "Changelog - Versão",
-		"ver": "1.3",
-		"changelog": "Novos comandos! rpg e info, rpg é um novo jogo único do Zerinho6 Bot onde você pode jogar um rpg básico mas estratégico com outro usuário, info onde você vê informações tecnicas do Bot.\n\n-Corrigido um erro em que tentar usar o comando render em uma mensagem de um usuário que saiu do servidor finalize com o bot.\n-Corrigido um erro com partidas TicTacToe não funcionando corretamente por erro de escrita no codigo."
+		"ver": "1.4",
+		"changelog": "A nova mais nova foi mais para o lado do código, mas por um motivo, agora existe um novo grande comando, serverstats, use o comando com a permissão de MANAGE_GUILD(Gerenciar Servidor) para habilitar ele para que o bot salve a quantidade de cargos, canais e membros mensalmente para que você possa ver depois, use o comando de ajuda(prefix.help serverstats) para saber como usar e mais."
 	},
 	"please": {
 		"prefixLiteral": "Prefix",
@@ -74,6 +74,7 @@
 		"messageLink&Channel": "Link de mensagem e canal",
 		"id": "ID",
 		"command": "comando",
+		"operation&year&month": "Operação ano mês",
 		"wantToKnowMore": "Se você quer saber mais sobre um comando, use:",
 		"avatar": {
 			"description": {
@@ -247,8 +248,17 @@
 				"actualDescription": "Exibe varias informações especificas sobre o bot, tais como: uso de ram, versão do d.js e tempo sem reniciar."
 			},
 			"image": "https://cdn.discordapp.com/attachments/490329576300609538/580144195617161217/unknown.png"
+		},
+		"serverstats": {
+			"description": {
+				"argumentOptions": {
+					"operation&year&month": "Executa a opeção usando o ano e o mês.",
+					"nothing": "Mostra as anos e meses disponiveis."
+				},
+				"actualDescription": "Existem 2 operações: `ver` e `comparar`.\n\n`ver` - você só precisa dar um ano e mês, se disponivel, você vai ver informações como quantidade de membros, cargos e canais.\n\n`comparar` - você precisa dar o ano e o mês igual como na operação `ver`, mas depois disso o bot vai pedir para você dar outro ano e mês para comparar suas informações.\n\n``ano`` pode ser um número(ex: 2018) ou ~ (O bot vai automaticamente trocar pelo ano atual);\n``mês`` pode ser um número(0 a 11), nome do mês(Janeiro) ou ~ (O bot vai automaticamente trocar pelo mês atual).**\n\nO bot não vai armazenar nenhuma data enquanto o comando não for habilitado, alguém com a permissão de MANAGE_GUILD(Gerenciar Servidor) PRECISA HABILITAR PRIMEIRO**, o bot vai procurar pelo servidor a cada 24h ou a cada vez que ele reiniciar, se, enquanto o bot estiver atualizando os dados, ele não achar o servidor, TODA a data será deletada, não tem backup."
+			},
+			"image": "https://cdn.discordapp.com/attachments/591080362910679060/593588718162411550/hKjJ1QOhad.gif"
 		}
-
 	},
 	"set-language": {
 		"languageList": "Lista de linguagens",
@@ -389,5 +399,48 @@
 		"ownerID": "ID do Dono do bot",
 		"defaultLanguage": "Linguagem padrão do bot",
 		"history": "La em 2016, eu estava precisando de bots para o meu servidor, e eu realmente precisava de um com um modulo de auto-resposta avançada, coisa que apenas a Tatsumaki tinha no momento(Época que o mee6 era uma merda, lol) e eu realmente queria mais, então eu achei um bot chamado 'Mixy' que tinha essa função, eu o adicionei no meu servidor e comecei a usar bastante, o dono do bot notou isso e fez o bot criar um link de convite no servidor, eu notei que Smix era o dono do bot pois eu já conhecia ele de outro servidor, mas eu estava surpreso que ele foi ate o meu servidor falar sobre o bot e atualizações pois, assim como o Zerinho6 Bot, o foco dele não é o uso publico, mas sim pessoal, então ele me mostoru o codigo do bot(Era horrivel, mas ele era novo e o codigo pelo menos funcionava), eu estava tipo 'Mas que p, é essa, o que eu estou olhando?' e desde então eu comecei a aprender programação e trabalhar no Zerinho6 Bot."
+	},
+	"serverstats": {
+		"months": {
+			"january": "Janeiro",
+			"february": "Fevereiro",
+			"march": "Março",
+			"april": "Abril",
+			"may": "Maio",
+			"june": "Junho",
+			"july": "Julho",
+			"august": "Agosto",
+			"september": "Setembro",
+			"october": "Outubro",
+			"november": "Novembro",
+			"december": "Dezembro"
+		},
+		"thisGuildDontHaveServerStatsEnabled_NoPerm": "Esse servidor ainda não habilitou o serverStats, fale com alguém que tenha a permissão de MANAGE_GUILD(Gerenciar Servidor)",
+		"thisGuildDontHaveServerStatsEnabled": "Esse servidor ainda não habilitou o serverStats, você deseja habilitar? (Digite: sim **ou** não)",
+		"yes": "sim",
+		"no": "não",
+		"staffDecidedNo": "**Não**, ok.",
+		"staffDecidedYes_Part1": "**Sim**, está bom, defining o servidor como uma das que querem os status...",
+		"staffDecidedYes_Part2": "Armazenando os status desse mês(Isso pode demorar alguns segundos..)",
+		"staffDecidedYes_Part3": "Pronto, por favor execute o comando novamente se você quiser ver os status desse mês, eu irei atualizar mensalmente.",
+		"staffDintGiveAOption": "Sua resposta não foi ``sim`` ou ``não``, portanto vou optar por ``não``.",
+		"yearIsNotAvailable": "Esse ano não está disponivel ou não existe.",
+		"monthIsNotAvailable": "Eu não consegui achar esse mês.",
+		"from": "de",
+		"comparing": "Comparando",
+		"with": "com",
+		"memberDifference": "Diferença de Membros",
+		"roleDifference": "Diferença de Cargos",
+		"channelDifference": "Diferença de Canais",
+		"yourOptions": "Suas opções",
+		"see": "ver",
+		"summaryOf": "Resumo de",
+		"members": "Membros",
+		"roles": "Cargos",
+		"channels": "Canais",
+		"comparingLower": "comparar",
+		"sendAnotherYearAndMonth": "Ok, envie outro ano e mês par aeu comparar.(Exemplo: ``2019 Janeiro``)",
+		"sameDateDetected": "Ambas são a mesma data, se você quiser ver apenas uma data, utilize a operação \"ver\", não comparar.",
+		"anIdiotsGuide": "Utilize o comando de ajuda(prefix.help serverstats) se você não souber utilizar esse comando."
 	}
 }

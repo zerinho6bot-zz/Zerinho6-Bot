@@ -1,8 +1,8 @@
 {
 	"updates": {
 		"version": "Updates Log - Version",
-		"ver": "1.3",
-		"changelog": "New commands! rpg and info, with rpg you can play a fast but strategic, and info that shows thechnic informations about the Bot.\n\n-Fixed a error where render command would crash if you try to render a message from a member that isn't on the guild anymore.\n-Fixed tictactoe not finishing, for real this time."
+		"ver": "1.4",
+		"changelog": "The newest update is more about the code-side, but for a reason, there's now a new big command called \"serverstats\", be sure to enable it on your guild so every month it'll store member, role and channel count of the guild each month, use the help command(prefix.help serverstats) to know how to use it and more."
 	},
 	"please": {
 		"prefixLiteral": "Prefix",
@@ -74,6 +74,7 @@
 		"messageLink&Channel": "Message Link and Channel",
 		"id": "ID",
 		"command": "command",
+		"operation&year&month": "Operation Year Month",
 		"wantToKnowMore": "If you want to know more about some command, use:",
 		"avatar": {
 			"description": {
@@ -247,6 +248,16 @@
 				"actualDescription": "See a lot of specific information about the bot: Uptime, version of d.js, repository link..etc"
 			},
 			"image": "https://cdn.discordapp.com/attachments/490329576300609538/580143680745242634/unknown.png"
+		},
+		"serverstats": {
+			"description": {
+				"argumentOptions": {
+					"operation&year&month": "Executes the operation using the given year and month.",
+					"nothing": "Shows the available year(s) and/or month(s)"
+				},
+				"actualDescription": "There's 2 operations: `see` and `compare`.\n\n`see` - you only need to give one year and month, if available, you'll see member, roles and channels count of that month in that year.\n\n`compare` - you'll give the year and date just like with `see`, but the bot will ask for another year and month to compare.\n\n``year`` can be a number(ex: 2018) or ~ (Will get the current year);\n``month`` can be a number(0 to 11), month name(January) or ~ (Will get the current month).**\n\nThe bot will not store any data if the command is not enabled, someone with MANAGE_GUILD NEEDS TO ENABLED FIRST**, the bot will update the stats everyday or on every restart, if while updating the stats the bot doesn't find the guild, it'll delete the whole data from every year, there's no save."
+			},
+			"image": "https://cdn.discordapp.com/attachments/591080362910679060/593588234731388958/4xCEMm77cg.gif"
 		}
 	},
 	"set-language": {
@@ -393,5 +404,48 @@
 		"ownerID": "Owner ID",
 		"defaultLanguage": "Default Language",
 		"history": "Back in 2016, I was nedding bots for my server, and I really wanted one with advanded auto-reply, thing that only Tatsumaki bot had at the time(back when mee6 was trash, lol) and I really wanted more, then I found a bot called 'Mixy' that had this function, I added to my server and started to use it a lot, the owner of the bot noticed that(the basic console.log(message.guild.name...) ) and made the bot make a invite link to enter on the server, I noticed that it was Smix tue bot owner because I already meet him on another server but I was surprised that it made all the way to my server to talk with me about the bot and the updates, because, just like Zerinho6 Bot, it isn't public fucused but personal usage, then he showed me the code of the bot(It was horrible, but it was a trainee developer and atleast the code works) I was like 'What the f is that, what i'm looking at?' and since then I started to learn programming and work on Zerinho6 Bot."
+	},
+	"serverstats": {
+		"months": {
+			"january": "January",
+			"february": "February",
+			"march": "March",
+			"april": "April",
+			"may": "May",
+			"june": "June",
+			"july": "Joly",
+			"august": "August",
+			"september": "September",
+			"october": "October",
+			"november": "November",
+			"december": "December"
+		},
+		"thisGuildDontHaveServerStatsEnabled_NoPerm": "This guild din't enable the serverStats command yet, ask for a Staff with MANAGE_GUILD permission.",
+		"thisGuildDontHaveServerStatsEnabled": "This guild doesn't have ServerStats enabled, do you want to enable it now? (Type: yes **or** no)",
+		"yes": "yes",
+		"no": "no",
+		"staffDecidedNo": "**No**, ok.",
+		"staffDecidedYes_Part1": "**Yes**, fine...defining this guild as one that wants stats...",
+		"staffDecidedYes_Part2": "Writing stats from this month(This can take some seconds..)",
+		"staffDecidedYes_Part3": "Done, please execute the command again if you want to see the stats that I stored from this month.",
+		"staffDintGiveAOption": "Your reply wasn't neither yes or no, so by default I'll accept it as **no**.",
+		"yearIsNotAvailable": "That year isn't available or doesn't exist.",
+		"monthIsNotAvailable": "I couldn't find that month.",
+		"from": "from",
+		"comparing": "Comparing",
+		"with": "with",
+		"memberDifference": "Members difference",
+		"roleDifference": "Roles Difference",
+		"channelDifference": "Channels Difference",
+		"yourOptions": "Your options",
+		"see": "see",
+		"summaryOf": "Summary of",
+		"members": "Members",
+		"roles": "Roles",
+		"channels": "Channels",
+		"comparingLower": "compare",
+		"sendAnotherYearAndMonth": "Ok, send another year and month to compare.(Example: `2019 January`)",
+		"sameDateDetected": "They are the same date, if you want to see only one data, use \"see\", not compare.",
+		"anIdiotsGuide": "Use the help command if you don't know how to use this command, example: `prefix.help <command>`."
 	}
 }

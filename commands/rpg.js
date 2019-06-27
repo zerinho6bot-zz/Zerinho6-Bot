@@ -7,6 +7,7 @@ const EMOJIS = {
 	"nauseated_face": "🤢"
 };
 const EMOJIS_ARR = ["🗡", "🛡", "🕯", "🍬", "🤢"]; //Order: Dagger, shield, candle, candy and nauseated_face.
+const PlayersPlaying = new Set();
 exports.run = async ({ bot, message, t, zSend }) => {
 	class ZeroBattle {
 		constructor(p1, p2) {
@@ -88,7 +89,7 @@ exports.run = async ({ bot, message, t, zSend }) => {
 			this.tickEffects(this.Playerturn);
 
 			// update the actions cooldowns
-			const Keys = Object.keys(this.Playerturn.actions)
+			const Keys = Object.keys(this.Playerturn.actions);
 			for (let i = 0; i < Keys.length; i++) {
 				let action = this.Playerturn.actions[Keys[i]];
 				this.Playerturn.actions[Keys[i]] = action === 0 ? action : action - 1;
@@ -237,7 +238,7 @@ exports.run = async ({ bot, message, t, zSend }) => {
 				const ICONS = {
 					shield: "🛡",
 					"nauseated_face": "🤢"
-				}
+				};
 
 				player.effects.forEach((e) => {
 					stringOfEffectsIcons += ICONS[e];
@@ -261,14 +262,14 @@ exports.run = async ({ bot, message, t, zSend }) => {
 			}
 
 			function displayStats(player) {
-				return `${player.name}\n${t("rpg:hp")}: ${displayHealth(player)} ${displayEffects(player)}\n${t("rpg:actions")}:\n${displayActions(player)}`
+				return `${player.name}\n${t("rpg:hp")}: ${displayHealth(player)} ${displayEffects(player)}\n${t("rpg:actions")}:\n${displayActions(player)}`;
 			}
 
 			const ANNOUNCER = `     ----- ${t("rpg:turnOf")} ${this.Playerturn.name} -----`;
 			// A emoji is equal to like, 3 characters, that's why we do this  \/
 			const BANNER = `${ANNOUNCER}\n${" ".repeat((ANNOUNCER.length / 2) - 3)}${this.p1.icon} ${EMOJIS["crossed_sword"]} ${this.p2.icon}`;
 
-			return `${BANNER}\n\n${displayStats(this.p1)}\n\n${displayStats(this.p2)}\n\n${GAME.history.length > 0 ? `${t("rpg:history")}: ${GAME.history.join(", ")}` : ""}`;
+			return `${BANNER}\n\n${displayStats(this.p1)}\n\n${displayStats(this.p2)}\n\n${this.history.length > 0 ? `${t("rpg:history")}: ${GAME.history.join(", ")}` : ""}`;
 		}
 
 		//Game Over
@@ -291,7 +292,7 @@ exports.run = async ({ bot, message, t, zSend }) => {
 			}
 
 			function getResultsFromPlayer(player) {
-				return `${player.name}\nHp: ${player.hp}\n${t("rpg:timesThatYouUsedEachAction")}:\n${getActionTimesUsedFromPlayer(player)}\n${t("rpg:damageDealtAndRestoredHistory")}:\n${getDamageAndHealedHistoryFromPlayer(player)}`
+				return `${player.name}\nHp: ${player.hp}\n${t("rpg:timesThatYouUsedEachAction")}:\n${getActionTimesUsedFromPlayer(player)}\n${t("rpg:damageDealtAndRestoredHistory")}:\n${getDamageAndHealedHistoryFromPlayer(player)}`;
 			}
 			return `${t("rpg:history")}: ${this.history.join(", ")}\n\n     ${t("tictactoe:winner")}: ${this.winner === this.p1.userObject.id ? this.p1.name : this.winner === this.p2.userObject.id ? this.p2.name: t("rpg:noOne")}\n\n${getResultsFromPlayer(this.p1)}\n\n${getResultsFromPlayer(this.p2)}`;
 		}
@@ -306,7 +307,16 @@ exports.run = async ({ bot, message, t, zSend }) => {
 		zSend("tictactoe:botMention", true);
 	}
 
+	if (PlayersPlaying.has(message.author.id) || PlayersPlaying.has(message.mentions.members.first().id)) {
+		zSend("tictactoe:oneOfThePlayersIsAlreadyPlaying", true);
+		return;
+	}
+
 	const GAME = new ZeroBattle(message.author, message.mentions.users.first());
+
+	PlayersPlaying.add(message.author.id);
+	PlayersPlaying.add(message.mentions.members.first().id);
+
 	const MSG = await message.channel.send(GAME.draw());
 
 	for (let i = 0; i < EMOJIS_ARR.length; i++) {
@@ -357,6 +367,8 @@ exports.run = async ({ bot, message, t, zSend }) => {
 	});
 
 	COLLECTION.on("end", () => {
+		PlayersPlaying.add(message.author.id);
+		PlayersPlaying.add(message.mentions.members.first().id);
 		if (GAME.winner === null) {
 			zSend("tictactoe:timeExpired", true);
 		}

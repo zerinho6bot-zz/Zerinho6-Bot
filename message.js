@@ -1,25 +1,27 @@
-const { COMMAND_UTILS, LANGUAGE_UTILS, MESSAGE_UTILS } = require("./Utils");
+const { COMMAND_UTILS, LANGUAGE_UTILS, MESSAGE_UTILS, BOOT_UTILS } = require("./Utils");
 const { guildLanguage } = require("./local_storage");
 const TranslationClass = new LANGUAGE_UTILS.InitTranslationClass();
 const COMMANDS = COMMAND_UTILS.getCommandList();
+const EnvVariables = BOOT_UTILS.envConfigs();
 
 exports.run = function (bot, message) {
 
 	const Args = message.content.split(" ");
-	const CommandName = Args[0].slice(process.env.PREFIX.length);
+	const CommandName = Args[0].toLowerCase().slice(EnvVariables.PREFIX.length);
 
 	if (!COMMANDS.includes(CommandName)) {
 		return;
 	}
 	
-	const LanguageForTranslation = TranslationClass.DefineLanguageForTranslation(guildLanguage[message.guild.id] ? guildLanguage[message.guild.id].language : process.env.LANGUAGE);
+	TranslationClass.DefineLanguageForTranslation(guildLanguage[message.guild.id] ? guildLanguage[message.guild.id].language : EnvVariables.LANGUAGE);
+	
 	const Translate = TranslationClass.Translate.bind(TranslationClass);
 	const UserCooldown = MESSAGE_UTILS.applyCooldown(message.author.id);
 	const FastSend = MESSAGE_UTILS.zerinhoConfigSend(message.channel, Translate);
 
 	if (UserCooldown > 0) {
 		if (UserCooldown === 4) {
-			FastSend(`${Translate("utils:cooldownWarning")} ${process.env.COOLDOWN/1000} ${Translate("utils:seconds")}`);
+			FastSend(`${Translate("utils:cooldownWarning")} ${EnvVariables.COOLDOWN/1000} ${Translate("utils:seconds")}`);
 		}
 		return;
 	}

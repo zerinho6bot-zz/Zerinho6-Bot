@@ -1,6 +1,5 @@
-const { COMMAND_UTILS } = require("../Utils");
-const COMMAND_LIST = COMMAND_UTILS.getCommandList();
-const { guildLanguage } = require("../local_storage");
+const { COMMAND_UTILS, BOOT_UTILS } = require("../Utils");
+const EnvVariables = BOOT_UTILS.envConfigs();
 
 exports.run = ({ message, args, t, zSend, zEmbed }) => {
 	const ArgsLower = args[0] ? args[0].toLowerCase() : "";
@@ -24,7 +23,7 @@ exports.run = ({ message, args, t, zSend, zEmbed }) => {
 	//Oh boy, time to mess things up.
 	if (!ArgsLower > 1 || t(`help:${ArgsLower}`).length === 0) {
 		zEmbed.addField(t("help:commands"), renderCommands());
-		zEmbed.setDescription(`**${t("please:prefixLiteral")}**: \`${process.env.PREFIX}\`\n${t("please:CPW")} ${process.env.PREFIX}avatar\n\n${t("help:wantToKnowMore")} ${process.env.PREFIX}help ${t("help:command")}\n\n${t("help:exclusiveCommandsWarning")}\n\n**${t("updates:version")}**: ${t("updates:ver")}\n\n${t("updates:changelog")}`);
+		zEmbed.setDescription(`**${t("please:prefixLiteral")}**: \`${EnvVariables.PREFIX}\`\n${t("please:CPW")} ${EnvVariables.PREFIX}avatar\n\n${t("help:wantToKnowMore")} ${EnvVariables.PREFIX}help ${t("help:command")}\n\n${t("help:exclusiveCommandsWarning")}\n\n**${t("updates:version")}**: ${t("updates:ver")}\n\n${t("updates:changelog")}`);
 	} else {
 		zEmbed.setTitle(ArgsLower.charAt(0).toUpperCase() + ArgsLower.slice(1));
 		zEmbed.setImage(t(`help:${ArgsLower}.image`));

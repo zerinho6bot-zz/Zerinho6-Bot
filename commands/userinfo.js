@@ -13,8 +13,6 @@ exports.run = async ({ bot, args, message, t, zSend, zEmbed }) => {
 			}
 			user = SearchedUser;
 		}
-	} else if (message.mentions.users.size >= 1) {
-		user = message.mentions.users.first();
 	}
 
 	zEmbed.addField(t("userinfo:tag"), user.username + user.discriminator, true);
@@ -25,7 +23,7 @@ exports.run = async ({ bot, args, message, t, zSend, zEmbed }) => {
 	if (Member !== null) {
 		zEmbed.addField(t("userinfo:hexColor"), Member.displayHexColor, true);
 		zEmbed.addField(t("userinfo:roleAmount"), Member.roles.size > 1 ? Member.roles.size : t("userinfo:noRole"), true);
-		zEmbed.addField(t("userinfo:joinedAt"), Moment(user.createdAt).format("LL"), true);
+		zEmbed.addField(t("userinfo:joinedAt"), Moment(Member.joinedAt).format("LL"), true);
 	}
 	zEmbed.setThumbnail(user.displayAvatarURL);
 	zSend(zEmbed);

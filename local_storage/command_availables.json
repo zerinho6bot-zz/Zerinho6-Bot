@@ -2,7 +2,8 @@
 	"all": [
 		"tictactoe", "tictactoe-match", "tictactoe-profile",
 		"help", "avatar", "bot-invite", "embed", "ping", "ram",
-		"render", "serverinfo", "stoptyping", "userinfo", "move", "info", "rpg"
+		"render", "serverinfo", "stoptyping", "userinfo", "move", 
+		"info", "rpg", "serverstats"
 	],
 	"p.MANAGE_GUILD": ["set-language"],
 	"p.MANAGE_MESSAGES": ["move"],

@@ -1,10 +1,12 @@
 const Locales = require("../locales");
+const { BOOT_UTILS } = require("./");
+const EnvVariables = BOOT_UTILS.envConfigs();
 
 module.exports = {
 	InitTranslationClass: class {
-		constructor(){
+		constructor() {
 			this.languages = Locales;
-			this.defaultLanguage = process.env.LANGUAGE;
+			this.defaultLanguage = EnvVariables.LANGUAGE;
 			this.language = "";
 		}
 		/**
@@ -43,7 +45,7 @@ module.exports = {
 	* @function
 	* @returns {object}
 	*/
-	getLanguages: function(){
+	getLanguages: function() {
 		return Locales;
 	}
 };
