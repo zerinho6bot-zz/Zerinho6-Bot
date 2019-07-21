@@ -2,7 +2,7 @@
 	"updates": {
 		"version": "Changelog - Versão",
 		"ver": "1.4",
-		"changelog": "A nova mais nova foi mais para o lado do código, mas por um motivo, agora existe um novo grande comando, serverstats, use o comando com a permissão de MANAGE_GUILD(Gerenciar Servidor) para habilitar ele para que o bot salve a quantidade de cargos, canais e membros mensalmente para que você possa ver depois, use o comando de ajuda(prefix.help serverstats) para saber como usar e mais."
+		"changelog": "A atualização mais nova foi mais para o lado do código, mas por um motivo, agora existe um novo grande comando, serverstats, use o comando com a permissão de MANAGE_GUILD(Gerenciar Servidor) para habilitar ele para que o bot salve a quantidade de cargos, canais e membros mensalmente para que você possa ver depois, use o comando de ajuda(prefix.help serverstats) para saber como usar e mais."
 	},
 	"please": {
 		"prefixLiteral": "Prefix",
@@ -420,7 +420,7 @@
 		"yes": "sim",
 		"no": "não",
 		"staffDecidedNo": "**Não**, ok.",
-		"staffDecidedYes_Part1": "**Sim**, está bom, defining o servidor como uma das que querem os status...",
+		"staffDecidedYes_Part1": "**Sim**, está bom, definindo o servidor como uma das que querem os status...",
 		"staffDecidedYes_Part2": "Armazenando os status desse mês(Isso pode demorar alguns segundos..)",
 		"staffDecidedYes_Part3": "Pronto, por favor execute o comando novamente se você quiser ver os status desse mês, eu irei atualizar mensalmente.",
 		"staffDintGiveAOption": "Sua resposta não foi ``sim`` ou ``não``, portanto vou optar por ``não``.",

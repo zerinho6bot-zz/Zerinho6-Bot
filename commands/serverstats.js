@@ -65,7 +65,7 @@ exports.run = async ({ bot, message, args, t, zSend, zEmbed }) => {
                     long to update the JSON, I'll do this.*/
                     setTimeout(() => {
                         zSend("serverstats:staffDecidedYes_Part3", true);
-                    }, 3000);
+                    }, 2000);
                     return;
                 } else {
                     zSend("serverstats:staffDintGiveAOption", true);
@@ -166,7 +166,7 @@ exports.run = async ({ bot, message, args, t, zSend, zEmbed }) => {
      * @returns {string}
      */
     function returnSpecifiedDifference(ServerStats, oldYear, oldMonth, oldData, newYear, newMonth, newData) {
-        return `${ServerStats.getDifference(oldData, newData)} (${oldData} from ${oldYear}[${Months(t, oldMonth)}] - ${newData} ${t("serverstats:from")} ${newYear}[${Months(t, newMonth)}])${ServerStats.getStatus(oldData - newData)}`;
+        return `${ServerStats.getDifference(oldData, newData)} (${oldData} ${t("serverstats:from")} ${oldYear}[${Months(t, oldMonth)}] - ${newData} ${t("serverstats:from")} ${newYear}[${Months(t, newMonth)}])${ServerStats.getStatus(oldData - newData)}`;
     }
 
     /**
