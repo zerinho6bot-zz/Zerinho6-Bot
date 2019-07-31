@@ -1,11 +1,11 @@
-const { COMMAND_UTILS, BOOT_UTILS } = require("../Utils");
-const EnvVariables = BOOT_UTILS.envConfigs();
+const { CommandUtils, BootUtils } = require("../Utils");
+const EnvVariables = BootUtils.envConfigs();
 
 exports.run = ({ message, args, t, zSend, zEmbed }) => {
 	const ArgsLower = args[0] ? args[0].toLowerCase() : "";
 
 	function renderCommands() {
-		return `${COMMAND_UTILS.getAvailableCommandsForUser(message)}`;
+		return `${CommandUtils.getAvailableCommandsForUser(message)}`;
 	}
 
 	function renderArguments(command) {

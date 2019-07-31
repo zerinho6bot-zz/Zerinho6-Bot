@@ -1,4 +1,4 @@
-const { STORAGE_UTILS } = require("../Utils");
+const { StorageUtils } = require("../Utils");
 const { GuildStats, GuildWantingStats } = require("../local_storage");
 const Time = new Date();
 const TimeYear = Time.getFullYear();
@@ -36,7 +36,7 @@ function MonthsToNumber(t, month) {
 }
 
 exports.run = async ({ bot, message, args, t, zSend, zEmbed }) => {
-    const ServerStats = new STORAGE_UTILS.ServerStats(GuildStats, bot);
+    const ServerStats = new StorageUtils.ServerStats(GuildStats, bot);
 
     if (!ServerStats.guildWantsStats(message.guild.id)) {
         if (!message.channel.permissionsFor(message.author.id).has("MANAGE_GUILD")) {
@@ -57,7 +57,7 @@ exports.run = async ({ bot, message, args, t, zSend, zEmbed }) => {
                     GuildWantingStats.servers[Msg.guild.id] = {
                         lastMonthUpdated: 13 // Little trick, if I put 0 and the month is January...
                     };
-                    STORAGE_UTILS.write("./local_storage/guild_wanting_stats.json");
+                    StorageUtils.write("./local_storage/guild_wanting_stats.json");
                     zSend("serverstats:staffDecidedYes_Part2", true);
                     ServerStats.updateServersStats();
 

@@ -13,9 +13,9 @@ module.exports = {
      * @param {bot} - The Discord bot instance.
      */
     wowSuchGraphics(bot) {
-        const { BOOT_UTILS } = require("./");
+        const { BootUtils } = require("./");
 
-        if (BOOT_UTILS.envConfigs().FAST_LOAD !== "false") {
+        if (BootUtils.envConfigs().FAST_LOAD !== "false") {
             console.log("Bot on! Ready to rock.");
             return;
         }
@@ -68,6 +68,6 @@ module.exports = {
         drawOnce(bot, Terminal);
         setInterval(() => {
             drawOnce(bot, Terminal);
-        }, BOOT_UTILS.envConfigs().TERMINAL_RELOAD_INTERVAL);
+        }, BootUtils.envConfigs().TERMINAL_RELOAD_INTERVAL);
     }
 };

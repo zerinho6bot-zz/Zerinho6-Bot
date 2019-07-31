@@ -1,4 +1,4 @@
-const { USER_UTILS } = require("../Utils");
+const { UserUtils } = require("../Utils");
 const Regex = /<@\!?(.*)\>/;
 
 exports.run = async ({ bot, args, t, zSend, zEmbed }) => {
@@ -12,7 +12,7 @@ exports.run = async ({ bot, args, t, zSend, zEmbed }) => {
 	}
 
 	const Id = MatchedRegex === null ? args[0] : MatchedRegex[1];
-	const User = await USER_UTILS.searchUser(bot, Id);
+	const User = await UserUtils.searchUser(bot, Id);
 
 	if (User === null) {
 		zSend("bot-invite:CouldntFindThatUser", true);

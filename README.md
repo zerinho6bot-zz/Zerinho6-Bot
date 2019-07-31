@@ -25,7 +25,7 @@ Zerinho6 Bot is a Lite and fast bot that's focused on personal use but available
 
 ## Setup
 
-Create a ``.env`` file **via a IDE because you need it to be without name and windows won't let you do that**...
+Inside src, create a ``.env`` file **via a IDE because you need it to be without name and windows won't let you do that**...
 
 ...It should look like [this](https://github.com/zerinho6bot/Zerinho6-Bot/blob/master/.env.example)
 
@@ -33,14 +33,21 @@ Remember, ``.env`` should not have spaces.
 
 You still need to change the values..
 
-**TOKEN** being the Discord bot token.
-**PREFIX** being the bot prefix.
-**OWNER** being your Discord user ID.
-**COOLDOWN** being how much the user need to wait to be able to use another command.
-**LANGUAGE** being the bot default language for commands.(Be sure that the language exist on the locales folder or it'll crash)
-**FAST_LOAD** being if you want to load the bot without those detailed things on the console.
+° **TOKEN** being the Discord bot token.
 
-Open the console window on the bot folder and type ``npm i``, after that you can do ``node bot.js`` or ``npm test``. There'll be a message on console saying how much time it took to the bot to load and that he's ready.
+° **PREFIX** being the bot prefix.
+
+° **OWNER** being your Discord user ID.
+
+° **COOLDOWN** being how much the user need to wait to be able to use another command.
+
+° **LANGUAGE** being the bot default language for commands.(Be sure that the language exist on the locales folder or it'll crash)
+
+° **FAST_LOAD** being if you want to load the bot without those detailed things on the console.
+
+° **TERMINAL_RELOAD_INTERVAL** Being how fast the terminal will update if FAST_LOAD is active.
+
+Open the console window on the src folder and type ``npm i``, after that you can do ``node bot.js``. There'll be a message saying when the bot's ready or a lot of things if FAST_LOAD is enabled
 
 Want to know more about the code? There's a whole [Wiki](https://github.com/zerinho6bot/Zerinho6-Bot/wiki) made for for!
 ## Helping

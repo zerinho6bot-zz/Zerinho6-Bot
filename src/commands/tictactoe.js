@@ -1,5 +1,5 @@
 const Emojis = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣', '9⃣'];
-const { MESSAGE_UTILS, STORAGE_UTILS } = require("../Utils");
+const { MessageUtils, StorageUtils } = require("../Utils");
 const MatchId = Date.now().toString(36);
 const { TictactoeMatchs, TictactoeProfiles } = require("../local_storage");
 const PlayersPlaying = new Set();
@@ -145,7 +145,7 @@ exports.run = async function({ message, t, zSend, zEmbed }) {
 				ActualPlayer.wins = this.winner === i + 1 ? ActualPlayer.wins + 1 : ActualPlayer.wins;
 				ActualPlayer.loses = this.winner !== i + 1 ? ActualPlayer.loses + 1 : ActualPlayer.loses;
 				ActualPlayer.draws = this.winner === 3 ? ActualPlayer.draws + 1 : ActualPlayer.draws;
-				STORAGE_UTILS.write("./local_storage/tictactoe-profiles.json", TictactoeProfiles);
+				StorageUtils.write("./local_storage/tictactoe-profiles.json", TictactoeProfiles);
 			}
 		}
 
@@ -177,7 +177,7 @@ exports.run = async function({ message, t, zSend, zEmbed }) {
 			Match.p1.tag = this.player1.tag;
 			Match.p2.tag = this.player2.tag;
 			Match.winner = this.winner;
-			STORAGE_UTILS.write("./local_storage/tictactoe-matchs.json", TictactoeMatchs);
+			StorageUtils.write("./local_storage/tictactoe-matchs.json", TictactoeMatchs);
 		}
 
 		/**
@@ -269,7 +269,7 @@ exports.run = async function({ message, t, zSend, zEmbed }) {
 			return;
 		}
 
-		const ResultEmbed = MESSAGE_UTILS.zerinhoEmbed(message.member);
+		const ResultEmbed = MessageUtils.zerinhoEmbed(message.member);
 		const Time = Math.floor((new Date() - Game.time) / 1000);
 		const Players = Game.players;
 

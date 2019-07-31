@@ -1,6 +1,6 @@
 const Locales = require("../locales");
-const { BOOT_UTILS } = require("./");
-const EnvVariables = BOOT_UTILS.envConfigs();
+const { BootUtils } = require("./");
+const EnvVariables = BootUtils.envConfigs();
 
 module.exports = {
 	InitTranslationClass: class {

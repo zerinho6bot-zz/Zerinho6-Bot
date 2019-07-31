@@ -2,8 +2,8 @@ const Fs = require("fs");
 const { CommandNeeds, CommandAvailables } = require("../local_storage");
 const Utils = require("./");
 const Commands = Fs.readdirSync("./commands").map((v) => v.replace(/.js/gi , ""));
-const { BOOT_UTILS } = Utils;
-const EnvVariables = BOOT_UTILS.envConfigs();
+const { BootUtils } = Utils;
+const EnvVariables = BootUtils.envConfigs();
 
 /**
 * Sets up the key from where isType function will get properties.

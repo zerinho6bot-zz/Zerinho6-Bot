@@ -1,6 +1,6 @@
 const { GuildLanguage } = require("../local_storage");
-const { LANGUAGE_UTILS, STORAGE_UTILS } = require("../Utils");
-const LanguageList = LANGUAGE_UTILS.getLanguages();
+const { LanguageUtils, StorageUtils } = require("../Utils");
+const LanguageList = LanguageUtils.getLanguages();
 const LanguageListLiteral = Object.keys(LanguageList).join(", ");
 
 exports.run = ({ message, args, t, zSend, zEmbed }) => {
@@ -34,7 +34,7 @@ exports.run = ({ message, args, t, zSend, zEmbed }) => {
 		GuildLanguage[Guild.id].language = args[0];
 	}
 
-	const Result = STORAGE_UTILS.write("./local_storage/guild_language.json", GuildLanguage);
+	const Result = StorageUtils.write("./local_storage/guild_language.json", GuildLanguage);
 	if (Result) {
 		zSend("set-language:languageDone", true);
 	} else {

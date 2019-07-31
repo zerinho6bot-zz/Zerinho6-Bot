@@ -1,6 +1,6 @@
-const PackageJson = require("../package.json");
-const { BOOT_UTILS } = require("../Utils");
-const EnvConfigs = BOOT_UTILS.envConfigs();
+const PackageJson = require("../../package.json");
+const { BootUtils } = require("../Utils");
+const EnvConfigs = BootUtils.envConfigs();
 
 exports.run = async ({ message, bot, t, zEmbed }) => {
 	zEmbed.addField("Discord.js", `\`\`\`JavaScript\n${require("discord.js").version}\`\`\``, true);

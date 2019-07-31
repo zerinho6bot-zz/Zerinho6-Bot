@@ -1,4 +1,4 @@
-const { MESSAGE_UTILS } = require("../Utils");
+const { MessageUtils } = require("../Utils");
 const Regex = /https\:\/\/discordapp.com\/channels\/([0-9]{16,18})\/([0-9]{16,18})\/([0-9]{16,18})/;
 const ChannelRegex = /<#([0-9]{16,18})>/;
 const Discord = require("discord.js");
@@ -40,7 +40,7 @@ exports.run = async ({ bot, message, args, t, zSend, zEmbed }) => {
 		return;
 	}
 
-	const Msg = await MESSAGE_UTILS.findMessage(bot, message, MatchedRegex[1], MatchedRegex[2], MatchedRegex[3]);
+	const Msg = await MessageUtils.findMessage(bot, message, MatchedRegex[1], MatchedRegex[2], MatchedRegex[3]);
 	const Author = message.author;
 	if (Msg === null) {
 		zSend("render:messageNotFound", true);

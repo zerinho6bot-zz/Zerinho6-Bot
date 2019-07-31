@@ -1,8 +1,8 @@
-const { COMMAND_UTILS, LANGUAGE_UTILS, MESSAGE_UTILS, BOOT_UTILS } = require("./Utils");
+const { CommandUtils, LanguageUtils, MessageUtils, BootUtils } = require("./Utils");
 const { GuildLanguage } = require("./local_storage");
-const TranslationClass = new LANGUAGE_UTILS.InitTranslationClass();
-const Commands = COMMAND_UTILS.getCommandList();
-const EnvVariables = BOOT_UTILS.envConfigs();
+const TranslationClass = new LanguageUtils.InitTranslationClass();
+const Commands = CommandUtils.getCommandList();
+const EnvVariables = BootUtils.envConfigs();
 
 exports.run = function (bot, message) {
 
@@ -12,12 +12,16 @@ exports.run = function (bot, message) {
 	if (!Commands.includes(CommandName)) {
 		return;
 	}
-	
-	TranslationClass.DefineLanguageForTranslation(GuildLanguage[message.guild.id] ? GuildLanguage[message.guild.id].language : EnvVariables.LANGUAGE);
+
+	const Guild = message.guild;
+	const Author = message.author;
+	const Channel = message.channel;
+
+	TranslationClass.DefineLanguageForTranslation(GuildLanguage[Guild.id] ? GuildLanguage[Guild.id].language : EnvVariables.LANGUAGE);
 	
 	const Translate = TranslationClass.Translate.bind(TranslationClass);
-	const UserCooldown = MESSAGE_UTILS.applyCooldown(message.author.id);
-	const FastSend = MESSAGE_UTILS.zerinhoConfigSend(message.channel, Translate);
+	const UserCooldown = MessageUtils.applyCooldown(Author.id);
+	const FastSend = MessageUtils.zerinhoConfigSend(Channel, Translate);
 
 	if (UserCooldown > 0) {
 		if (UserCooldown === 4) {
@@ -26,16 +30,16 @@ exports.run = function (bot, message) {
 		return;
 	}
 
-	if (!message.channel.permissionsFor(bot.user.id).has("EMBED_LINKS")) {
+	if (!Channel.permissionsFor(bot.user.id).has("EMBED_LINKS")) {
 		FastSend("utils:needEmbedLinks", true);
 		return;
 	}
 
-	const checkMissingPermission = COMMAND_UTILS.checkCommandPermissions(message, CommandName, Translate);
+	const checkMissingPermission = CommandUtils.checkCommandPermissions(message, CommandName, Translate);
 	if (checkMissingPermission === "") {
-		const FastEmbed = MESSAGE_UTILS.zerinhoEmbed(message.member);
-		console.log(`Executing command: ${CommandName}, by user ${message.author.username} on guild ${message.guild.name}, RAM: ${Math.round(process.memoryUsage().rss / 1024 / 1024)}`);
-		COMMAND_UTILS.getCommandRequirer(CommandName).run({
+		const FastEmbed = MessageUtils.zerinhoEmbed(message.member);
+		console.log(`Executing command: ${CommandName}, by user ${Author.username} on guild ${Guild.name}, RAM: ${Math.round(process.memoryUsage().rss / 1024 / 1024)}`);
+		CommandUtils.getCommandRequirer(CommandName).run({
 			bot: bot,
 			message,
 			args: Args.slice(1),
