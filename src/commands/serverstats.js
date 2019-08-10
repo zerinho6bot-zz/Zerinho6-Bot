@@ -35,7 +35,7 @@ function MonthsToNumber(t, month) {
     return MonthsTranslated().indexOf(month);
 }
 
-exports.run = async ({ bot, message, args, t, zSend, zEmbed }) => {
+exports.run = async ({ bot, message, args, t, zSend, zEmbed, zSendAsync }) => {
     const ServerStats = new StorageUtils.ServerStats(GuildStats, bot);
 
     if (!ServerStats.guildWantsStats(message.guild.id)) {
@@ -235,8 +235,7 @@ exports.run = async ({ bot, message, args, t, zSend, zEmbed }) => {
         zEmbed.addField(t("serverstats:roles"), DataFromMonth.rolesCount, true);
         zEmbed.addField(t("serverstats:channels"), DataFromMonth.channelsCount, true);
 
-        //zSend doesn't return the message object, so we need to use the classic channel.send
-        const Msg = await message.channel.send(zEmbed);
+        const Msg = await zSendAsync(zEmbed);
         if ((Year !== TimeYear || Month !== TimeMonth) && ServerStats.isComparationFromMonthAvailable(message.guild.id, TimeYear, TimeMonth)) {
             await Msg.react("🔁");
             const Collection = Msg.createReactionCollector((r, u) => r.emoji.name === "🔁" && !u.bot && u.id === message.author.id, { time: 30000 });

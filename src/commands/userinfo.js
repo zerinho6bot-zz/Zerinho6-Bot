@@ -5,7 +5,7 @@ exports.run = async ({ bot, args, message, t, zSend, zEmbed }) => {
 
 	if (!isNaN(args[0]) && args[0].length >= 16 && 18 >= args.length) {
 		if (args[0] !== message.author.id) {
-			const SearchedUser = await USER_UTILS.searchUser(bot, args[0]);
+			const SearchedUser = await UserUtils.searchUser(bot, args[0]);
 
 			if (SearchedUser === null) {
 				zSend("bot-invite:CouldntFindThatUser", true);

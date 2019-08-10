@@ -8,7 +8,7 @@ const Emojis = {
 };
 const EmojisArr = ["🗡", "🛡", "🕯", "🍬", "🤢"]; //Order: Dagger, shield, candle, candy and nauseated_face.
 const PlayersPlaying = new Set();
-exports.run = async ({ bot, message, t, zSend }) => {
+exports.run = async ({ bot, message, t, zSend, zSendAsync }) => {
 	class ZeroBattle {
 		constructor(p1, p2) {
 			this.p1 = {
@@ -112,7 +112,7 @@ exports.run = async ({ bot, message, t, zSend }) => {
 		 */
 		isActionAvailable(action) {
 			if (this.Playerturn.actions[action] !== 0) {
-				message.channel.send(`${this.Playerturn.name}, ${t("rpg:thatActionStillOnCooldown")}.`).then((msg) => {
+				zSendAsync(`${this.Playerturn.name}, ${t("rpg:thatActionStillOnCooldown")}.`).then((msg) => {
 					try {
 						setTimeout(() => {
 							msg.delete();
@@ -401,7 +401,7 @@ exports.run = async ({ bot, message, t, zSend }) => {
 	PlayersPlaying.add(Author.id);
 	PlayersPlaying.add(Member.id);
 
-	const Msg = await message.channel.send(Game.draw());
+	const Msg = await zSendAsync(Game.draw());
 
 	for (let i = 0; i < EmojisArr.length; i++) {
 		await Msg.react(EmojisArr[i]);

@@ -4,7 +4,7 @@ const TranslationClass = new LanguageUtils.InitTranslationClass();
 const Commands = CommandUtils.getCommandList();
 const EnvVariables = BootUtils.envConfigs();
 
-exports.run = function (bot, message) {
+exports.run = async function (bot, message) {
 
 	const Args = message.content.split(" ");
 	const CommandName = Args[0].toLowerCase().slice(EnvVariables.PREFIX.length);
@@ -22,6 +22,7 @@ exports.run = function (bot, message) {
 	const Translate = TranslationClass.Translate.bind(TranslationClass);
 	const UserCooldown = MessageUtils.applyCooldown(Author.id);
 	const FastSend = MessageUtils.zerinhoConfigSend(Channel, Translate);
+	const AsyncFastSend = await MessageUtils.zerinhoConfigSend(Channel, Translate, message)
 
 	if (UserCooldown > 0) {
 		if (UserCooldown === 4) {
@@ -45,7 +46,8 @@ exports.run = function (bot, message) {
 			args: Args.slice(1),
 			t: Translate,
 			zSend: FastSend,
-			zEmbed: FastEmbed
+			zEmbed: FastEmbed,
+			zSendAsync: AsyncFastSend
 		});
 	} else {
 		FastSend(checkMissingPermission);

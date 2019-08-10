@@ -185,5 +185,8 @@ module.exports = {
 		}
 
 		return commands;
+	},
+	getEveryCommand() {
+		return CommandAvailables.every;
 	}
 };

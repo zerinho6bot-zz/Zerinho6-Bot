@@ -4,7 +4,7 @@ const MatchId = Date.now().toString(36);
 const { TictactoeMatchs, TictactoeProfiles } = require("../local_storage");
 const PlayersPlaying = new Set();
 
-exports.run = async function({ message, t, zSend, zEmbed }) {
+exports.run = async function({ message, t, zSend, zEmbed, zSendAsync }) {
 	class TicTacToe {
 		constructor(p1,p2) {
 			this.player1 = {
@@ -221,9 +221,9 @@ exports.run = async function({ message, t, zSend, zEmbed }) {
 	PlayersPlaying.add(message.mentions.members.first().id);
 
 	zEmbed.setDescription(Game.description);
-	//Again, we can't use zSend here because zSend doesn't return the message.
-	const Msg = await message.channel.send(zEmbed);
 
+	const Msg = await zSendAsync(zEmbed);
+	console.log(Msg)
 	if (Game.checkIfPlayerActivesEasterEgg(1)) {
 		Game.zerinho = true;
 		Game.player1.emoji = "<:zerinicon:317871174266912768>";
@@ -265,7 +265,7 @@ exports.run = async function({ message, t, zSend, zEmbed }) {
 		PlayersPlaying.add(message.mentions.members.first().id);
 		
 		if (!Game.finished) {
-			message.channel.send(t("tictactoe:timeExpired"));
+			zSend("tictactoe:timeExpired", true);
 			return;
 		}
 

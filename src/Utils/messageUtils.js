@@ -10,7 +10,7 @@ module.exports = {
 	* @param {string} id - The message author ID.
 	* @returns {number}
 	*/
-	applyCooldown: function(id) {
+	applyCooldown: function (id) {
 
 		const applyCDWarning = () => {
 			CooldownWarning.add(id);
@@ -47,7 +47,7 @@ module.exports = {
 	* @param {object} member - The message member.
 	* @returns {object}
 	*/
-	zerinhoEmbed: function(member) {
+	zerinhoEmbed: function (member) {
 		const ZeroEmbed = new Discord.RichEmbed();
 
 		ZeroEmbed.setAuthor(member.user.tag, member.user.displayAvatarURL);
@@ -60,22 +60,42 @@ module.exports = {
 	* @function
 	* @param {object} channel - The channel object.
 	* @param {object} t - The translate function.
-	* @returns {object} Returns the zerinhoSend function.
+	* @param {object} [message] - The message object. If you pass the message param, zerinhoSend will return the message sent, remember that it's a promise.
+	* @returns {object} Returns the zerinhoSend function, it'll be async if you pass the message param.
 	*/
-	zerinhoConfigSend: function(channel, t) {
+	zerinhoConfigSend: function (channel, t, message) {
+		if (message === undefined) {
+			/**
+			* @function
+			* @param {(string|object)} content - The content to send.
+			* @param {boolean} [literal] - If the content is a path-to-string for the translate function.
+			*/
+			return function zerinhoSend(content, literal) {
+				//If literal is true, then it'll use the content as param for the translate function, else it'll just use the content as the message, literally.
+				content = literal ? t(content) : content;
+
+				channel.startTyping(6);
+				channel.send(content);
+				channel.stopTyping(true);
+			};
+		}
+
 		/**
+		* @async
 		* @function
 		* @param {(string|object)} content - The content to send.
 		* @param {boolean} [literal] - If the content is a path-to-string for the translate function.
+		* @returns {object} - The sent message object.
 		*/
-		return function zerinhoSend(content, literal) {
-			//If literal is true, then it'll use the content as param for the translate function, else it'll just use the content as the message, literally.
+		return async function zerinhoSend(content, literal) {
 			content = literal ? t(content) : content;
 
-			channel.startTyping(6);
-			channel.send(content);
-			channel.stopTyping(true);
-		};
+			message.channel.startTyping(6);
+			const Msg = await message.channel.send(content);
+			message.channel.stopTyping(true);
+
+			return Msg;
+		}
 	},
 	/**
 	 * Uses the discord fetchMessage function trying to find the message.
@@ -88,19 +108,29 @@ module.exports = {
 	 * @param {string} messageID - The message ID.
 	 * @returns {object} - Null if it doesn't find the message.
 	 */
-	findMessage: async function(bot, message, guildID, channelID, messageID) {
-		const Guild = guildID === message.guild.id ? message.guild : bot.guilds.get(guildID);
-		const Channel = Guild !== null ? channelID === message.channel.id ? message.channel : Guild.channels.get(channelID) : null;
+	findMessage: async function (bot, message, guildID, channelID, messageID) {
+		const Guild = guildID === message.guild.id ? message.guild : bot.guilds.get(guildID) || null;
+		const Channel = () => {
+			if (Guild !== null) {
+				if (channelID === message.guild.id) {
+					return message.channel;
+				}
+
+				return Guild.channels.get(channelID);
+			}
+			return null;
+		};
+
 		//We don't want to give a lot of jobs to the bot without reason.
-		if (Channel !== null) {
+		if (Channel() !== null) {
 			try {
-				const Msg = await Channel.fetchMessage(messageID);
+				const Msg = await Channel().fetchMessage(messageID);
 				return Msg || null;
 			} catch (e) {
 				return null;
 			}
 		}
-		
+
 		return null;
 	}
 };
