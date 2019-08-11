@@ -59,6 +59,8 @@
 	},
 	"help": {
 		"exclusiveCommandsWarning": "Por causa de uma atualização, você só pode ver os comando que você pode executar, se você deixou de conseguir ver algum comando na lista de ajuda, foi porque você não tem a permissão para executar ele, o comando de set-language requer a permissão de ``gerenciar servidor`` por exemplo.",
+		"pressTheReactionForFullCommandList": "Aperte na reação para ver a lista de todos os comandos, mesmo se você não tiver permissão para executar eles.",
+		"formatExplanation": "Aqueles em **negrito** significam que **podem precisar** de uma permissão especial, já aqueles em _italico_ significam que **precisam** de uma permissão especial.",
 		"commands": "Comandos",
 		"commandList": "Lista de comandos",
 		"argumentOptions": "Opções de Argumento:",

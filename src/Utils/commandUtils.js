@@ -149,6 +149,10 @@ module.exports = {
 		for (let i = 1; i < Keys.length; i++) {
 			const Elem = Keys[i];
 
+			if (Elem === "every") {
+				continue;
+			}
+			
 			if (Elem === "owner" && Author.id !== process.env.OWNER) {
 				continue;
 			}

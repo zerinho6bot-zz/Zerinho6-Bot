@@ -59,6 +59,8 @@
 	},
 	"help": {
 		"exclusiveCommandsWarning": "Because of a update now you can only see the commands that you have permission to execute, for example: you need MANAGE_GUILD to be able to see set-language on the commands list and there's also specific Guild, Author, Channel, User or even Role related that can make possible to see/acess specific commads.",
+		"pressTheReactionForFullCommandList": "Press the reaction to see the all the commands, even if you don't have permission to use it.",
+		"formatExplanation": "Those in **bold** means that they **can need** a special permission, those in _italic_ means that they **need** a special permission.",
 		"commands": "Commands",
 		"commandList": "Command List",
 		"argumentOptions": "Argument Options:",
