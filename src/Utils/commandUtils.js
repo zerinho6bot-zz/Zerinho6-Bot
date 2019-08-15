@@ -15,11 +15,11 @@ function setIsType(options) {
 	/**
 	* A function to check if the typeof propertie is equal to the expected type.
 	* @function
-	* @param {string} propertie - The propertie that you want from options.
+	* @param {string} property - The property that you want from options.
 	* @param {string} type - The type to check if it's or not  .
 	*/
-	return function isType(propertie, type) {
-		return typeof options[propertie] === type;
+	return function isType(property, type) {
+		return typeof options[property] === type;
 	};
 }
 
