@@ -21,7 +21,8 @@ exports.run = async ({ message, args, t, zSend, zEmbed, zSendAsync }) => {
 		return "\n" + t(`help:argumentOptions`) + "\n" + argument;
 	}
 	//Oh boy, time to mess things up.
-	if (!ArgsLower > 1 || t(`help:${ArgsLower}`).length === 0) {
+	if (!Object.keys(`help:${ArgsLower}`) > 0) {
+		// WE NEED this to go first.
 		zEmbed.addField(t("help:commands"), renderCommands());
 		zEmbed.setDescription(`**${t("please:prefixLiteral")}**: \`${EnvVariables.PREFIX}\`\n${t("please:CPW")} ${EnvVariables.PREFIX}avatar\n\n${t("help:wantToKnowMore")} ${EnvVariables.PREFIX}help ${t("help:command")}\n\n${t("help:exclusiveCommandsWarning")}\n\n**${t("updates:version")}**: ${t("updates:ver")}\n\n${t("updates:changelog")}`);
 		
