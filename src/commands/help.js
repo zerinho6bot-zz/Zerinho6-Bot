@@ -1,4 +1,5 @@
-const { CommandUtils, BootUtils } = require("../Utils");
+const { CommandUtils, BootUtils, MessageUtils } = require("../Utils");
+const { CommandNeeds } = require("../local_storage");
 const EnvVariables = BootUtils.envConfigs();
 
 exports.run = async ({ message, args, t, zSend, zEmbed, zSendAsync }) => {
@@ -20,9 +21,10 @@ exports.run = async ({ message, args, t, zSend, zEmbed, zSendAsync }) => {
 
 		return "\n" + t(`help:argumentOptions`) + "\n" + argument;
 	}
+
 	//Oh boy, time to mess things up.
-	if (!Object.keys(`help:${ArgsLower}`) > 0) {
-		// WE NEED this to go first.
+	if (!Object.keys(t(`help:${ArgsLower}`)).length > 0) {
+
 		zEmbed.addField(t("help:commands"), renderCommands());
 		zEmbed.setDescription(`**${t("please:prefixLiteral")}**: \`${EnvVariables.PREFIX}\`\n${t("please:CPW")} ${EnvVariables.PREFIX}avatar\n\n${t("help:wantToKnowMore")} ${EnvVariables.PREFIX}help ${t("help:command")}\n\n${t("help:exclusiveCommandsWarning")}\n\n**${t("updates:version")}**: ${t("updates:ver")}\n\n${t("updates:changelog")}`);
 		
@@ -43,6 +45,35 @@ exports.run = async ({ message, args, t, zSend, zEmbed, zSendAsync }) => {
 		zEmbed.setTitle(ArgsLower.charAt(0).toUpperCase() + ArgsLower.slice(1));
 		zEmbed.setImage(t(`help:${ArgsLower}.image`));
 		zEmbed.setDescription(`${t(`please:source`)}: ${t(`help:${ArgsLower}.description.actualDescription`)}\n${renderArguments(ArgsLower)}`);
+
+		let commandAsks = CommandNeeds[ArgsLower];
+
+		if (commandAsks === undefined || commandAsks.options === undefined) {
+			zSend(zEmbed);
+			return;
+		}
+
+		commandAsks = commandAsks.options;
+		const Keys = Object.keys(commandAsks);
+		const Values = Object.values(commandAsks);
+
+		function getString(key, value) {
+			switch(key) {
+				case "userNeed":
+					return `${t("permissionsExplanations:userNeed")} ${value}`;
+				case "needArg":
+					return typeof value === "number" ? `${t("permissionsExplanations:needArgs")} ${value}` : t("permissionsExplanations:needArg");
+				default:
+					return t(`permissionsExplanations:${key}`) === "" ? t(`permissionsExplanations:unknown`) : t(`permissionsExplanations:${key}`);
+			}
+		}
+
+		for (let i = 0; i < Keys.length; i++) {
+			commandAsks[Keys[i]] = getString(Keys[i], Values[i]);
+		}
+
+		zEmbed.addField(t("help:needs"), MessageUtils.beautify(commandAsks));
+
 		zSend(zEmbed);
 	}
 };

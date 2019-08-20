@@ -132,5 +132,51 @@ module.exports = {
 		}
 
 		return null;
+	},
+	/**
+	 * Returns a pretty good looking string. --Made by Fernando, find it on the README.md.
+	 * @param {object} object - A JSON format or a matrix with array(s) of a 2 length
+	 * @param {number} [level]
+	 * @example
+	 * let obj = [["abc","test"],["a","b"]];
+	 * 
+	 * beautify(obj) 
+	 * // Returns "🔹 abc: test\n🔹 a: b"
+	 * 
+	 * obj = {
+	 * 	a: "b",
+	 * 	c: {
+	 * 		e: "i"
+	 * 	}
+	 * }
+	 * 
+	 * beautify(obj)
+	 * // Returns "🔹 a: b\n🔹 c:\n  🔹 e: i"
+	 * @returns {string}
+	 */
+	beautify(object, level = 0) {
+		let array = [];
+
+		if (Array.isArray(object)) {
+			array = object;
+		} else if (typeof object === 'object') {
+			array = Object.entries(object);
+		} else {
+			return object;
+		}
+
+		let result = [];
+
+		if (level) {
+			result.push('');
+		}
+
+		array.forEach(entrie => {
+			const [key, value] = entrie;
+
+			result.push(`${' '.repeat(level * 2)}🔹 ${key}: ${this.beautify(value, level + 1)}`);
+		});
+
+		return result.join('\n');
 	}
 };

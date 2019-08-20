@@ -9,6 +9,26 @@
 		"CPW": "Exemplo de uso de comando:",
 		"source": "Descrição"
 	},
+	"permissionsExplanations": {
+		"unknown": "Somehow this permission has a unknown description, please report this, use the info command to get the github link.",
+		"needMention": "This command needs you to mention someone somewhere on the command syntax.",
+		"needMentions": "Your message needs the follow number of mentions to work:",
+		"userNeed": "You need some discord permissions to be able to use this command:",
+		"needArg": "This command **needs a argument to work**.",
+		"needArgs": "This command **needs the follow number of arguments(ze.help arg1 arg2 arg3) to work**:",
+		"guildOwner": "Only the guild owner can use this command.",
+		"onlyOwner": "Only the bot owner can utilize this command.",
+		"specificAuthor": "Only a specific user with the follow ID can use that command:",
+		"specificAuthors": "Only a user with one of those IDs can use that command:",
+		"specificChannel": "This command can only be used on a channel with the follow ID:",
+		"specificChannels": "This command can only be used in a channel with one of those IDs:",
+		"specificRoleName": "This command can only be used by someone with the follow name:",
+		"specificRole": "This command can only be used by someone with a role with the follow ID:",
+		"specificGuild": "This command can only be used in a Guild with the follow ID:",
+		"specificGuilds": "This command can only be used in a Guild with one of those IDs:",
+		"needAttch": "Your message needs a attachment for this command to work.",
+		"needAttachs": "You message needs the follow number of attachments to work:"
+	},
 	"utils": {
 		"needEmbedLinks": "Desculpe, mas literalmente 99% dos comandos do bot utilizam embed então eu preciso da permissão de enviar links, se você puder pedir para alguém me dar, por favor faça.(Eu verifico permissões pelas permissões do canal, se alguma permissão no canal estiver sob-escrevendo, não vai funcionar.)",
 		"cooldownWarning": "Você está usando comandos muito rapidamente, tempo a se esperar depois de utilizar um comando:",
@@ -58,6 +78,7 @@
 		}
 	},
 	"help": {
+		"needs": "Requisitos",
 		"exclusiveCommandsWarning": "Por causa de uma atualização, você só pode ver os comando que você pode executar, se você deixou de conseguir ver algum comando na lista de ajuda, foi porque você não tem a permissão para executar ele, o comando de set-language requer a permissão de ``gerenciar servidor`` por exemplo.",
 		"pressTheReactionForFullCommandList": "Aperte na reação para ver a lista de todos os comandos, mesmo se você não tiver permissão para executar eles.",
 		"formatExplanation": "Aqueles em **negrito** significam que **podem precisar** de uma permissão especial, já aqueles em _italico_ significam que **precisam** de uma permissão especial.",
