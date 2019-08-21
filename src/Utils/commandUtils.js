@@ -15,11 +15,11 @@ function setIsType(options) {
 	/**
 	* A function to check if the typeof propertie is equal to the expected type.
 	* @function
-	* @param {string} propertie - The propertie that you want from options.
+	* @param {string} property - The property that you want from options.
 	* @param {string} type - The type to check if it's or not  .
 	*/
-	return function isType(propertie, type) {
-		return typeof options[propertie] === type;
+	return function isType(property, type) {
+		return typeof options[property] === type;
 	};
 }
 
@@ -191,22 +191,22 @@ module.exports = {
 		return commands;
 	},
 	/**
-     * Returns the list of all commands listed on the every key on local_storage/command_availables.json
-     * @function
-     * @returns {Array<string>}
-     */
-    getEveryCommand() {
-        return CommandAvailables.every;
-    },
-    /**
-     * Returns the needs listed on local_storage/command_needs.json of a command if it needs anything.
-     * @param {string} command - The commmand name.
-     * @returns {object}
-     */
-    getCommandNeeds(command) {
-        if (!CommandNeeds[command]) {
-            return null;
-        }
+	* Returns the list of all commands listed on the every key on local_storage/command_availables.json
+	* @function
+	* @returns {Array<string>}
+	*/
+	getEveryCommand() {
+		return CommandAvailables.every;
+	},
+	/**
+	* Returns the needs listed on local_storage/command_needs.json of a command if it needs anything.
+	* @param {string} command - The commmand name.
+	* @returns {object}
+	*/
+	getCommandNeeds(command) {
+		if (!CommandNeeds[command]) {
+			return null;
+		}
 
         if (!CommandNeeds[command].options) {
             return null;
