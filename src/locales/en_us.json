@@ -1,8 +1,8 @@
 {
 	"updates": {
 		"version": "Updates Log - Version",
-		"ver": "1.4",
-		"changelog": "The newest update is more about the code-side, but for a reason, there's now a new big command called \"serverstats\", be sure to enable it on your guild so every month it'll store member, role and channel count of the guild each month, use the help command(prefix.help serverstats) to know how to use it and more."
+		"ver": "1.5",
+		"changelog": "Now the help command will show any special permission that it needs, permissions that you would only know if you tried to use the command."
 	},
 	"please": {
 		"prefixLiteral": "Prefix",
@@ -22,7 +22,7 @@
 		"specificAuthors": "Only a user with one of those IDs can use that command:",
 		"specificChannel": "This command can only be used on a channel with the follow ID:",
 		"specificChannels": "This command can only be used in a channel with one of those IDs:",
-		"specificRoleName": "This command can only be used by someone with the follow name:",
+		"specificRoleName": "This command can only be used by someone with a role of the follow name:",
 		"specificRole": "This command can only be used by someone with a role with the follow ID:",
 		"specificGuild": "This command can only be used in a Guild with the follow ID:",
 		"specificGuilds": "This command can only be used in a Guild with one of those IDs:",

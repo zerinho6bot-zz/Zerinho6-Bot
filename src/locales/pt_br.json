@@ -1,8 +1,8 @@
 {
 	"updates": {
 		"version": "Changelog - Versão",
-		"ver": "1.4",
-		"changelog": "A atualização mais nova foi mais para o lado do código, mas por um motivo, agora existe um novo grande comando, serverstats, use o comando com a permissão de MANAGE_GUILD(Gerenciar Servidor) para habilitar ele para que o bot salve a quantidade de cargos, canais e membros mensalmente para que você possa ver depois, use o comando de ajuda(prefix.help serverstats) para saber como usar e mais."
+		"ver": "1.5",
+		"changelog": "Agora o comando help mostra se o comando requer alguma permissão especial que você só podia detectar caso tentasse usar o comando."
 	},
 	"please": {
 		"prefixLiteral": "Prefix",
@@ -10,24 +10,24 @@
 		"source": "Descrição"
 	},
 	"permissionsExplanations": {
-		"unknown": "Somehow this permission has a unknown description, please report this, use the info command to get the github link.",
-		"needMention": "This command needs you to mention someone somewhere on the command syntax.",
-		"needMentions": "Your message needs the follow number of mentions to work:",
-		"userNeed": "You need some discord permissions to be able to use this command:",
-		"needArg": "This command **needs a argument to work**.",
-		"needArgs": "This command **needs the follow number of arguments(ze.help arg1 arg2 arg3) to work**:",
-		"guildOwner": "Only the guild owner can use this command.",
-		"onlyOwner": "Only the bot owner can utilize this command.",
-		"specificAuthor": "Only a specific user with the follow ID can use that command:",
-		"specificAuthors": "Only a user with one of those IDs can use that command:",
-		"specificChannel": "This command can only be used on a channel with the follow ID:",
-		"specificChannels": "This command can only be used in a channel with one of those IDs:",
-		"specificRoleName": "This command can only be used by someone with the follow name:",
-		"specificRole": "This command can only be used by someone with a role with the follow ID:",
-		"specificGuild": "This command can only be used in a Guild with the follow ID:",
-		"specificGuilds": "This command can only be used in a Guild with one of those IDs:",
-		"needAttch": "Your message needs a attachment for this command to work.",
-		"needAttachs": "You message needs the follow number of attachments to work:"
+		"unknown": "De alguma forma essa permissão não tem uma descrição definida, reporte isso no github do bot, use o comando `ze.info` para obter o link.",
+		"needMention": "Esse comando requer que você mencione alguém na sintaxe.",
+		"needMentions": "A sua mensagem precisa da seguinte quantidade de menções para funcionar:",
+		"userNeed": "Você precisa de algumas permissões do discord para esse comando funcionar:",
+		"needArg": "Esse comando **precisa de pelo menos um argumento** para funcionar.",
+		"needArgs": "Esse comando **precisa da seguinte quantidade de argumentos(ze.help arg arg2 arg3) para funcionar:",
+		"guildOwner": "Apenas o dono do servidor pode usar esse comando.",
+		"onlyOwner": "Apenas o dono do bot pode usar esse comando.",
+		"specificAuthor": "Apenas um úsuario com o seguinte ID pode usar esse comando:",
+		"specificAuthors": "Apenas um úsuario com um desses IDs pode usar esse comando:",
+		"specificChannel": "Esse comando só pode ser usado em um canal com o seguinte ID:",
+		"specificChannels": "Esse comando só pode ser usado em um canal com pelo menos um desses IDs:",
+		"specificRoleName": "Esse comando só pode ser usado por alguém que contenha um cargo com o seguinte nome:",
+		"specificRole": "Esse comando só pode ser usado por alguém que tenha um cargo com o seguinte ID:",
+		"specificGuild": "Esse comando só pode ser usado em um servidor com o seguinte ID:",
+		"specificGuilds": "Esse comando só pode ser usado em um servidor com pelo menos um desses IDs:",
+		"needAttch": "Sua mensagem precisa de uma imagem ou arquivo para esse comando funcionar.",
+		"needAttachs": "Sua mensagem precisa da seguinte quantidade de imagens/arquivos para esse comando funcionar:"
 	},
 	"utils": {
 		"needEmbedLinks": "Desculpe, mas literalmente 99% dos comandos do bot utilizam embed então eu preciso da permissão de enviar links, se você puder pedir para alguém me dar, por favor faça.(Eu verifico permissões pelas permissões do canal, se alguma permissão no canal estiver sob-escrevendo, não vai funcionar.)",

@@ -63,8 +63,20 @@ exports.run = async ({ message, args, t, zSend, zEmbed, zSendAsync }) => {
 					return `${t("permissionsExplanations:userNeed")} ${value}`;
 				case "needArg":
 					return typeof value === "number" ? `${t("permissionsExplanations:needArgs")} ${value}` : t("permissionsExplanations:needArg");
+				case "needMention":
+					return Array.isArray(value) ? `${t("permissionsExplanations:needMentions")} ${value.join(", ")}` : `${t("permissionsExplanations:needMention")} ${value}`;
+				case "specificGuild":
+					return Array.isArray(value) ? `${t("permissionsExplanations:specificGuilds")} ${value.join(", ")}` :`${t("permissionsExplanations:specificGuild")} ${value}`;
+				case "specificChannel":
+					return Array.isArray(value) ? `${t("permissionsExplanations:specificChannels")} ${value.join(", ")}` : `${t("permissionsExplanations:specificChannel")} ${value}`;
+				case "specificAuthor":
+					return Array.isArray(value) ? `${t("permissionsExplanations:specificAuthors")} ${value.join(", ")}` : `${t("permissionsExplanations:specificAuthor")} ${value}`;
+				case "specificRole":
+					return isNaN(value) ? `${t("permissionsExplanations:specificRoleName")} ${value}` : `${t("permissionsExplanations:specificRole")} ${value}`;
+				case "needAttch":
+					return typeof value === "number" ? `${t("permissionsExplanations:needAttachs")} ${value}` : t("permissionsExplanations:needAttch");
 				default:
-					return t(`permissionsExplanations:${key}`) === "" ? t(`permissionsExplanations:unknown`) : t(`permissionsExplanations:${key}`);
+				return t(`permissionsExplanations:${key}`) === "" ? t(`permissionsExplanations:unknown`) : t(`permissionsExplanations:${key}`);
 			}
 		}
 
