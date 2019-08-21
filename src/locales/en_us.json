@@ -1,0 +1,474 @@
+{
+	"updates": {
+		"version": "Updates Log - Version",
+		"ver": "1.5",
+		"changelog": "Now the help command will show any special permission that it needs, permissions that you would only know if you tried to use the command."
+	},
+	"please": {
+		"prefixLiteral": "Prefix",
+		"CPW": "Command usage example:",
+		"source": "Description"
+	},
+	"permissionsExplanations": {
+		"unknown": "Somehow this permission has a unknown description, please report this, use the info command to get the github link.",
+		"needMention": "This command needs you to mention someone somewhere on the command syntax.",
+		"needMentions": "Your message needs the follow number of mentions to work:",
+		"userNeed": "You need some discord permissions to be able to use this command:",
+		"needArg": "This command **needs a argument to work**.",
+		"needArgs": "This command **needs the follow number of arguments(ze.help arg1 arg2 arg3) to work**:",
+		"guildOwner": "Only the guild owner can use this command.",
+		"onlyOwner": "Only the bot owner can utilize this command.",
+		"specificAuthor": "Only a specific user with the follow ID can use that command:",
+		"specificAuthors": "Only a user with one of those IDs can use that command:",
+		"specificChannel": "This command can only be used on a channel with the follow ID:",
+		"specificChannels": "This command can only be used in a channel with one of those IDs:",
+		"specificRoleName": "This command can only be used by someone with a role of the follow name:",
+		"specificRole": "This command can only be used by someone with a role with the follow ID:",
+		"specificGuild": "This command can only be used in a Guild with the follow ID:",
+		"specificGuilds": "This command can only be used in a Guild with one of those IDs:",
+		"needAttch": "Your message needs a attachment for this command to work.",
+		"needAttachs": "You message needs the follow number of attachments to work:"
+	},
+	"utils": {
+		"needEmbedLinks": "Sorry but, literally 99% of the bot commands use embed so I really need EMBED_LINKS permission, if you can ask someone to give me, please do it.(I check permissions on channel, so if there's any permission overwriting, it won't work.)",
+		"cooldownWarning": "Hey, wait just a little, after using a command you need to wait",
+		"seconds": "seconds.",
+		"commandUtils": {
+			"onlyOwner": "This command is only for the bot owner.",
+			"guildOwner": "Only the guild owner can use this command.",
+			"needArg": {
+				"default": "This command requires a argument.",
+				"thisCommandNeeds": "This command requires",
+				"arguments": "arguments",
+				"andYourMessageOnlyHave": "and your message only have"
+			},
+			"needAttch": {
+				"default": "You need to use the command with",
+				"attachment": "attachment(ex: Image).",
+				"attachments": "attachments(ex: Images)."
+			},
+			"needMention": {
+				"needToMention": "You need to mention",
+				"someone": "someone",
+				"users": "users",
+				"inOrderTo": "in order for this command to work."
+			},
+			"userNeed": {
+				"part1": "You need",
+				"part2": "permission to use that command."
+			},
+			"specificNeeds": {
+				"specificAuthor": {
+					"pluralReturn": "Only users with those IDs can use that command:",
+					"defaultReturn": "Only a user with the follow id can use that command:"
+				},
+				"specificGuild": {
+					"pluralReturn": "You can execute this command only in one of Guilds of those IDs:",
+					"defaultReturn": "You can execute this command only on the Guild with the follow ID:"
+				},
+				"specificChannel": {
+					"pluralReturn": "You can only execute this command on channels with those IDs:",
+					"defaultReturn": "You can only execute this command in a channel with the follow ID:"
+				},
+				"specificRole": {
+					"defaultReturn": "Only a member with a role with the follow ID can use this command:",
+					"nameReturn": "You need a role with the follow name to use that command:"
+				}
+			}
+		}
+	},
+	"help": {
+		"needs": "Requirements",
+		"exclusiveCommandsWarning": "Because of a update now you can only see the commands that you have permission to execute, for example: you need MANAGE_GUILD to be able to see set-language on the commands list and there's also specific Guild, Author, Channel, User or even Role related that can make possible to see/acess specific commads.",
+		"pressTheReactionForFullCommandList": "Press the reaction to see the all the commands, even if you don't have permission to use it.",
+		"formatExplanation": "Those in **bold** means that they **can need** a special permission, those in _italic_ means that they **need** a special permission.",
+		"commands": "Commands",
+		"commandList": "Command List",
+		"argumentOptions": "Argument Options:",
+		"server": "server",
+		"mention": "@mention",
+		"characters": "Characteres",
+		"messageLink": "Message Link",
+		"barSeparation": "Bar Separation",
+		"image": "Image",
+		"matchCode": "Match Code",
+		"nothing": "nothing",
+		"language": "language",
+		"messageLink&Channel": "Message Link and Channel",
+		"id": "ID",
+		"command": "command",
+		"operation&year&month": "Operation Year Month",
+		"wantToKnowMore": "If you want to know more about some command, use:",
+		"avatar": {
+			"description": {
+				"argumentOptions": {
+					"server": "Shows the guild icon.",
+					"mention": "Shows the mentioned user avatar.",
+					"nothing": "Shows your avatar."
+				},
+				"actualDescription": "Shows a avatar."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/562747491250995200/unknown.png"
+		},
+		"help": {
+			"description": {
+				"argumentOptions": {
+					"command": "Basicly shows a manual of the command.",
+					"nothing": "Shows prefix and command list."
+				},
+				"actualDescription": "Shows the list of commands and the manual of the command if ya gave any as argument."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566587422859722782/unknown.png"
+		},
+		"ram": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Shows how much RAM the bot is using via RSS and heapUsed."
+				},
+				"actualDescription": "Show how much ram the bot's using."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566588001191460888/unknown.png"
+		},
+		"ping": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Shows how much ms the bot is taking to send a message."
+				},
+				"actualDescription": "Shows the ms of the bot."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566588388904271884/unknown.png"
+		},
+		"set-language": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Shows the list of available languages.",
+					"language": "Set the bot language to the sent language."
+				},
+				"actualDescription": "Set the bot language."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566589930189619200/unknown.png"
+		},
+		"tictactoe": {
+			"description": {
+				"argumentOptions": {
+					"mention": "Starts a Tictactoe match with the mentioned user."
+				},
+				"actualDescription": "Play tictactoe with someone! It saves your wins, loses, draws, matchs, and even the match via the match code that can be used as argument on tictactoe-match command.\n\n_There's a easter egg on the game, try to play it with p1 having 'zerinho6' username or p2 having 'topera' or both!_"
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566590670744322049/unknown.png"
+		},
+		"tictactoe-match": {
+			"description": {
+				"argumentOptions": {
+					"matchCode": "Shows the details of the match."
+				},
+				"actualDescription": "See match details by match-code.\n\n'How to get match-code': Play a Tictactoe match, finish it(it doesn't matter who won), get the match-code on the embed footer."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566599730264539136/unknown.png"
+		},
+		"tictactoe-profile": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Shows your profile.",
+					"mention": "Shows the profile of the mentioned user.",
+					"id": "Shows the profile of a user by the sent ID."
+				},
+				"actualDescription": "Shows the Tictactoe profile of a user."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/566599524068360193/unknown.png"
+		},
+		"embed": {
+			"description": {
+				"argumentOptions": {
+					"characters": "Sends a embed with the content being the same as your message.",
+					"barSeparation": "Sends a embed creating a Field, where the title is what's before the bar and the content being what is after the bar.",
+					"image": "Sends the image on the embed."
+				},
+				"actualDescription": "Sends a embed with the content being your message content."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/568837520406872064/unknown.png"
+		},
+		"bot-invite": {
+			"description": {
+				"argumentOptions": {
+					"id": "Searchs for the user with the given ID.",
+					"mention": "Searchs for the mentioned user."
+				},
+				"actualDescription": "Get the invite link for your favorite bot!"
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/568839761381425152/unknown.png"
+		},
+		"eval": {
+			"description": {
+				"argumentOptions": {
+					"characters": "Execute a eval function in your message."
+				},
+				"actualDescription": "Execute your message."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/568844545924792371/unknown.png"
+		},
+		"render": {
+			"description": {
+				"argumentOptions": {
+					"messageLink": "Renders the message link."
+				},
+				"actualDescription": "Render any message that the bot can see."
+			},
+			"image": "https://cdn.discordapp.com/attachments/490329576300609538/569857599613304833/unknown.png"
+		},
+		"serverinfo": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Shows the actual guild informations."
+				},
+				"actualDescription": "Shows lots of informations about the actual guild."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/569859076381605889/unknown.png"
+		},
+		"userinfo": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "Shows informations about you.",
+					"id": "Shows informations about the user from the sent ID(It may not work with users that I've never seen).",
+					"mention": "Shows informations about the mentioned user."
+				},
+				"actualDescription": "Get informations about you or another user."
+			},
+			"image": "https://cdn.discordapp.com/attachments/499671331021914132/569860076173525003/unknown.png"
+		},
+		"stoptyping": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "I try to shut up."
+				},
+				"actualDescription": "Make me shut up if I'm still typing."
+			},
+			"image": "https://cdn.discordapp.com/attachments/490329576300609538/569860429317144582/unknown.png"
+		},
+		"move": {
+			"description": {
+				"argumentOptions": {
+					"messageLink&Channel": "Gets the message by the message link and send it to the channel.(The channel can be a ID or channel mention)"
+				},
+				"actualDescription": "Move a message from a channel to another!"
+			},
+			"image": "https://cdn.discordapp.com/attachments/419448847853420564/577977221776670770/unknown.png"
+		},
+		"rpg": {
+			"description": {
+				"argumentOptions": {
+					"mention": "Starts a rpg match with the mentioned user."
+				},
+				"actualDescription": "Play a rpg math with someone!\n\nInstructions:\n\nEach player have **200 health**, that's you max health and there's no way to pass that, your objective is to kill the enemy making his health 0 or lower than 0.\n\nYou have 5 **actions**:\n\n🗡 -Dagger: Deal **30 damage** to the enemy.\n🛡 -Shield: Makes dagger deal half of the damage and repeal 5 damage, **works for only one turn and doesn't protect from candle**.\n🕯 -Candle: Deal **15 damage** to the enemy, it ignores shield protection and you don't take damage back from it.\n🍬 -Candy: **Heal for 20** and removes nausea if you have it.\n🤢 -Nausea: Makes the enemy suffer from nausea, it'll take **6 damage** each turn.\n\nAfter using any action it'll go on a cooldown of 3 turns, you can't use it if the action is not with the value of 0, a :x: will appear to make it more easy to see what you can and can't use."
+			},
+			"image": "https://cdn.discordapp.com/attachments/490329576300609538/580107805797646386/unknown.png"
+		},
+		"info": {
+			"description": {
+				"argumentOptions": {
+					"nothing": "shows a lot of informations about the bot."
+				},
+				"actualDescription": "See a lot of specific information about the bot: Uptime, version of d.js, repository link..etc"
+			},
+			"image": "https://cdn.discordapp.com/attachments/490329576300609538/580143680745242634/unknown.png"
+		},
+		"serverstats": {
+			"description": {
+				"argumentOptions": {
+					"operation&year&month": "Executes the operation using the given year and month.",
+					"nothing": "Shows the available year(s) and/or month(s)"
+				},
+				"actualDescription": "There's 2 operations: `see` and `compare`.\n\n`see` - you only need to give one year and month, if available, you'll see member, roles and channels count of that month in that year.\n\n`compare` - you'll give the year and date just like with `see`, but the bot will ask for another year and month to compare.\n\n``year`` can be a number(ex: 2018) or ~ (Will get the current year);\n``month`` can be a number(0 to 11), month name(January) or ~ (Will get the current month).**\n\nThe bot will not store any data if the command is not enabled, someone with MANAGE_GUILD NEEDS TO ENABLED FIRST**, the bot will update the stats everyday or on every restart, if while updating the stats the bot doesn't find the guild, it'll delete the whole data from every year, there's no save."
+			},
+			"image": "https://cdn.discordapp.com/attachments/591080362910679060/593588234731388958/4xCEMm77cg.gif"
+		}
+	},
+	"set-language": {
+		"languageList": "Language List",
+		"languageNotExist": "That language doesn't seems to match any of mine, here's a list of languages that i accept:",
+		"languageIsDefault": "That language is the guild defined language already.",
+		"languageDone": "Done, the language is set. :thumbsup:",
+		"languageError": "Something happened! Please, try again!"
+	},
+	"avatar": {
+		"server": "server"
+	},
+	"ping": {
+		"ping": "Ping..",
+		"pong": "Pong! :ping_pong:",
+		"ms": "ms"
+	},
+	"tictactoe": {
+		"oneOfThePlayersIsAlreadyPlaying": "You or the mentioned user are still in a match.",
+		"turn": "Turn!",
+		"draw": "Draw",
+		"winner": "Winner",
+		"loser": "Loser",
+		"selfMention": "You can't play with you.",
+		"botMention": "You can't play with another bot.",
+		"watchingAd": "Are you watching this game? React with 👀 to show it!",
+		"watchers": "Watchers",
+		"peopleWatching": "people are watching this game!",
+		"timeExpired": "Time expired, no one have won, match won't be regitered.",
+		"results": "Results",
+		"theMatchTaken": {
+			"part1": "The match has taken",
+			"part2": "seconds",
+			"part3": "And there were",
+			"part4": "people watching that match!"
+		},
+		"matchCode": "Match code",
+		"matchResult": "Match Result",
+		"moves": "Moves"
+	},
+	"tictactoe-profile": {
+		"userNotFound": "Semms that this user doesn't have a TicTacToe profile yet.",
+		"argsNotNumber": "The argument you passed isn't even a number to be a ID",
+		"profileOf": "Profile of",
+		"wins": "Wins",
+		"loses": "Loses",
+		"draws": "Draws",
+		"matchs": "Matchs"
+	},
+	"tictactoe-match": {
+		"matchNotFound": "I couldn't find any match with that code",
+		"movimentsOf": "Moviments of",
+		"theWinnerWas": "The winner has",
+		"noOne": "No one",
+		"vs": "vs"
+	},
+	"embed": {
+		"fieldContainsTooMuch": "The message have too much characters for a embed field, the title can have a length up to 256 and the description up to 1024."
+	},
+	"bot-invite": {
+		"IdOrMentionNotDetected": "I din't detect any ID or mention in your message.",
+		"CouldntFindThatUser": "Sorry, i couldn't find that user.",
+		"userIsntBot": "That user isn't a bot account.",
+		"invite": "Invite"
+	},
+	"eval": {
+		"code": "Code",
+		"result": "Result"
+	},
+	"stoptyping": {
+		"CANYOUSTOPTYPINGHOLYSHIT": "Trying to stop typing..:no_mouth:"
+	},
+	"userinfo": {
+		"tag": "Tag",
+		"accountCreatedIn": "Account created in",
+		"hexColor": "Color Hex",
+		"roleAmount": "Role Amount",
+		"noRole": "That user doesn't have any roles! Patetic!",
+		"joinedAt": "Joined At"
+	},
+	"serverinfo": {
+		"guildName": "Guild Name",
+		"memberCount": "Member Count",
+		"guildOwner": "Guild Owner",
+		"guildRegion": "Guild Region",
+		"guildID": "Guild ID",
+		"guildCreatedAt": "Guild CreatedAt",
+		"roleAmount": "Role Amount",
+		"verificationLevel": "Verification Level",
+		"thisGuildIsVerified": "This guild is verified! Nice!",
+		"unrestricted": "Unrestricted",
+		"needEmail": "It's necessary that your account have a verified e-mail.",
+		"waitFiveMinutesOnDiscord": "It's necessary that you're using Discord for 5 minutes.",
+		"waitTenMinutesOnTheServer": "It's necessary that you're on the Server for 10 minutes.",
+		"heyYouGuysDontHavePhones": "'You guys have phones Right?' It's necessary that you account have a phone number."
+	},
+	"render": {
+		"wrongFormat": "Incorrect format, it should be like this ``https://discordapp.com/channels/298518634765221890/298518634765221890/569720426604003359``",
+		"incorrectID": "The IDs of that message link are incorrect.",
+		"messageNotFound": "I couldn't find that message, maybe I'm not on the server or i can't see the channel.",
+		"tryingToMoveAMessageFromNsfwToNotNsfw": "You're trying to render a message from a nsfw in a not nsfw channel.",
+		"sentBy": "Sent by"
+	},
+	"move": {
+		"aChannelWithThatIdDoesntExistOnThisGuild": "A channel with that ID doesn't exist on this guild.",
+		"missingManageMessagePermissionOnTheChannel": "I don't have the permission to delete messages on channel where the message is.",
+		"theMessageIsFromAnotherServer": "The message is on another server, I'm 100% not moving messages from another server.",
+		"youDontHavePermissionToDeleteMessage": "You don't have permission to delete message on that channel.",
+		"youDontHavePermissionToSeeMessages": "You don't have permission to see messages on that channel.",
+		"missingSendMessagePermissionOnTheChannel": "I don't have the permission to send messages to that channel.",
+		"missingEmbedLinksPermissionOnTheChannel": "I don't have the permission to send embed links to that channel.",
+		"couldntDeleteTheMessage": "I tried by best to delete the message, but I coudln't, aborting.",
+		"messageSentBy": "Message sent by",
+		"movedFrom": "moved from",
+		"by": "by"
+	},
+	"rpg": {
+		"thatActionStillOnCooldown": "that action still on cooldown",
+		"hp": "hp",
+		"time(s)": "Time(s)",
+		"damageDealt(DaggerAndShield)": "Damage Dealt(Dagger and Shield)",
+		"damageDealtFromNausea": "Damage Dealt From Nausea",
+		"damageDealtFromCandle": "Damage Dealt From Candle",
+		"damageBlocked": "Damage Blocked",
+		"healthRestored": "Health Healed",
+		"timesThatYouUsedEachAction": "Times that you used each action",
+		"damageDealtAndRestoredHistory": "Damage Dealt and Healed History",
+		"noOne": "No one",
+		"history": "History",
+		"turnOf": "Turn of",
+		"actions": "Actions",
+		"dagger": "Dagger",
+		"shield": "Shield",
+		"candy": "Candy",
+		"candle": "Candle",
+		"nauseated_face": "Nausea"
+	},
+	"info": {
+		"guilds": "Guilds",
+		"users": "Users",
+		"gitRepository": "Git Repository",
+		"reportBugsIt": "Report Bugs In",
+		"uptime": "Uptime",
+		"ownerID": "Owner ID",
+		"defaultLanguage": "Default Language",
+		"history": "Back in 2016, I was nedding bots for my server, and I really wanted one with advanded auto-reply, thing that only Tatsumaki bot had at the time(back when mee6 was trash, lol) and I really wanted more, then I found a bot called 'Mixy' that had this function, I added to my server and started to use it a lot, the owner of the bot noticed that(the basic console.log(message.guild.name...) ) and made the bot make a invite link to enter on the server, I noticed that it was Smix tue bot owner because I already meet him on another server but I was surprised that it made all the way to my server to talk with me about the bot and the updates, because, just like Zerinho6 Bot, it isn't public fucused but personal usage, then he showed me the code of the bot(It was horrible, but it was a trainee developer and atleast the code works) I was like 'What the f is that, what i'm looking at?' and since then I started to learn programming and work on Zerinho6 Bot."
+	},
+	"serverstats": {
+		"months": {
+			"january": "January",
+			"february": "February",
+			"march": "March",
+			"april": "April",
+			"may": "May",
+			"june": "June",
+			"july": "Joly",
+			"august": "August",
+			"september": "September",
+			"october": "October",
+			"november": "November",
+			"december": "December"
+		},
+		"thisGuildDontHaveServerStatsEnabled_NoPerm": "This guild din't enable the serverStats command yet, ask for a Staff with MANAGE_GUILD permission.",
+		"thisGuildDontHaveServerStatsEnabled": "This guild doesn't have ServerStats enabled, do you want to enable it now? (Type: yes **or** no)",
+		"yes": "yes",
+		"no": "no",
+		"staffDecidedNo": "**No**, ok.",
+		"staffDecidedYes_Part1": "**Yes**, fine...defining this guild as one that wants stats...",
+		"staffDecidedYes_Part2": "Writing stats from this month(This can take some seconds..)",
+		"staffDecidedYes_Part3": "Done, please execute the command again if you want to see the stats that I stored from this month.",
+		"staffDintGiveAOption": "Your reply wasn't neither yes or no, so by default I'll accept it as **no**.",
+		"yearIsNotAvailable": "That year isn't available or doesn't exist.",
+		"monthIsNotAvailable": "I couldn't find that month.",
+		"from": "from",
+		"comparing": "Comparing",
+		"with": "with",
+		"memberDifference": "Members difference",
+		"roleDifference": "Roles Difference",
+		"channelDifference": "Channels Difference",
+		"yourOptions": "Your options",
+		"see": "see",
+		"summaryOf": "Summary of",
+		"members": "Members",
+		"roles": "Roles",
+		"channels": "Channels",
+		"comparingLower": "compare",
+		"sendAnotherYearAndMonth": "Ok, send another year and month to compare.(Example: `2019 January`)",
+		"sameDateDetected": "They are the same date, if you want to see only one data, use \"see\", not compare.",
+		"anIdiotsGuide": "Use the help command if you don't know how to use this command, example: `prefix.help <command>`."
+	}
+}

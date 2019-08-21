@@ -1,0 +1,17 @@
+{
+	"all": [
+		"tictactoe", "tictactoe-match", "tictactoe-profile",
+		"help", "avatar", "bot-invite", "embed", "ping", "ram",
+		"render", "serverinfo", "stoptyping", "userinfo", "info", 
+		"rpg", "serverstats"
+	],
+	"every": [
+		"tictactoe", "tictactoe-match", "tictactoe-profile",
+		"help", "avatar", "bot-invite", "embed", "ping", "ram",
+		"render", "serverinfo", "stoptyping", "userinfo", "info", 
+		"rpg", "**serverstats**", "_set-language_", "_move_", "_eval_"
+	],
+	"p.MANAGE_GUILD": ["set-language"],
+	"p.MANAGE_MESSAGES": ["move"],
+	"owner": ["eval"]
+}
