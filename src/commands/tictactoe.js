@@ -145,7 +145,7 @@ exports.run = async function({ message, t, zSend, zEmbed, zSendAsync }) {
 				ActualPlayer.wins = this.winner === i + 1 ? ActualPlayer.wins + 1 : ActualPlayer.wins;
 				ActualPlayer.loses = this.winner !== i + 1 ? ActualPlayer.loses + 1 : ActualPlayer.loses;
 				ActualPlayer.draws = this.winner === 3 ? ActualPlayer.draws + 1 : ActualPlayer.draws;
-				StorageUtils.write("./local_storage/tictactoe-profiles.json", TictactoeProfiles);
+				StorageUtils.write("src/local_storage/tictactoe-profiles.json", TictactoeProfiles);
 			}
 		}
 
@@ -177,7 +177,7 @@ exports.run = async function({ message, t, zSend, zEmbed, zSendAsync }) {
 			Match.p1.tag = this.player1.tag;
 			Match.p2.tag = this.player2.tag;
 			Match.winner = this.winner;
-			StorageUtils.write("./local_storage/tictactoe-matchs.json", TictactoeMatchs);
+			StorageUtils.write("src/local_storage/tictactoe-matchs.json", TictactoeMatchs);
 		}
 
 		/**

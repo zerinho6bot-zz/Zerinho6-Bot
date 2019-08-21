@@ -2,13 +2,13 @@
   "name": "zerinho6_bot",
   "version": "4.0.0",
   "description": "Pretty fast and lite Discord bot made in JavaScript using Discord.js",
-  "main": "bot.js",
+  "main": "src/bot.js",
   "private": true,
   "bugs": "https://github.com/zerinho6bot/Zerinho6-Bot/issues",
   "repository": "https://github.com/zerinho6bot/Zerinho6-Bot",
   "scripts": {
-    "test": "node bot.js",
-    "start": "node bot.js"
+    "test": "node src/bot.js",
+    "start": "node src/bot.js"
   },
   "author": {
     "name": "Jorge Luiz",

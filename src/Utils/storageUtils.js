@@ -15,7 +15,7 @@ module.exports = {
 			}
 
 			try {
-				delete require.cache[require.resolve(`.${path}`)];
+				delete require.cache[require.resolve(`${path}`)];
 			} catch (e) {
 				console.log(e);
 			}
@@ -260,9 +260,9 @@ module.exports = {
 			GuildWantingStats.setupConfigs.lastDayChecked = this.currentDay;
 
 			//If there's another way to acess the write function, please tell me.
-			const { STORAGE_UTILS } = require("./");
-			STORAGE_UTILS.write("./local_storage/guild_stats.json", GuildStats);
-			STORAGE_UTILS.write("./local_storage/guild_wanting_stats.json", GuildWantingStats);
+			const { StorageUtils } = require("./");
+			StorageUtils.write("./local_storage/guild_stats.json", GuildStats);
+			StorageUtils.write("./local_storage/guild_wanting_stats.json", GuildWantingStats);
 		}
 	}
 };
