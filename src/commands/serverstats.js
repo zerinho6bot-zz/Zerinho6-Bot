@@ -57,7 +57,7 @@ exports.run = async ({ bot, message, args, t, zSend, zEmbed, zSendAsync }) => {
                     GuildWantingStats.servers[Msg.guild.id] = {
                         lastMonthUpdated: 13 // Little trick, if I put 0 and the month is January...
                     };
-                    StorageUtils.write("./local_storage/guild_wanting_stats.json");
+                    StorageUtils.write("src/local_storage/guild_wanting_stats.json");
                     zSend("serverstats:staffDecidedYes_Part2", true);
                     ServerStats.updateServersStats();
 
