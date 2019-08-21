@@ -13,7 +13,6 @@ exports.run = async ({ message, bot, t, zEmbed, zSendAsync }) => {
 	zEmbed.addField(t("info:uptime"), `\`\`\`JavaScript\n${Math.floor(process.uptime() / 3600 % 24)}:${Math.floor(process.uptime() / 60 % 60)}:${Math.floor(process.uptime() % 60)}\`\`\``, true);
 	zEmbed.addField(t("info:ownerID"), `\`\`\`JavaScript\n${EnvConfigs.OWNER}\`\`\``, true);
 
-	console.log(zEmbed);
 	const Msg = zSendAsync(zEmbed);
 	await Msg.react("ℹ");
 	const COLLECTION = Msg.createReactionCollector((r, u) => r.emoji.name === "ℹ" && !u.bot && u.id === message.author.id, { time: 30000 });
