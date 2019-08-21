@@ -14,7 +14,24 @@
 
 ## Introduction 
 
-Zerinho6 Bot is a Lite and fast bot that's focused on personal use but available for a public build, I've been working on it for almost 3 years and because of nice people I'm learning how to make a better code and that's also a reason(not the only or main) for Zerinho6 Bot to be open-source.
+Zerinho6 Bot is a Lite and fast bot that's focused on self-host but available for a public build, I've been working on it since 2016 and because of nice people I'm learning how to make a better code and that's also a reason(not the only or main) for Zerinho6 Bot to be open-source.
+
+## What Zerinho6-Bot code gives me?
+
+- Easy to create new locales files and to configure it.
+- High specific command permissions configuration, example:
+  -  Specific Authors
+  -  Specific Channels 
+  -  Specific Guilds
+  -  Specific Roles
+  -  Specific RoleName
+  -  Specific Attchs Count
+  -  NeedMention
+  -  UserNeed (permission)
+  -  BotOwner
+  -  GuildOnwer; Those are only examples, there's probaly more and you can see some of them inside command_needs on src/local_storage folder
+- Low RAM usage, 30 - 45MB in 3-9 guilds, 80-130MB in 35-43 guilds. (Stats from Glitch.com hosting so it can be lower or higher.)
+- Lots and lots of documentation to help you understand what's hapenning on each function.
 
 ## Requirements
 
@@ -60,7 +77,7 @@ You wanna translate you bot to your not-yet-translated language? [There's a topi
 
 ## Here's a list of really nice people that made this project possible
 
-**Honux(Backend developer of [Teemo.gg](https://teemo.gg/))**: Helped me a lot by giving me instructions for literally 2 years about how to make a good code, what I was doing wrong, what I could do and how I can do.
+**Honux(Backend developer of [Teemo.gg](https://teemo.gg/))**: Helped me a lot by giving me instructions since 2017 about how to make a good code, what I was doing wrong, what I could do and how I can do.
 
 **Skelun(Frontend developer of [Teemo.gg](https://teemo.gg/))**: Helped me by giving feedback about how a casual user would use Zerinho6 Bot and also helping with the code!
 
@@ -68,18 +85,20 @@ You wanna translate you bot to your not-yet-translated language? [There's a topi
 
 **[The whole Switchblade Team](https://github.com/orgs/SwitchbladeBot/people)**: A lot of things on Zerinho6 Bot was inspired on [SwitchBlade Bot](https://github.com/SwitchbladeBot/switchblade).
 
-**[Fernando](https://github.com/fernando457829)**: Helped as much as nirewen giving a lot of help with some function not working, what is cool on code and what isn't, it also helped on the last version of Zerinho6 Bot.
+**[Fernando](https://github.com/fernando457829)**: Helped as much as nirewen giving a lot of help with some function not working, what is cool on code and what isn't, it also helped on EVERY VERSION of Zerinho6 Bot. 
 
-**[Acnologia](https://github.com/Acnologla)**: That's being repetitive but thanks is always needed, the same as Nirewen and Fernando, I made Zerinho6 Bot TicTacToe based on a version that he made.
+**[Acnologia](https://github.com/Acnologla)**: I'm being repetitive but thanks is always needed, the same as Nirewen and Fernando, I made Zerinho6 Bot TicTacToe based on a version that he made.
 
-**[Mete](https://github.com/metehus), [Tsugami](https://github.com/Tsugami)**: The same as Nirewen, Fernando, Acnologia and Switchblade Team.
+**[Mete](https://github.com/metehus), [Tsugami](https://github.com/Tsugami)**: The same as Nirewen, Fernando, Acnologia and Switchblade Team, but they almost made me like ..forEach, sadly, now he also doesn't like it.
 
-**[Smixqse](https://github.com/smixqse)**: Creator of a old bot called Mixy that doesn't exist anymore, but what started all this Journey.
+**[Smixqse](https://github.com/smixqse)**: Creator of a old bot called Mixy that doesn't exist anymore, but what started all my Journey.
 
 **[Hellow](https://github.com/HellowDSN)**: Feedback, A LOT of feedback.
 
+**Most of the users from BR PROGRAMMERS**: Without they, Zerinho6 Bot wouldn't exist anymore.
+
 **Leticia(Known as topera and my GF)**: For making the bot icon and being such adorable person.
 
-## Hey, I want to contact you
+## "Hey, I want to contact you"
 
-M-me? Seriusly? You can find my e-mail on my github profile and if you want to talk on Discord, here's my Discord tag: ``Moru Zerinho6#3384``
+M-me? Seriusly? You can find my e-mail on my github profile and if you want to talk on Discord, here's my Discord tag: ``Moru Zerinho6#9939``
